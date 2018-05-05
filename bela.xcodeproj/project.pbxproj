@@ -12,9 +12,11 @@
 		971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F2209E5A3300198DE5 /* Main.storyboard */; };
 		971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F5209E5A3400198DE5 /* Assets.xcassets */; };
 		971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F7209E5A3400198DE5 /* LaunchScreen.storyboard */; };
+		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93A3F16595814A68B2181BAC /* Pods-bela.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.debug.xcconfig"; sourceTree = "<group>"; };
 		971E11EB209E5A3300198DE5 /* bela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971E11EE209E5A3300198DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		971E11F0209E5A3300198DE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		971E11F5209E5A3400198DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		971E11F8209E5A3400198DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		971E11FA209E5A3400198DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C6CD1E6D2B9C76A6654E768 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF3594C2438D728B8DC593CF /* Pods_bela.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		971E11E2209E5A3300198DE5 = {
 			isa = PBXGroup;
 			children = (
 				971E11ED209E5A3300198DE5 /* bela */,
 				971E11EC209E5A3300198DE5 /* Products */,
+				BC8F0312B6BF83A4A70BE262 /* Pods */,
+				3C6CD1E6D2B9C76A6654E768 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = bela;
 			sourceTree = "<group>";
 		};
+		BC8F0312B6BF83A4A70BE262 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93A3F16595814A68B2181BAC /* Pods-bela.debug.xcconfig */,
+				CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 971E11FD209E5A3400198DE5 /* Build configuration list for PBXNativeTarget "bela" */;
 			buildPhases = (
+				869D4AE879510BE758C625A8 /* [CP] Check Pods Manifest.lock */,
 				971E11E7209E5A3300198DE5 /* Sources */,
 				971E11E8209E5A3300198DE5 /* Frameworks */,
 				971E11E9209E5A3300198DE5 /* Resources */,
+				5EA193E026E958E03B4F58A1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5EA193E026E958E03B4F58A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-bela/Pods-bela-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bela/Pods-bela-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		869D4AE879510BE758C625A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bela-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		971E11E7209E5A3300198DE5 /* Sources */ = {
@@ -278,16 +353,14 @@
 		};
 		971E11FE209E5A3400198DE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93A3F16595814A68B2181BAC /* Pods-bela.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X5F8D2MNQ7;
 				INFOPLIST_FILE = bela/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.bela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -297,16 +370,14 @@
 		};
 		971E11FF209E5A3400198DE5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X5F8D2MNQ7;
 				INFOPLIST_FILE = bela/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.bela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
