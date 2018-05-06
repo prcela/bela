@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11EE209E5A3300198DE5 /* AppDelegate.swift */; };
-		971E11F1209E5A3300198DE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* ViewController.swift */; };
+		971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* MainViewController.swift */; };
 		971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F2209E5A3300198DE5 /* Main.storyboard */; };
 		971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F5209E5A3400198DE5 /* Assets.xcassets */; };
 		971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F7209E5A3400198DE5 /* LaunchScreen.storyboard */; };
+		971E1201209E622000198DE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 971E1200209E622000198DE5 /* GoogleService-Info.plist */; };
+		971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1205209EFFBF00198DE5 /* MenuViewController.swift */; };
+		971E1208209F139200198DE5 /* Room.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E1207209F139200198DE5 /* Room.storyboard */; };
+		971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1209209F13D100198DE5 /* RoomViewController.swift */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,11 +23,15 @@
 		93A3F16595814A68B2181BAC /* Pods-bela.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.debug.xcconfig"; sourceTree = "<group>"; };
 		971E11EB209E5A3300198DE5 /* bela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971E11EE209E5A3300198DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		971E11F0209E5A3300198DE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		971E11F0209E5A3300198DE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		971E11F3209E5A3300198DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		971E11F5209E5A3400198DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		971E11F8209E5A3400198DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		971E11FA209E5A3400198DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		971E1200209E622000198DE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		971E1205209EFFBF00198DE5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		971E1207209F139200198DE5 /* Room.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Room.storyboard; sourceTree = "<group>"; };
+		971E1209209F13D100198DE5 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,13 +78,33 @@
 			isa = PBXGroup;
 			children = (
 				971E11EE209E5A3300198DE5 /* AppDelegate.swift */,
-				971E11F0209E5A3300198DE5 /* ViewController.swift */,
-				971E11F2209E5A3300198DE5 /* Main.storyboard */,
+				971E1204209EFF8700198DE5 /* Storyboards */,
+				971E1203209EFF6D00198DE5 /* ViewControllers */,
 				971E11F5209E5A3400198DE5 /* Assets.xcassets */,
-				971E11F7209E5A3400198DE5 /* LaunchScreen.storyboard */,
 				971E11FA209E5A3400198DE5 /* Info.plist */,
+				971E1200209E622000198DE5 /* GoogleService-Info.plist */,
 			);
 			path = bela;
+			sourceTree = "<group>";
+		};
+		971E1203209EFF6D00198DE5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				971E11F0209E5A3300198DE5 /* MainViewController.swift */,
+				971E1205209EFFBF00198DE5 /* MenuViewController.swift */,
+				971E1209209F13D100198DE5 /* RoomViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		971E1204209EFF8700198DE5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				971E11F7209E5A3400198DE5 /* LaunchScreen.storyboard */,
+				971E11F2209E5A3300198DE5 /* Main.storyboard */,
+				971E1207209F139200198DE5 /* Room.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		BC8F0312B6BF83A4A70BE262 /* Pods */ = {
@@ -100,6 +128,7 @@
 				971E11E8209E5A3300198DE5 /* Frameworks */,
 				971E11E9209E5A3300198DE5 /* Resources */,
 				5EA193E026E958E03B4F58A1 /* [CP] Embed Pods Frameworks */,
+				971E1202209E630400198DE5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -148,7 +177,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				971E1208209F139200198DE5 /* Room.storyboard in Resources */,
 				971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */,
+				971E1201209E622000198DE5 /* GoogleService-Info.plist in Resources */,
 				971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */,
 				971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */,
 			);
@@ -203,6 +234,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		971E1202209E630400198DE5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" bf8485d9e6049d246f3cfcfe785d25e623b14783 986f61e60e52fb24818630ec1f9c812fe6ac2ddaccf779cfe92bea3bfe48875f";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -210,8 +254,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				971E11F1209E5A3300198DE5 /* ViewController.swift in Sources */,
+				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
+				971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */,
 				971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */,
+				971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -342,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -360,7 +406,10 @@
 				DEVELOPMENT_TEAM = X5F8D2MNQ7;
 				INFOPLIST_FILE = bela/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.bela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -377,7 +426,10 @@
 				DEVELOPMENT_TEAM = X5F8D2MNQ7;
 				INFOPLIST_FILE = bela/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.bela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
