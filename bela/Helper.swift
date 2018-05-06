@@ -12,3 +12,17 @@ func lstr(_ key: String) -> String
 {
     return NSLocalizedString(key, comment: "")
 }
+
+func isAppAlreadyLaunchedOnce() -> Bool
+{
+    let defaults = UserDefaults.standard
+    let keyLaunchedOnce = "isAppAlreadyLaunchedOnce"
+    if let _ = defaults.string(forKey: keyLaunchedOnce){
+        print("App already launched")
+        return true
+    }else{
+        defaults.set(true, forKey: keyLaunchedOnce)
+        print("App launched first time")
+        return false
+    }
+}

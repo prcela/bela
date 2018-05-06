@@ -70,6 +70,39 @@ class WsAPI
             self.ping()
         }
     }
+    
+    func playerStat()
+    {
+        let json = JSON(["playerId":PlayerStat.shared.id, "last_n":10])
+        send(.PlayerStat, json: json)
+    }
+    
+    var unsentMessages = [String]()
+    
+    func send(_ action: MessageFunc, json: JSON? = nil)
+    {
+        var json = json ?? JSON([:])
+        json["msg_func"].string = action.rawValue
+        
+        if let text = json.rawString(String.Encoding.utf8, options: [])
+        {
+            if socket.isConnected {
+                print("➡️\(text)")
+                socket.write(string:text)
+            } else if PlayerStat.shared.tableId != nil {
+                print("⬆️ Adding message to unsent!")
+                unsentMessages.append(text)
+            }
+        }
+    }
+    
+    func sendUnsentMessages() {
+        guard unsentMessages.count < 20 else {return}
+        print("🕐 sending unsent messages")
+        for msg in unsentMessages {
+            socket.write(string: msg)
+        }
+    }
 }
 
 extension WsAPI: WebSocketPongDelegate {
@@ -104,18 +137,37 @@ extension WsAPI: WebSocketDelegate
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String)
     {
-        print("⬅️\(text)")
-        
         let lines = text.components(separatedBy: "\n")
-        if lines.count > 1
-        {
-            print("⁉️ Aaaaaaa........ Greška!!!! 2 poruke primljene u jednoj")
-        }
         
         for line in lines
         {
+            print("⬅️\(line)")
             let nc = NotificationCenter.default
             let json = JSON(parseJSON: line)
+            
+            if let msgNum = json["msg_num"].int {
+                DispatchQueue.main.async {
+                    self.send(.Acked, json: JSON(["msg_num":msgNum]))
+                }
+                if acked.contains(msgNum) {
+                    continue
+                }
+                acked.insert(msgNum)
+            }
+            
+            if let msgFunc = MessageFunc(rawValue: json["msg_func"].stringValue)
+            {
+                switch msgFunc {
+                    
+                case .PlayerStat:
+                    
+                    PlayerStat.shared = PlayerStat(json: json["player"], jsonStatItems: json["stat_items"])
+                    nc.post(name: .onPlayerStatReceived, object: json)
+                    
+                default:
+                    break
+                }
+            }
         }
     }
 }

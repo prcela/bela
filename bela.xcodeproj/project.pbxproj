@@ -19,6 +19,13 @@
 		971E120D209F196300198DE5 /* WsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E120C209F196300198DE5 /* WsApi.swift */; };
 		971E1210209F1B8900198DE5 /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E120F209F1B8900198DE5 /* PlayerStat.swift */; };
 		971E1212209F1C9000198DE5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1211209F1C9000198DE5 /* Helper.swift */; };
+		971E1216209F1E4800198DE5 /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 971E1214209F1E4700198DE5 /* up@2x.png */; };
+		971E1217209F1E4800198DE5 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 971E1215209F1E4800198DE5 /* up.png */; };
+		971E1219209F1F6300198DE5 /* Leaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E1218209F1F6300198DE5 /* Leaderboard.storyboard */; };
+		971E121B209F1F7900198DE5 /* Rules.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E121A209F1F7900198DE5 /* Rules.storyboard */; };
+		971E121D209F328000198DE5 /* MessageFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E121C209F328000198DE5 /* MessageFunc.swift */; };
+		971E121F209F3C2F00198DE5 /* StatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E121E209F3C2F00198DE5 /* StatItem.swift */; };
+		971E1222209F3D1600198DE5 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1221209F3D1600198DE5 /* DateExt.swift */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +45,13 @@
 		971E120C209F196300198DE5 /* WsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WsApi.swift; sourceTree = "<group>"; };
 		971E120F209F1B8900198DE5 /* PlayerStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
 		971E1211209F1C9000198DE5 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		971E1214209F1E4700198DE5 /* up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "up@2x.png"; path = "bela/Resources/up@2x.png"; sourceTree = SOURCE_ROOT; };
+		971E1215209F1E4800198DE5 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = up.png; path = bela/Resources/up.png; sourceTree = SOURCE_ROOT; };
+		971E1218209F1F6300198DE5 /* Leaderboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Leaderboard.storyboard; sourceTree = "<group>"; };
+		971E121A209F1F7900198DE5 /* Rules.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rules.storyboard; sourceTree = "<group>"; };
+		971E121C209F328000198DE5 /* MessageFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFunc.swift; sourceTree = "<group>"; };
+		971E121E209F3C2F00198DE5 /* StatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItem.swift; sourceTree = "<group>"; };
+		971E1221209F3D1600198DE5 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +79,7 @@
 		971E11E2209E5A3300198DE5 = {
 			isa = PBXGroup;
 			children = (
+				971E1220209F3D0500198DE5 /* Extensions */,
 				971E11ED209E5A3300198DE5 /* bela */,
 				971E11EC209E5A3300198DE5 /* Products */,
 				BC8F0312B6BF83A4A70BE262 /* Pods */,
@@ -84,10 +99,11 @@
 			isa = PBXGroup;
 			children = (
 				971E11EE209E5A3300198DE5 /* AppDelegate.swift */,
+				971E1204209EFF8700198DE5 /* Storyboards */,
 				971E120E209F1B4200198DE5 /* Model */,
 				971E120B209F194500198DE5 /* Services */,
-				971E1204209EFF8700198DE5 /* Storyboards */,
 				971E1203209EFF6D00198DE5 /* ViewControllers */,
+				971E1213209F1E2A00198DE5 /* Resources */,
 				971E11F5209E5A3400198DE5 /* Assets.xcassets */,
 				971E11FA209E5A3400198DE5 /* Info.plist */,
 				971E1200209E622000198DE5 /* GoogleService-Info.plist */,
@@ -112,6 +128,8 @@
 				971E11F7209E5A3400198DE5 /* LaunchScreen.storyboard */,
 				971E11F2209E5A3300198DE5 /* Main.storyboard */,
 				971E1207209F139200198DE5 /* Room.storyboard */,
+				971E1218209F1F6300198DE5 /* Leaderboard.storyboard */,
+				971E121A209F1F7900198DE5 /* Rules.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -128,8 +146,28 @@
 			isa = PBXGroup;
 			children = (
 				971E120F209F1B8900198DE5 /* PlayerStat.swift */,
+				971E121C209F328000198DE5 /* MessageFunc.swift */,
+				971E121E209F3C2F00198DE5 /* StatItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		971E1213209F1E2A00198DE5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				971E1215209F1E4800198DE5 /* up.png */,
+				971E1214209F1E4700198DE5 /* up@2x.png */,
+			);
+			name = Resources;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		971E1220209F3D0500198DE5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				971E1221209F3D1600198DE5 /* DateExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BC8F0312B6BF83A4A70BE262 /* Pods */ = {
@@ -202,9 +240,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				971E1217209F1E4800198DE5 /* up.png in Resources */,
 				971E1208209F139200198DE5 /* Room.storyboard in Resources */,
 				971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */,
 				971E1201209E622000198DE5 /* GoogleService-Info.plist in Resources */,
+				971E1216209F1E4800198DE5 /* up@2x.png in Resources */,
+				971E121B209F1F7900198DE5 /* Rules.storyboard in Resources */,
+				971E1219209F1F6300198DE5 /* Leaderboard.storyboard in Resources */,
 				971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */,
 				971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */,
 			);
@@ -284,7 +326,10 @@
 				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
 				971E1210209F1B8900198DE5 /* PlayerStat.swift in Sources */,
 				971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */,
+				971E121D209F328000198DE5 /* MessageFunc.swift in Sources */,
 				971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */,
+				971E1222209F3D1600198DE5 /* DateExt.swift in Sources */,
+				971E121F209F3C2F00198DE5 /* StatItem.swift in Sources */,
 				971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
