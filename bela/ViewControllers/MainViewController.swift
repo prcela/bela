@@ -7,22 +7,22 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var playerBtn: UIButton!
-    @IBOutlet weak var connectingLbl: UILabel!
+    @IBOutlet weak var playerBtn: UIButton?
+    @IBOutlet weak var connectingLbl: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
+        PlayerStat.loadStat()
+        Analytics.setUserID(PlayerStat.shared.id)
+        
+        WsAPI.shared.connect()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

@@ -16,6 +16,9 @@
 		971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1205209EFFBF00198DE5 /* MenuViewController.swift */; };
 		971E1208209F139200198DE5 /* Room.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E1207209F139200198DE5 /* Room.storyboard */; };
 		971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1209209F13D100198DE5 /* RoomViewController.swift */; };
+		971E120D209F196300198DE5 /* WsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E120C209F196300198DE5 /* WsApi.swift */; };
+		971E1210209F1B8900198DE5 /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E120F209F1B8900198DE5 /* PlayerStat.swift */; };
+		971E1212209F1C9000198DE5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1211209F1C9000198DE5 /* Helper.swift */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,9 @@
 		971E1205209EFFBF00198DE5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		971E1207209F139200198DE5 /* Room.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Room.storyboard; sourceTree = "<group>"; };
 		971E1209209F13D100198DE5 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		971E120C209F196300198DE5 /* WsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WsApi.swift; sourceTree = "<group>"; };
+		971E120F209F1B8900198DE5 /* PlayerStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
+		971E1211209F1C9000198DE5 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,11 +84,14 @@
 			isa = PBXGroup;
 			children = (
 				971E11EE209E5A3300198DE5 /* AppDelegate.swift */,
+				971E120E209F1B4200198DE5 /* Model */,
+				971E120B209F194500198DE5 /* Services */,
 				971E1204209EFF8700198DE5 /* Storyboards */,
 				971E1203209EFF6D00198DE5 /* ViewControllers */,
 				971E11F5209E5A3400198DE5 /* Assets.xcassets */,
 				971E11FA209E5A3400198DE5 /* Info.plist */,
 				971E1200209E622000198DE5 /* GoogleService-Info.plist */,
+				971E1211209F1C9000198DE5 /* Helper.swift */,
 			);
 			path = bela;
 			sourceTree = "<group>";
@@ -105,6 +114,22 @@
 				971E1207209F139200198DE5 /* Room.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		971E120B209F194500198DE5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				971E120C209F196300198DE5 /* WsApi.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		971E120E209F1B4200198DE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				971E120F209F1B8900198DE5 /* PlayerStat.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BC8F0312B6BF83A4A70BE262 /* Pods */ = {
@@ -254,7 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				971E120D209F196300198DE5 /* WsApi.swift in Sources */,
+				971E1212209F1C9000198DE5 /* Helper.swift in Sources */,
 				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
+				971E1210209F1B8900198DE5 /* PlayerStat.swift in Sources */,
 				971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */,
 				971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */,
 				971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */,
