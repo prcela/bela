@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8aT-vM-VJZ">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina3_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,22 +15,22 @@
             <objects>
                 <viewController storyboardIdentifier="Room" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8aT-vM-VJZ" customClass="RoomViewController" customModule="bela" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y8X-3c-dJj">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WTq-wb-g3I">
-                                <rect key="frame" x="0.0" y="76" width="667" height="299"/>
+                                <rect key="frame" x="0.0" y="76" width="480" height="244"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellId" textLabel="NWl-c1-Htv" style="IBUITableViewCellStyleDefault" id="ObF-do-gaL">
-                                        <rect key="frame" x="0.0" y="28" width="667" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="480" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ObF-do-gaL" id="dve-hr-OCq">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NWl-c1-Htv">
-                                                    <rect key="frame" x="15" y="0.0" width="637" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="450" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8O-ah-UC4">
-                                <rect key="frame" x="307" y="16" width="53" height="44"/>
+                                <rect key="frame" x="213.5" y="16" width="53" height="44"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="26"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -67,11 +67,87 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="WTq-wb-g3I" id="dCa-hw-HFy"/>
+                        <segue destination="Y3g-VT-qAI" kind="show" identifier="createGame" id="2ek-lK-RCE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFU-we-Mai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="170"/>
+        </scene>
+        <!--Create Game View Controller-->
+        <scene sceneID="ymh-qt-ucw">
+            <objects>
+                <viewController id="Y3g-VT-qAI" customClass="CreateGameViewController" customModule="bela" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HpY-Jt-IsQ">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8P-bC-Ffg">
+                                <rect key="frame" x="219" y="8" width="42" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="back:" destination="Y3g-VT-qAI" eventType="touchUpInside" id="qKL-GM-eYt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3x-Cs-f2W">
+                                <rect key="frame" x="152" y="52" width="176" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <state key="normal" title="Turn duration: 30 sec"/>
+                                <connections>
+                                    <action selector="toggleDuration:" destination="Y3g-VT-qAI" eventType="touchUpInside" id="Sa9-Xy-3Kh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofz-hM-SwF">
+                                <rect key="frame" x="170.5" y="96" width="139" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <state key="normal" title="Game type: Pass"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-3s-gy8">
+                                <rect key="frame" x="137.5" y="140" width="205" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <state key="normal" title="Playing up to 1001 points"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhl-ka-OhE">
+                                <rect key="frame" x="201" y="184" width="78" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <state key="normal" title="Bet 10💎"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7Q-7i-h3q">
+                                <rect key="frame" x="212.5" y="228" width="55" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <state key="normal" title="Create"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="i7Q-7i-h3q" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="5iq-ei-gQb"/>
+                            <constraint firstItem="i7Q-7i-h3q" firstAttribute="top" secondItem="Dhl-ka-OhE" secondAttribute="bottom" constant="8" id="5jr-ov-YmO"/>
+                            <constraint firstItem="Dhl-ka-OhE" firstAttribute="top" secondItem="a5B-3s-gy8" secondAttribute="bottom" constant="8" id="KKF-Qt-DUu"/>
+                            <constraint firstItem="a5B-3s-gy8" firstAttribute="top" secondItem="Ofz-hM-SwF" secondAttribute="bottom" constant="8" id="Q05-WF-9in"/>
+                            <constraint firstItem="Ofz-hM-SwF" firstAttribute="top" secondItem="Z3x-Cs-f2W" secondAttribute="bottom" constant="8" id="U5e-rA-YrY"/>
+                            <constraint firstItem="Ofz-hM-SwF" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="Vlx-7O-pPO"/>
+                            <constraint firstItem="a5B-3s-gy8" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="aqG-Lw-LWv"/>
+                            <constraint firstItem="Dhl-ka-OhE" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="cKM-Qb-w6V"/>
+                            <constraint firstItem="Z3x-Cs-f2W" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="hnr-Bm-E98"/>
+                            <constraint firstItem="Z3x-Cs-f2W" firstAttribute="top" secondItem="c8P-bC-Ffg" secondAttribute="bottom" constant="8" id="ulh-9b-3nk"/>
+                            <constraint firstItem="c8P-bC-Ffg" firstAttribute="top" secondItem="9Lw-WW-xfu" secondAttribute="top" constant="8" id="w0Q-f1-CYH"/>
+                            <constraint firstItem="c8P-bC-Ffg" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="xgO-Ww-OqX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Lw-WW-xfu"/>
+                    </view>
+                    <connections>
+                        <outlet property="backBtn" destination="c8P-bC-Ffg" id="b1A-vF-2D3"/>
+                        <outlet property="betBtn" destination="Dhl-ka-OhE" id="Wnt-oN-5aO"/>
+                        <outlet property="createBtn" destination="i7Q-7i-h3q" id="K1e-iR-PM5"/>
+                        <outlet property="gameTypeBtn" destination="Ofz-hM-SwF" id="tHe-45-lx9"/>
+                        <outlet property="turnDurationBtn" destination="Z3x-Cs-f2W" id="IDw-6J-CvX"/>
+                        <outlet property="upToBtn" destination="a5B-3s-gy8" id="Kkl-LV-vVs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cV7-7g-oRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="740" y="169"/>
         </scene>
     </scenes>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -31,6 +31,8 @@
 		971E122F20A1D3A800198DE5 /* MatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E122E20A1D3A800198DE5 /* MatchInfo.swift */; };
 		971E123120A1D3CE00198DE5 /* MatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123020A1D3CE00198DE5 /* MatchResult.swift */; };
 		971E123320A1D4E900198DE5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123220A1D4E900198DE5 /* Room.swift */; };
+		971E123520A2171300198DE5 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123420A2171300198DE5 /* CreateGameViewController.swift */; };
+		971E123920A2248300198DE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 971E123B20A2248300198DE5 /* Localizable.strings */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		971E122E20A1D3A800198DE5 /* MatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfo.swift; sourceTree = "<group>"; };
 		971E123020A1D3CE00198DE5 /* MatchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResult.swift; sourceTree = "<group>"; };
 		971E123220A1D4E900198DE5 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		971E123420A2171300198DE5 /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
+		971E123A20A2248300198DE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				971E11EE209E5A3300198DE5 /* AppDelegate.swift */,
+				971E123620A2243F00198DE5 /* Locale */,
 				971E1204209EFF8700198DE5 /* Storyboards */,
 				971E120E209F1B4200198DE5 /* Model */,
 				971E120B209F194500198DE5 /* Services */,
@@ -128,6 +133,7 @@
 				971E11F0209E5A3300198DE5 /* MainViewController.swift */,
 				971E1205209EFFBF00198DE5 /* MenuViewController.swift */,
 				971E1209209F13D100198DE5 /* RoomViewController.swift */,
+				971E123420A2171300198DE5 /* CreateGameViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +188,14 @@
 				971E1221209F3D1600198DE5 /* DateExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		971E123620A2243F00198DE5 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				971E123B20A2248300198DE5 /* Localizable.strings */,
+			);
+			path = Locale;
 			sourceTree = "<group>";
 		};
 		BC8F0312B6BF83A4A70BE262 /* Pods */ = {
@@ -259,6 +273,7 @@
 				971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */,
 				971E1201209E622000198DE5 /* GoogleService-Info.plist in Resources */,
 				971E1216209F1E4800198DE5 /* up@2x.png in Resources */,
+				971E123920A2248300198DE5 /* Localizable.strings in Resources */,
 				971E121B209F1F7900198DE5 /* Rules.storyboard in Resources */,
 				971E1219209F1F6300198DE5 /* Leaderboard.storyboard in Resources */,
 				971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */,
@@ -341,6 +356,7 @@
 				971E1212209F1C9000198DE5 /* Helper.swift in Sources */,
 				971E123120A1D3CE00198DE5 /* MatchResult.swift in Sources */,
 				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
+				971E123520A2171300198DE5 /* CreateGameViewController.swift in Sources */,
 				971E1210209F1B8900198DE5 /* PlayerStat.swift in Sources */,
 				971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */,
 				971E121D209F328000198DE5 /* MessageFunc.swift in Sources */,
@@ -370,6 +386,14 @@
 				971E11F8209E5A3400198DE5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		971E123B20A2248300198DE5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				971E123A20A2248300198DE5 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

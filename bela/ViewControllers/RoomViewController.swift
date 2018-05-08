@@ -66,6 +66,12 @@ extension RoomViewController: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        switch sections[indexPath.section] {
+        case .Create:
+            performSegue(withIdentifier: "createGame", sender: nil)
+        default:
+            break
+        }
     }
 }
 
