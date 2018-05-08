@@ -13,5 +13,6 @@ enum MessageFunc: String
     case Acked = "ack"
     case PlayerStat = "player_stat"
     case UpdatePlayer = "update_player"
+    case RoomInfo = "room_info"
 }
 

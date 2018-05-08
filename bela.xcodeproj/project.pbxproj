@@ -26,6 +26,11 @@
 		971E121D209F328000198DE5 /* MessageFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E121C209F328000198DE5 /* MessageFunc.swift */; };
 		971E121F209F3C2F00198DE5 /* StatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E121E209F3C2F00198DE5 /* StatItem.swift */; };
 		971E1222209F3D1600198DE5 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1221209F3D1600198DE5 /* DateExt.swift */; };
+		971E122B20A1D0D000198DE5 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E122A20A1D0D000198DE5 /* PlayerInfo.swift */; };
+		971E122D20A1D23400198DE5 /* TableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E122C20A1D23400198DE5 /* TableInfo.swift */; };
+		971E122F20A1D3A800198DE5 /* MatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E122E20A1D3A800198DE5 /* MatchInfo.swift */; };
+		971E123120A1D3CE00198DE5 /* MatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123020A1D3CE00198DE5 /* MatchResult.swift */; };
+		971E123320A1D4E900198DE5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123220A1D4E900198DE5 /* Room.swift */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +57,11 @@
 		971E121C209F328000198DE5 /* MessageFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFunc.swift; sourceTree = "<group>"; };
 		971E121E209F3C2F00198DE5 /* StatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItem.swift; sourceTree = "<group>"; };
 		971E1221209F3D1600198DE5 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
+		971E122A20A1D0D000198DE5 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
+		971E122C20A1D23400198DE5 /* TableInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableInfo.swift; sourceTree = "<group>"; };
+		971E122E20A1D3A800198DE5 /* MatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfo.swift; sourceTree = "<group>"; };
+		971E123020A1D3CE00198DE5 /* MatchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResult.swift; sourceTree = "<group>"; };
+		971E123220A1D4E900198DE5 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +158,11 @@
 				971E120F209F1B8900198DE5 /* PlayerStat.swift */,
 				971E121C209F328000198DE5 /* MessageFunc.swift */,
 				971E121E209F3C2F00198DE5 /* StatItem.swift */,
+				971E122A20A1D0D000198DE5 /* PlayerInfo.swift */,
+				971E122C20A1D23400198DE5 /* TableInfo.swift */,
+				971E122E20A1D3A800198DE5 /* MatchInfo.swift */,
+				971E123020A1D3CE00198DE5 /* MatchResult.swift */,
+				971E123220A1D4E900198DE5 /* Room.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,8 +173,7 @@
 				971E1215209F1E4800198DE5 /* up.png */,
 				971E1214209F1E4700198DE5 /* up@2x.png */,
 			);
-			name = Resources;
-			path = "New Group";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		971E1220209F3D0500198DE5 /* Extensions */ = {
@@ -321,8 +335,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				971E122F20A1D3A800198DE5 /* MatchInfo.swift in Sources */,
 				971E120D209F196300198DE5 /* WsApi.swift in Sources */,
+				971E122B20A1D0D000198DE5 /* PlayerInfo.swift in Sources */,
 				971E1212209F1C9000198DE5 /* Helper.swift in Sources */,
+				971E123120A1D3CE00198DE5 /* MatchResult.swift in Sources */,
 				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
 				971E1210209F1B8900198DE5 /* PlayerStat.swift in Sources */,
 				971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */,
@@ -330,7 +347,9 @@
 				971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */,
 				971E1222209F3D1600198DE5 /* DateExt.swift in Sources */,
 				971E121F209F3C2F00198DE5 /* StatItem.swift in Sources */,
+				971E122D20A1D23400198DE5 /* TableInfo.swift in Sources */,
 				971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */,
+				971E123320A1D4E900198DE5 /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +505,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.bela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -506,7 +525,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.bela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

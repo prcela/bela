@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
+        print(Room.shared.playersInfo.count)
         return true
     }
 

@@ -18,17 +18,17 @@ private let ipServer = "139.59.142.160:80" // ovo je pravi port!
 let ipCurrent = ipLocalhost
 
 
-extension Notification.Name {
-    static let wsConnect = Notification.Name("Notification.wsConnect")
-    static let wsDidConnect = Notification.Name("Notification.wsDidConnect")
-    static let wsDidDisconnect = Notification.Name("Notification.wsDidDisconnect")
-    
-    static let onPlayerStatReceived = Notification.Name("Notification.onPlayerStatReceived")
-}
-
 class WsAPI
 {
     static let shared = WsAPI()
+    
+    static let onConnect = Notification.Name("Notification.wsConnect")
+    static let onDidConnect = Notification.Name("Notification.wsDidConnect")
+    static let onDidDisconnect = Notification.Name("Notification.wsDidDisconnect")
+    
+    static let onPlayerStatReceived = Notification.Name("Notification.onPlayerStatReceived")
+    static let onRoomInfo = Notification.Name("Notification.onRoomInfo")
+    
     fileprivate var retryCount = 0
     fileprivate var pingInterval: TimeInterval = 40
     fileprivate var acked: Set<Int> = []
@@ -37,7 +37,7 @@ class WsAPI
     
     init() {
         
-        let strURL = "ws://\(ipCurrent)/chat"
+        let strURL = "ws://\(ipCurrent)/bela"
         let request = URLRequest(url: URL(string: strURL)!)
         socket = WebSocket(request: request, protocols: ["no-body"])
         
@@ -52,7 +52,7 @@ class WsAPI
     func connect()
     {
         socket.connect()
-        NotificationCenter.default.post(name: .wsConnect, object: nil)
+        NotificationCenter.default.post(name: WsAPI.onConnect, object: nil)
     }
     
     func ping()
@@ -116,7 +116,7 @@ extension WsAPI: WebSocketDelegate
 {
     func websocketDidConnect(socket: WebSocketClient) {
         print("✅didConnect to socket")
-        NotificationCenter.default.post(name: .wsDidConnect, object: nil)
+        NotificationCenter.default.post(name: WsAPI.onDidConnect, object: nil)
         retryCount = 0
     }
     
@@ -126,7 +126,7 @@ extension WsAPI: WebSocketDelegate
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         print("⚠️websocketDidDisconnect")
-        NotificationCenter.default.post(name: .wsDidDisconnect, object: nil)
+        NotificationCenter.default.post(name: WsAPI.onDidDisconnect, object: nil)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + min(Double(retryCount+1), 5)) {
             print("retry connect")
@@ -159,10 +159,13 @@ extension WsAPI: WebSocketDelegate
             {
                 switch msgFunc {
                     
+                case .RoomInfo:
+                    nc.post(name: WsAPI.onRoomInfo, object: json)
+                    
                 case .PlayerStat:
                     
                     PlayerStat.shared = PlayerStat(json: json["player"], jsonStatItems: json["stat_items"])
-                    nc.post(name: .onPlayerStatReceived, object: json)
+                    nc.post(name: WsAPI.onPlayerStatReceived, object: json)
                     
                 default:
                     break

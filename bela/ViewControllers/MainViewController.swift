@@ -19,10 +19,10 @@ class MainViewController: UIViewController {
         
         let nc = NotificationCenter.default
         
-        nc.addObserver(self, selector: #selector(onWsConnect), name: .wsConnect, object: nil)
-        nc.addObserver(self, selector: #selector(onWsDidConnect), name: .wsDidConnect, object: nil)
-        nc.addObserver(self, selector: #selector(onWsDidDisconnect), name: .wsDidDisconnect, object: nil)
-        nc.addObserver(self, selector: #selector(onPlayerStat), name: .onPlayerStatReceived, object: nil)
+        nc.addObserver(self, selector: #selector(onWsConnect), name: WsAPI.onConnect, object: nil)
+        nc.addObserver(self, selector: #selector(onWsDidConnect), name: WsAPI.onDidConnect, object: nil)
+        nc.addObserver(self, selector: #selector(onWsDidDisconnect), name: WsAPI.onDidDisconnect, object: nil)
+        nc.addObserver(self, selector: #selector(onPlayerStat), name: WsAPI.onPlayerStatReceived, object: nil)
     }
     
     override func viewDidLoad() {
