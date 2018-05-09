@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAnalytics
 
 class MainViewController: UIViewController {
+    
+    static var shared: MainViewController?
 
     @IBOutlet weak var playerBtn: UIButton?
     @IBOutlet weak var connectingLbl: UILabel?
@@ -23,6 +25,8 @@ class MainViewController: UIViewController {
         nc.addObserver(self, selector: #selector(onWsDidConnect), name: WsAPI.onDidConnect, object: nil)
         nc.addObserver(self, selector: #selector(onWsDidDisconnect), name: WsAPI.onDidDisconnect, object: nil)
         nc.addObserver(self, selector: #selector(onPlayerStat), name: WsAPI.onPlayerStatReceived, object: nil)
+        
+        MainViewController.shared = self
     }
     
     override func viewDidLoad() {

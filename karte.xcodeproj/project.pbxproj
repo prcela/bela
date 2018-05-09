@@ -36,6 +36,33 @@
 		971E123E20A2D2E500198DE5 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123D20A2D2E500198DE5 /* Prefs.swift */; };
 		971E124020A2D41000198DE5 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */; };
 		971E124220A2D60B00198DE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E124120A2D60B00198DE5 /* Constants.swift */; };
+		971E124620A303BD00198DE5 /* MatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E122E20A1D3A800198DE5 /* MatchInfo.swift */; };
+		971E124720A303BD00198DE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E124120A2D60B00198DE5 /* Constants.swift */; };
+		971E124820A303BD00198DE5 /* WsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E120C209F196300198DE5 /* WsApi.swift */; };
+		971E124920A303BD00198DE5 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */; };
+		971E124A20A303BD00198DE5 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E122A20A1D0D000198DE5 /* PlayerInfo.swift */; };
+		971E124B20A303BD00198DE5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1211209F1C9000198DE5 /* Helper.swift */; };
+		971E124C20A303BD00198DE5 /* MatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123020A1D3CE00198DE5 /* MatchResult.swift */; };
+		971E124D20A303BD00198DE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* MainViewController.swift */; };
+		971E124E20A303BD00198DE5 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123420A2171300198DE5 /* CreateGameViewController.swift */; };
+		971E124F20A303BD00198DE5 /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E120F209F1B8900198DE5 /* PlayerStat.swift */; };
+		971E125020A303BD00198DE5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1205209EFFBF00198DE5 /* MenuViewController.swift */; };
+		971E125120A303BD00198DE5 /* MessageFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E121C209F328000198DE5 /* MessageFunc.swift */; };
+		971E125220A303BD00198DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11EE209E5A3300198DE5 /* AppDelegate.swift */; };
+		971E125320A303BD00198DE5 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123D20A2D2E500198DE5 /* Prefs.swift */; };
+		971E125420A303BD00198DE5 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1221209F3D1600198DE5 /* DateExt.swift */; };
+		971E125520A303BD00198DE5 /* StatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E121E209F3C2F00198DE5 /* StatItem.swift */; };
+		971E125620A303BD00198DE5 /* TableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E122C20A1D23400198DE5 /* TableInfo.swift */; };
+		971E125720A303BD00198DE5 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1209209F13D100198DE5 /* RoomViewController.swift */; };
+		971E125820A303BD00198DE5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123220A1D4E900198DE5 /* Room.swift */; };
+		971E125A20A303BD00198DE5 /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
+		971E125C20A303BD00198DE5 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 971E1215209F1E4800198DE5 /* up.png */; };
+		971E125F20A303BD00198DE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 971E1200209E622000198DE5 /* GoogleService-Info.plist */; };
+		971E126020A303BD00198DE5 /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 971E1214209F1E4700198DE5 /* up@2x.png */; };
+		971E126120A303BD00198DE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 971E123B20A2248300198DE5 /* Localizable.strings */; };
+		971E126220A303BD00198DE5 /* Rules.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E121A209F1F7900198DE5 /* Rules.storyboard */; };
+		971E126320A303BD00198DE5 /* Leaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E1218209F1F6300198DE5 /* Leaderboard.storyboard */; };
+		971E126420A303BD00198DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F5209E5A3400198DE5 /* Assets.xcassets */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +100,8 @@
 		971E123D20A2D2E500198DE5 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		971E124120A2D60B00198DE5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		971E126B20A303BD00198DE5 /* lora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lora.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		971E126C20A303BE00198DE5 /* bela copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "bela copy-Info.plist"; path = "/Users/prcela/work/bela/bela copy-Info.plist"; sourceTree = "<absolute>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +112,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971E125920A303BD00198DE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				971E125A20A303BD00198DE5 /* Pods_bela.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +142,7 @@
 				971E11EC209E5A3300198DE5 /* Products */,
 				BC8F0312B6BF83A4A70BE262 /* Pods */,
 				3C6CD1E6D2B9C76A6654E768 /* Frameworks */,
+				971E126C20A303BE00198DE5 /* bela copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				971E11EB209E5A3300198DE5 /* bela.app */,
+				971E126B20A303BD00198DE5 /* lora.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +279,26 @@
 			productReference = 971E11EB209E5A3300198DE5 /* bela.app */;
 			productType = "com.apple.product-type.application";
 		};
+		971E124320A303BD00198DE5 /* lora */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 971E126820A303BD00198DE5 /* Build configuration list for PBXNativeTarget "lora" */;
+			buildPhases = (
+				971E124420A303BD00198DE5 /* [CP] Check Pods Manifest.lock */,
+				971E124520A303BD00198DE5 /* Sources */,
+				971E125920A303BD00198DE5 /* Frameworks */,
+				971E125B20A303BD00198DE5 /* Resources */,
+				971E126620A303BD00198DE5 /* [CP] Embed Pods Frameworks */,
+				971E126720A303BD00198DE5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lora;
+			productName = bela;
+			productReference = 971E126B20A303BD00198DE5 /* lora.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -255,7 +314,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 971E11E6209E5A3300198DE5 /* Build configuration list for PBXProject "bela" */;
+			buildConfigurationList = 971E11E6209E5A3300198DE5 /* Build configuration list for PBXProject "karte" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -270,6 +329,7 @@
 			projectRoot = "";
 			targets = (
 				971E11EA209E5A3300198DE5 /* bela */,
+				971E124320A303BD00198DE5 /* lora */,
 			);
 		};
 /* End PBXProject section */
@@ -289,6 +349,20 @@
 				971E1219209F1F6300198DE5 /* Leaderboard.storyboard in Resources */,
 				971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */,
 				971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971E125B20A303BD00198DE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				971E125C20A303BD00198DE5 /* up.png in Resources */,
+				971E125F20A303BD00198DE5 /* GoogleService-Info.plist in Resources */,
+				971E126020A303BD00198DE5 /* up@2x.png in Resources */,
+				971E126120A303BD00198DE5 /* Localizable.strings in Resources */,
+				971E126220A303BD00198DE5 /* Rules.storyboard in Resources */,
+				971E126320A303BD00198DE5 /* Leaderboard.storyboard in Resources */,
+				971E126420A303BD00198DE5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +428,65 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" bf8485d9e6049d246f3cfcfe785d25e623b14783 986f61e60e52fb24818630ec1f9c812fe6ac2ddaccf779cfe92bea3bfe48875f";
 		};
+		971E124420A303BD00198DE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bela-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		971E126620A303BD00198DE5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-bela/Pods-bela-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bela/Pods-bela-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		971E126720A303BD00198DE5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" bf8485d9e6049d246f3cfcfe785d25e623b14783 986f61e60e52fb24818630ec1f9c812fe6ac2ddaccf779cfe92bea3bfe48875f";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -380,6 +513,32 @@
 				971E122D20A1D23400198DE5 /* TableInfo.swift in Sources */,
 				971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */,
 				971E123320A1D4E900198DE5 /* Room.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971E124520A303BD00198DE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				971E124620A303BD00198DE5 /* MatchInfo.swift in Sources */,
+				971E124720A303BD00198DE5 /* Constants.swift in Sources */,
+				971E124820A303BD00198DE5 /* WsApi.swift in Sources */,
+				971E124920A303BD00198DE5 /* UIViewControllerExt.swift in Sources */,
+				971E124A20A303BD00198DE5 /* PlayerInfo.swift in Sources */,
+				971E124B20A303BD00198DE5 /* Helper.swift in Sources */,
+				971E124C20A303BD00198DE5 /* MatchResult.swift in Sources */,
+				971E124D20A303BD00198DE5 /* MainViewController.swift in Sources */,
+				971E124E20A303BD00198DE5 /* CreateGameViewController.swift in Sources */,
+				971E124F20A303BD00198DE5 /* PlayerStat.swift in Sources */,
+				971E125020A303BD00198DE5 /* MenuViewController.swift in Sources */,
+				971E125120A303BD00198DE5 /* MessageFunc.swift in Sources */,
+				971E125220A303BD00198DE5 /* AppDelegate.swift in Sources */,
+				971E125320A303BD00198DE5 /* Prefs.swift in Sources */,
+				971E125420A303BD00198DE5 /* DateExt.swift in Sources */,
+				971E125520A303BD00198DE5 /* StatItem.swift in Sources */,
+				971E125620A303BD00198DE5 /* TableInfo.swift in Sources */,
+				971E125720A303BD00198DE5 /* RoomViewController.swift in Sources */,
+				971E125820A303BD00198DE5 /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,10 +729,50 @@
 			};
 			name = Release;
 		};
+		971E126920A303BD00198DE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93A3F16595814A68B2181BAC /* Pods-bela.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5F8D2MNQ7;
+				INFOPLIST_FILE = "bela copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.lora;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		971E126A20A303BD00198DE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5F8D2MNQ7;
+				INFOPLIST_FILE = "bela copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.lora;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		971E11E6209E5A3300198DE5 /* Build configuration list for PBXProject "bela" */ = {
+		971E11E6209E5A3300198DE5 /* Build configuration list for PBXProject "karte" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				971E11FB209E5A3400198DE5 /* Debug */,
@@ -587,6 +786,15 @@
 			buildConfigurations = (
 				971E11FE209E5A3400198DE5 /* Debug */,
 				971E11FF209E5A3400198DE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		971E126820A303BD00198DE5 /* Build configuration list for PBXNativeTarget "lora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				971E126920A303BD00198DE5 /* Debug */,
+				971E126A20A303BD00198DE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
