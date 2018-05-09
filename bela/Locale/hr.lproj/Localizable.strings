@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  bela
+
+  Created by Kresimir Prcela on 08/05/2018.
+  Copyright © 2018 prcela. All rights reserved.
+*/
+
+"Turn duration" = "Trajanje poteza: %d sek";
+"Game type" = "Tip igre: %@";
+"Playing up to points" = "Igra se do %d poena";
+"Bet value" = "Ulog %d💎";

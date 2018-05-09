@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Fabric
 import Crashlytics
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,9 +20,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UserDefaults.standard.register(defaults: [
+            Prefs.lastBet: 5,
+            Prefs.invitedContacts:[],
+            Prefs.lastPlayedGameType: 0
+            ])
+        
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
+        
+        let firRemoteConfig = RemoteConfig.remoteConfig()
+        firRemoteConfig.setDefaults(fromPlist: "DefaultRemoteConfig")
+        
+        // 1 hour
+        let expirationDuration:TimeInterval = 3600
+        
+        firRemoteConfig.fetch(withExpirationDuration: expirationDuration) { (status, error) in
+            if status == .success
+            {
+                print("fetched FB remote config")
+                firRemoteConfig.activateFetched()
+            }
+            
+            if error != nil
+            {
+                print("Fetch FB config error \(error!)")
+            }
+        }
+        
+        
         print(Room.shared.playersInfo.count)
+        
         return true
     }
 
@@ -42,6 +71,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        SwiftyStoreKit.retrieveProductsInfo(allPurchaseIds) { result in
+            retrievedProducts = result.retrievedProducts
+            
+            if let product = result.retrievedProducts.first {
+                let numberFormatter = NumberFormatter()
+                numberFormatter.locale = product.priceLocale
+                numberFormatter.numberStyle = .currency
+                let priceString = numberFormatter.string(from: product.price) ?? ""
+                print("Product: \(product.localizedDescription), price: \(priceString)")
+            }
+            else if let invalidProductId = result.invalidProductIDs.first {
+                print("Could not retrieve product info, Invalid product identifier: \(invalidProductId)")
+            }
+            else if let error = result.error {
+                print("Error: \(error)")
+            }
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

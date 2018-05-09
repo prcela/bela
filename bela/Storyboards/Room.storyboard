@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,7 +84,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8P-bC-Ffg">
-                                <rect key="frame" x="219" y="8" width="42" height="36"/>
+                                <rect key="frame" x="219" y="16" width="42" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -91,7 +92,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3x-Cs-f2W">
-                                <rect key="frame" x="152" y="52" width="176" height="36"/>
+                                <rect key="frame" x="32" y="68" width="176" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="Turn duration: 30 sec"/>
                                 <connections>
@@ -99,22 +100,36 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofz-hM-SwF">
-                                <rect key="frame" x="170.5" y="96" width="139" height="36"/>
+                                <rect key="frame" x="50.5" y="120" width="139" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="Game type: Pass"/>
+                                <connections>
+                                    <action selector="toggleGameType:" destination="Y3g-VT-qAI" eventType="touchUpInside" id="mB5-vx-Sew"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-3s-gy8">
-                                <rect key="frame" x="137.5" y="140" width="205" height="36"/>
+                                <rect key="frame" x="257.5" y="68" width="205" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="Playing up to 1001 points"/>
+                                <connections>
+                                    <action selector="toggleUpToPoints:" destination="Y3g-VT-qAI" eventType="touchUpInside" id="lyp-Rw-uhJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhl-ka-OhE">
-                                <rect key="frame" x="201" y="184" width="78" height="36"/>
+                                <rect key="frame" x="321" y="120" width="78" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="Bet 10💎"/>
+                                <connections>
+                                    <action selector="toggleBet:" destination="Y3g-VT-qAI" eventType="touchUpInside" id="DUw-WW-6YE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl4-Ew-GyT">
+                                <rect key="frame" x="225" y="172" width="30" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <state key="normal" title="🔒"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7Q-7i-h3q">
-                                <rect key="frame" x="212.5" y="228" width="55" height="36"/>
+                                <rect key="frame" x="213" y="224" width="55" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="Create"/>
                             </button>
@@ -122,16 +137,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="i7Q-7i-h3q" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="5iq-ei-gQb"/>
-                            <constraint firstItem="i7Q-7i-h3q" firstAttribute="top" secondItem="Dhl-ka-OhE" secondAttribute="bottom" constant="8" id="5jr-ov-YmO"/>
-                            <constraint firstItem="Dhl-ka-OhE" firstAttribute="top" secondItem="a5B-3s-gy8" secondAttribute="bottom" constant="8" id="KKF-Qt-DUu"/>
-                            <constraint firstItem="a5B-3s-gy8" firstAttribute="top" secondItem="Ofz-hM-SwF" secondAttribute="bottom" constant="8" id="Q05-WF-9in"/>
-                            <constraint firstItem="Ofz-hM-SwF" firstAttribute="top" secondItem="Z3x-Cs-f2W" secondAttribute="bottom" constant="8" id="U5e-rA-YrY"/>
-                            <constraint firstItem="Ofz-hM-SwF" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="Vlx-7O-pPO"/>
-                            <constraint firstItem="a5B-3s-gy8" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="aqG-Lw-LWv"/>
-                            <constraint firstItem="Dhl-ka-OhE" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="cKM-Qb-w6V"/>
-                            <constraint firstItem="Z3x-Cs-f2W" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="hnr-Bm-E98"/>
-                            <constraint firstItem="Z3x-Cs-f2W" firstAttribute="top" secondItem="c8P-bC-Ffg" secondAttribute="bottom" constant="8" id="ulh-9b-3nk"/>
-                            <constraint firstItem="c8P-bC-Ffg" firstAttribute="top" secondItem="9Lw-WW-xfu" secondAttribute="top" constant="8" id="w0Q-f1-CYH"/>
+                            <constraint firstItem="a5B-3s-gy8" firstAttribute="top" secondItem="c8P-bC-Ffg" secondAttribute="bottom" constant="16" id="Cng-fU-2f2"/>
+                            <constraint firstItem="Wl4-Ew-GyT" firstAttribute="top" secondItem="Ofz-hM-SwF" secondAttribute="bottom" constant="16" id="GcU-iP-Opi"/>
+                            <constraint firstItem="Dhl-ka-OhE" firstAttribute="top" secondItem="a5B-3s-gy8" secondAttribute="bottom" constant="16" id="KKF-Qt-DUu"/>
+                            <constraint firstItem="Ofz-hM-SwF" firstAttribute="top" secondItem="Z3x-Cs-f2W" secondAttribute="bottom" constant="16" id="U5e-rA-YrY"/>
+                            <constraint firstItem="Wl4-Ew-GyT" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="Ujn-9Z-hzy"/>
+                            <constraint firstItem="i7Q-7i-h3q" firstAttribute="top" secondItem="Wl4-Ew-GyT" secondAttribute="bottom" constant="16" id="Upu-4R-RbZ"/>
+                            <constraint firstItem="Ofz-hM-SwF" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" multiplier="0.5" id="Vlx-7O-pPO"/>
+                            <constraint firstItem="a5B-3s-gy8" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" multiplier="1.5" id="aqG-Lw-LWv"/>
+                            <constraint firstItem="Dhl-ka-OhE" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" multiplier="1.5" id="cKM-Qb-w6V"/>
+                            <constraint firstItem="Z3x-Cs-f2W" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" multiplier="0.5" id="hnr-Bm-E98"/>
+                            <constraint firstItem="Z3x-Cs-f2W" firstAttribute="top" secondItem="c8P-bC-Ffg" secondAttribute="bottom" constant="16" id="ulh-9b-3nk"/>
+                            <constraint firstItem="c8P-bC-Ffg" firstAttribute="top" secondItem="9Lw-WW-xfu" secondAttribute="top" constant="16" id="w0Q-f1-CYH"/>
                             <constraint firstItem="c8P-bC-Ffg" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="xgO-Ww-OqX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Lw-WW-xfu"/>
@@ -141,6 +158,7 @@
                         <outlet property="betBtn" destination="Dhl-ka-OhE" id="Wnt-oN-5aO"/>
                         <outlet property="createBtn" destination="i7Q-7i-h3q" id="K1e-iR-PM5"/>
                         <outlet property="gameTypeBtn" destination="Ofz-hM-SwF" id="tHe-45-lx9"/>
+                        <outlet property="lockBtn" destination="Wl4-Ew-GyT" id="kKY-1y-Vqq"/>
                         <outlet property="turnDurationBtn" destination="Z3x-Cs-f2W" id="IDw-6J-CvX"/>
                         <outlet property="upToBtn" destination="a5B-3s-gy8" id="Kkl-LV-vVs"/>
                     </connections>

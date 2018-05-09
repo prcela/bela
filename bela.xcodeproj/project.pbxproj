@@ -33,6 +33,9 @@
 		971E123320A1D4E900198DE5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123220A1D4E900198DE5 /* Room.swift */; };
 		971E123520A2171300198DE5 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123420A2171300198DE5 /* CreateGameViewController.swift */; };
 		971E123920A2248300198DE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 971E123B20A2248300198DE5 /* Localizable.strings */; };
+		971E123E20A2D2E500198DE5 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123D20A2D2E500198DE5 /* Prefs.swift */; };
+		971E124020A2D41000198DE5 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */; };
+		971E124220A2D60B00198DE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E124120A2D60B00198DE5 /* Constants.swift */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,10 @@
 		971E123220A1D4E900198DE5 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		971E123420A2171300198DE5 /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
 		971E123A20A2248300198DE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		971E123C20A2254C00198DE5 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		971E123D20A2D2E500198DE5 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		971E124120A2D60B00198DE5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +141,7 @@
 				971E1205209EFFBF00198DE5 /* MenuViewController.swift */,
 				971E1209209F13D100198DE5 /* RoomViewController.swift */,
 				971E123420A2171300198DE5 /* CreateGameViewController.swift */,
+				971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -169,6 +177,8 @@
 				971E122E20A1D3A800198DE5 /* MatchInfo.swift */,
 				971E123020A1D3CE00198DE5 /* MatchResult.swift */,
 				971E123220A1D4E900198DE5 /* Room.swift */,
+				971E123D20A2D2E500198DE5 /* Prefs.swift */,
+				971E124120A2D60B00198DE5 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,6 +262,7 @@
 			knownRegions = (
 				en,
 				Base,
+				hr,
 			);
 			mainGroup = 971E11E2209E5A3300198DE5;
 			productRefGroup = 971E11EC209E5A3300198DE5 /* Products */;
@@ -351,7 +362,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				971E122F20A1D3A800198DE5 /* MatchInfo.swift in Sources */,
+				971E124220A2D60B00198DE5 /* Constants.swift in Sources */,
 				971E120D209F196300198DE5 /* WsApi.swift in Sources */,
+				971E124020A2D41000198DE5 /* UIViewControllerExt.swift in Sources */,
 				971E122B20A1D0D000198DE5 /* PlayerInfo.swift in Sources */,
 				971E1212209F1C9000198DE5 /* Helper.swift in Sources */,
 				971E123120A1D3CE00198DE5 /* MatchResult.swift in Sources */,
@@ -361,6 +374,7 @@
 				971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */,
 				971E121D209F328000198DE5 /* MessageFunc.swift in Sources */,
 				971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */,
+				971E123E20A2D2E500198DE5 /* Prefs.swift in Sources */,
 				971E1222209F3D1600198DE5 /* DateExt.swift in Sources */,
 				971E121F209F3C2F00198DE5 /* StatItem.swift in Sources */,
 				971E122D20A1D23400198DE5 /* TableInfo.swift in Sources */,
@@ -392,6 +406,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				971E123A20A2248300198DE5 /* en */,
+				971E123C20A2254C00198DE5 /* hr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -403,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -463,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
