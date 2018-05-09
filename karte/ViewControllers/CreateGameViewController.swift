@@ -36,17 +36,21 @@ class CreateGameViewController: UIViewController {
     @IBOutlet weak var lockBtn: UIButton!
     @IBOutlet weak var createBtn: UIButton!
     @IBOutlet weak var waitingLbl: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     
     var durations = [10,20,30,40,50,60]
     var gameTypes:[GameType] = [.Pass,.Enough]
-    var upToPoints = [501,1001]
+    var upToPoints = [501,701,1001]
     
     var duration = 30
     var gameType = GameType(rawValue: UserDefaults.standard.integer(forKey: Prefs.lastPlayedGameType))!
     var upTo = 1001
     var locked = false
     var bet = UserDefaults.standard.integer(forKey: Prefs.lastBet)
+    
+    let sections:[RoomSection] = [.FreeTables,.FreePlayers]
+    var playersIgnoredInvitation = Set<String>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +61,9 @@ class CreateGameViewController: UIViewController {
         updateUpToBtn()
         updateBetBtn()
         updateLockBtn()
+        
+        waitingLbl.isHidden = true
+        tableView.isHidden = true
     }
 
     @IBAction func back(_ sender: Any) {
@@ -133,6 +140,9 @@ class CreateGameViewController: UIViewController {
             lockBtn.isHidden = true
             createBtn.isHidden = true
             
+            waitingLbl.isHidden = false
+            tableView.isHidden = false
+            
             let params:[String:Any] = [
                 "turn_duration":duration,
                 "bet":bet,
@@ -152,4 +162,51 @@ class CreateGameViewController: UIViewController {
         }
     }
     
+    func freePlayers() -> [PlayerInfo]
+    {
+        let playerId = PlayerStat.shared.id
+        let players = Room.shared.freePlayers().filter({ (player) -> Bool in
+            return player.id != playerId && !playersIgnoredInvitation.contains(player.id)
+        })
+        return players
+    }
+    
+}
+
+extension CreateGameViewController: UITableViewDelegate
+{
+    
+}
+
+extension CreateGameViewController: UITableViewDataSource
+{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch sections[section] {
+        case .FreeTables:
+            return (PlayerStat.shared.tableId != nil) ? 1:0
+        case .FreePlayers:
+            return freePlayers().count
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch sections[indexPath.section] {
+        case .FreeTables:
+            if let tableId = PlayerStat.shared.tableId,
+                let tableInfo = Room.shared.tablesInfo[tableId] {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MatchCellId", for: indexPath) as! MatchCell
+                cell.update(with: tableInfo)
+                return cell
+            }
+        default:
+            break
+        }
+        return UITableViewCell(frame: .zero)
+    }
 }

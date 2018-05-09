@@ -145,6 +145,14 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VFT-bG-jJb">
+                                <rect key="frame" x="0.0" y="82" width="480" height="238"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y3g-VT-qAI" id="F9z-B5-WFT"/>
+                                    <outlet property="delegate" destination="Y3g-VT-qAI" id="T88-zT-brL"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -156,10 +164,14 @@
                             <constraint firstItem="Ofz-hM-SwF" firstAttribute="top" secondItem="Z3x-Cs-f2W" secondAttribute="bottom" constant="16" id="U5e-rA-YrY"/>
                             <constraint firstItem="Wl4-Ew-GyT" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" id="Ujn-9Z-hzy"/>
                             <constraint firstItem="i7Q-7i-h3q" firstAttribute="top" secondItem="Wl4-Ew-GyT" secondAttribute="bottom" constant="16" id="Upu-4R-RbZ"/>
+                            <constraint firstItem="VFT-bG-jJb" firstAttribute="top" secondItem="LVF-zz-m0W" secondAttribute="bottom" constant="8" id="VHX-AL-zFz"/>
                             <constraint firstItem="Ofz-hM-SwF" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" multiplier="0.5" id="Vlx-7O-pPO"/>
+                            <constraint firstItem="9Lw-WW-xfu" firstAttribute="bottom" secondItem="VFT-bG-jJb" secondAttribute="bottom" id="Z2t-xy-sGv"/>
                             <constraint firstItem="LVF-zz-m0W" firstAttribute="top" secondItem="c8P-bC-Ffg" secondAttribute="bottom" constant="1" id="ZSo-pL-Mqx"/>
+                            <constraint firstItem="9Lw-WW-xfu" firstAttribute="trailing" secondItem="VFT-bG-jJb" secondAttribute="trailing" id="aHN-D0-r8i"/>
                             <constraint firstItem="a5B-3s-gy8" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" multiplier="1.5" id="aqG-Lw-LWv"/>
                             <constraint firstItem="Dhl-ka-OhE" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" multiplier="1.5" id="cKM-Qb-w6V"/>
+                            <constraint firstItem="VFT-bG-jJb" firstAttribute="leading" secondItem="9Lw-WW-xfu" secondAttribute="leading" id="dEm-xa-t0O"/>
                             <constraint firstItem="Z3x-Cs-f2W" firstAttribute="centerX" secondItem="9Lw-WW-xfu" secondAttribute="centerX" multiplier="0.5" id="hnr-Bm-E98"/>
                             <constraint firstItem="Z3x-Cs-f2W" firstAttribute="top" secondItem="c8P-bC-Ffg" secondAttribute="bottom" constant="16" id="ulh-9b-3nk"/>
                             <constraint firstItem="c8P-bC-Ffg" firstAttribute="top" secondItem="9Lw-WW-xfu" secondAttribute="top" constant="16" id="w0Q-f1-CYH"/>
@@ -173,6 +185,7 @@
                         <outlet property="createBtn" destination="i7Q-7i-h3q" id="K1e-iR-PM5"/>
                         <outlet property="gameTypeBtn" destination="Ofz-hM-SwF" id="tHe-45-lx9"/>
                         <outlet property="lockBtn" destination="Wl4-Ew-GyT" id="kKY-1y-Vqq"/>
+                        <outlet property="tableView" destination="VFT-bG-jJb" id="Wwd-Bc-XjM"/>
                         <outlet property="turnDurationBtn" destination="Z3x-Cs-f2W" id="IDw-6J-CvX"/>
                         <outlet property="upToBtn" destination="a5B-3s-gy8" id="Kkl-LV-vVs"/>
                         <outlet property="waitingLbl" destination="LVF-zz-m0W" id="AWa-ob-Z9D"/>
