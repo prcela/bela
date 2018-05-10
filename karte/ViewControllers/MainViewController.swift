@@ -104,7 +104,6 @@ class MainViewController: UIViewController {
         let name = p.alias
         let diamonds = p.diamonds
         
-        
         let playerTitle = "\(name)  💎 \(diamonds)"
         playerBtn?.setTitle(playerTitle, for: .normal)
     }

@@ -26,8 +26,9 @@ class WsAPI
     static let onDidConnect = Notification.Name("Notification.wsDidConnect")
     static let onDidDisconnect = Notification.Name("Notification.wsDidDisconnect")
     
-    static let onPlayerStatReceived = Notification.Name("Notification.onPlayerStatReceived")
-    static let onRoomInfo = Notification.Name("Notification.onRoomInfo")
+    static let onPlayerStatReceived = Notification.Name("WsAPI.onPlayerStatReceived")
+    static let onRoomInfo = Notification.Name("WsAPI.onRoomInfo")
+    static let onPlayerJoinedToTable = Notification.Name("WsAPI.onPlayerJoinedToTable")
     
     fileprivate var retryCount = 0
     fileprivate var pingInterval: TimeInterval = 40
@@ -166,6 +167,9 @@ extension WsAPI: WebSocketDelegate
                     
                     PlayerStat.shared = PlayerStat(json: json["player"], jsonStatItems: json["stat_items"])
                     nc.post(name: WsAPI.onPlayerStatReceived, object: json)
+                    
+                case .JoinTable:
+                    nc.post(name: WsAPI.onPlayerJoinedToTable, object: json)
                     
                 default:
                     break

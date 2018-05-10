@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 enum RoomSection
 {
@@ -70,6 +71,13 @@ extension RoomViewController: UITableViewDelegate
         switch sections[indexPath.section] {
         case .Create:
             performSegue(withIdentifier: "createGame", sender: nil)
+        case .FreeTables:
+            let table = Room.shared.freeTables()[indexPath.row]
+            if PlayerStat.shared.diamonds >= table.bet {
+                WsAPI.shared.send(.JoinTable, json: JSON(["table_id":table.id]))
+            } else {
+                suggestBuyDiamonds()
+            }
         default:
             break
         }
@@ -125,6 +133,7 @@ extension RoomViewController: UITableViewDataSource
             let cell = tableView.dequeueReusableCell(withIdentifier: "MatchCellId", for: indexPath) as! MatchCell
             let table = Room.shared.freeTables()[indexPath.row]
             cell.update(with: table)
+            cell.accessoryType = .disclosureIndicator
             return cell
         default:
             break

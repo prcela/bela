@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MenuViewController: UIViewController {
 
@@ -15,7 +16,9 @@ class MenuViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(onRoomInfo), name: Room.onInfo, object: nil)
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(onRoomInfo), name: Room.onInfo, object: nil)
+        nc.addObserver(self, selector: #selector(joinedTable), name: WsAPI.onPlayerJoinedToTable, object: nil)
     }
     
     override func viewDidLoad() {
@@ -29,20 +32,13 @@ class MenuViewController: UIViewController {
         onlinePlayersCtLbl?.text = String(format: lstr("Online players count"), Room.shared.playersInfo.count)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc func joinedTable(notification: Notification) {
+        let json = notification.object as! JSON
+        let joinedPlayerId = json["joined_player_id"].stringValue
+        guard joinedPlayerId == PlayerStat.shared.id else {return}
+        
+        // ooo thats me
+        let gameVC = UIStoryboard(name: "Game", bundle: nil).instantiateInitialViewController()!
+        navigationController?.pushViewController(gameVC, animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

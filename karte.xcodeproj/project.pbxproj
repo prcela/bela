@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970884B520A4CAFA005323DB /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 970884B420A4CAFA005323DB /* Game.storyboard */; };
+		970884B720A4CB39005323DB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884B620A4CB39005323DB /* GameViewController.swift */; };
 		971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11EE209E5A3300198DE5 /* AppDelegate.swift */; };
 		971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* MainViewController.swift */; };
 		971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F2209E5A3300198DE5 /* Main.storyboard */; };
@@ -70,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		93A3F16595814A68B2181BAC /* Pods-bela.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.debug.xcconfig"; sourceTree = "<group>"; };
+		970884B420A4CAFA005323DB /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
+		970884B620A4CB39005323DB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		971E11EB209E5A3300198DE5 /* bela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971E11EE209E5A3300198DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		971E11F0209E5A3300198DE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -166,9 +170,9 @@
 				971E126D20A32DFE00198DE5 /* Views */,
 				971E123620A2243F00198DE5 /* Locale */,
 				971E1204209EFF8700198DE5 /* Storyboards */,
+				971E1203209EFF6D00198DE5 /* ViewControllers */,
 				971E120E209F1B4200198DE5 /* Model */,
 				971E120B209F194500198DE5 /* Services */,
-				971E1203209EFF6D00198DE5 /* ViewControllers */,
 				971E1213209F1E2A00198DE5 /* Resources */,
 				971E11F5209E5A3400198DE5 /* Assets.xcassets */,
 				971E11FA209E5A3400198DE5 /* Info.plist */,
@@ -186,6 +190,7 @@
 				971E1209209F13D100198DE5 /* RoomViewController.swift */,
 				971E123420A2171300198DE5 /* CreateGameViewController.swift */,
 				971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */,
+				970884B620A4CB39005323DB /* GameViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				971E1207209F139200198DE5 /* Room.storyboard */,
 				971E1218209F1F6300198DE5 /* Leaderboard.storyboard */,
 				971E121A209F1F7900198DE5 /* Rules.storyboard */,
+				970884B420A4CAFA005323DB /* Game.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970884B520A4CAFA005323DB /* Game.storyboard in Resources */,
 				971E1217209F1E4800198DE5 /* up.png in Resources */,
 				971E1208209F139200198DE5 /* Room.storyboard in Resources */,
 				971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */,
@@ -516,6 +523,7 @@
 				971E122B20A1D0D000198DE5 /* PlayerInfo.swift in Sources */,
 				971E1212209F1C9000198DE5 /* Helper.swift in Sources */,
 				971E123120A1D3CE00198DE5 /* MatchResult.swift in Sources */,
+				970884B720A4CB39005323DB /* GameViewController.swift in Sources */,
 				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
 				971E123520A2171300198DE5 /* CreateGameViewController.swift in Sources */,
 				971E1210209F1B8900198DE5 /* PlayerStat.swift in Sources */,
