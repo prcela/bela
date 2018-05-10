@@ -13,7 +13,7 @@
         <!--Main View Controller-->
         <scene sceneID="hGa-uZ-CIs">
             <objects>
-                <viewController id="Nut-Jn-JMY" customClass="MainViewController" customModule="Yamb" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nut-Jn-JMY" customClass="MainViewController" customModule="bela" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KZu-gP-RaQ"/>
                         <viewControllerLayoutGuide type="bottom" id="DxY-ek-ue3"/>
@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="671" y="354"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="FYW-o8-gzr">
             <objects>
-                <viewController id="7pF-tm-Bqu" sceneMemberID="viewController">
+                <viewController id="7pF-tm-Bqu" customClass="MenuViewController" customModule="bela" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="You-YX-9JR">
                         <rect key="frame" x="0.0" y="0.0" width="736" height="370"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,6 +145,9 @@
                         <viewLayoutGuide key="safeArea" id="n0L-q1-htn"/>
                     </view>
                     <navigationItem key="navigationItem" id="GdP-HC-vKT"/>
+                    <connections>
+                        <outlet property="onlinePlayersCtLbl" destination="DoD-pf-nCR" id="5GU-dd-05B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TkB-Up-9Fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

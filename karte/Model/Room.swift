@@ -48,4 +48,12 @@ class Room {
             return pi0.alias < pi1.alias
         })
     }
+    
+    func freeTables() -> [TableInfo] {
+        return tablesInfo.filter({ (arg) -> Bool in
+            return arg.value.playersId.count < arg.value.capacity
+        }).map({ (arg) -> TableInfo in
+            return arg.value
+        })
+    }
 }

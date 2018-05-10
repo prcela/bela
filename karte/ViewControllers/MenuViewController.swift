@@ -10,10 +10,23 @@ import UIKit
 
 class MenuViewController: UIViewController {
 
+    @IBOutlet weak var onlinePlayersCtLbl: UILabel?
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onRoomInfo), name: Room.onInfo, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        onlinePlayersCtLbl?.text = String(format: lstr("Online players count"), Room.shared.playersInfo.count)
+    }
+    
+    @objc func onRoomInfo()  {
+        onlinePlayersCtLbl?.text = String(format: lstr("Online players count"), Room.shared.playersInfo.count)
     }
 
     override func didReceiveMemoryWarning() {

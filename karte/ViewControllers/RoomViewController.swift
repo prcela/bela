@@ -30,6 +30,7 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView?.register(UINib(nibName: "MatchCell", bundle: nil), forCellReuseIdentifier: "MatchCellId")
         WsAPI.shared.send(.RoomInfo)
     }
     
@@ -73,6 +74,15 @@ extension RoomViewController: UITableViewDelegate
             break
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch sections[indexPath.section] {
+        case .FreeTables:
+            return 118
+        default:
+            return tableView.rowHeight
+        }
+    }
 }
 
 extension RoomViewController: UITableViewDataSource
@@ -91,6 +101,8 @@ extension RoomViewController: UITableViewDataSource
             
         case .FreePlayers:
             return freePlayers().count
+        case .FreeTables:
+            return Room.shared.freeTables().count
         default:
             return 0
         }
@@ -109,11 +121,14 @@ extension RoomViewController: UITableViewDataSource
             cell.textLabel?.text = player.alias
             cell.accessoryType = .disclosureIndicator
             return cell
+        case .FreeTables:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MatchCellId", for: indexPath) as! MatchCell
+            let table = Room.shared.freeTables()[indexPath.row]
+            cell.update(with: table)
+            return cell
         default:
             break
         }
         return UITableViewCell(frame: .zero)
     }
-    
-    
 }
