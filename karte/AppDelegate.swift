@@ -93,6 +93,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         PlayerStat.saveStat()
+        
+        if let tableId = PlayerStat.shared.tableId {
+            WsAPI.shared.send(.LeaveTable, json: ["table_id":tableId])
+        }
     }
 
 

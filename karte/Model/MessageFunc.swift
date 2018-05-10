@@ -15,5 +15,6 @@ enum MessageFunc: String
     case UpdatePlayer = "update_player"
     case RoomInfo = "room_info"
     case CreateTable = "create_table"
+    case LeaveTable = "leave_table"
 }
 

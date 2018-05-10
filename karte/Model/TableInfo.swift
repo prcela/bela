@@ -19,6 +19,8 @@ struct TableInfo
     let matchInfo: MatchInfo?
     let playersForRematch: [String]
     let matchResult: MatchResult?
+    let gameType: GameType
+    let upToPoints: Int
     
     init(json: JSON) {
         id = json["id"].stringValue
@@ -33,5 +35,7 @@ struct TableInfo
             return json.stringValue
         })
         matchResult = nil
+        gameType = GameType(rawValue: json["game_type"].intValue)!
+        upToPoints = json["up_to_points"].intValue
     }
 }

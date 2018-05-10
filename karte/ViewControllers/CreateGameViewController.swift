@@ -51,11 +51,20 @@ class CreateGameViewController: UIViewController {
     
     let sections:[RoomSection] = [.FreeTables,.FreePlayers]
     var playersIgnoredInvitation = Set<String>()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(updateTable), name: Room.onInfo, object: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.register(UINib(nibName: "MatchCell", bundle: nil), forCellReuseIdentifier: "MatchCellId")
+        
         updateTurnDurationBtn()
         updateGameTypeBtn()
         updateUpToBtn()
@@ -65,8 +74,19 @@ class CreateGameViewController: UIViewController {
         waitingLbl.isHidden = true
         tableView.isHidden = true
     }
+    
+    @objc func updateTable() {
+        tableView.reloadData()
+    }
 
     @IBAction func back(_ sender: Any) {
+        if let tableId = PlayerStat.shared.tableId
+        {
+            let json = JSON(["table_id":tableId])
+            WsAPI.shared.send(.LeaveTable, json: json)
+            PlayerStat.shared.tableId = nil
+        }
+        
         navigationController?.popViewController(animated: true)
     }
     
@@ -175,7 +195,27 @@ class CreateGameViewController: UIViewController {
 
 extension CreateGameViewController: UITableViewDelegate
 {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch sections[indexPath.section] {
+        case .FreeTables:
+            return 118
+        default:
+            return tableView.rowHeight
+        }
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch sections[section] {
+        case .FreeTables:
+            return lstr("Game")
+        default:
+            return lstr("Invite someone")
+        }
+    }
 }
 
 extension CreateGameViewController: UITableViewDataSource

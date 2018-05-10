@@ -24,7 +24,13 @@ class Room {
     {
         let json = notification.object as! JSON
         playersInfo = json["players"].dictionaryValue.mapValues({ (json) -> PlayerInfo in
-            return PlayerInfo(json: json)
+            let pi = PlayerInfo(json: json)
+            if pi.id == PlayerStat.shared.id {
+                PlayerStat.shared.alias = pi.alias
+                PlayerStat.shared.diamonds = pi.diamonds
+                PlayerStat.shared.tableId = pi.tableId
+            }
+            return pi
         })
         tablesInfo = json["tables"].dictionaryValue.mapValues({ (json) -> TableInfo in
             return TableInfo(json: json)
