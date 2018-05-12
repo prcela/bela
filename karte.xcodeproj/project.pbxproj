@@ -12,12 +12,74 @@
 		970884B920A4DBA4005323DB /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970884B820A4DBA4005323DB /* SceneKit.framework */; };
 		970884BA20A4DBAB005323DB /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970884B820A4DBA4005323DB /* SceneKit.framework */; };
 		970884E120A6ED34005323DB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 970884E020A6ED34005323DB /* GameScene.sks */; };
-		970884E420A6F3CB005323DB /* žir_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E320A6F3CA005323DB /* žir_kec.jpg */; };
-		970884E520A6F3CB005323DB /* žir_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E320A6F3CA005323DB /* žir_kec.jpg */; };
 		970884E720A6F581005323DB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* GameScene.swift */; };
 		970884E820A6F581005323DB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* GameScene.swift */; };
-		970884EA20A6FCEC005323DB /* žir_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E920A6FCEB005323DB /* žir_vii.jpg */; };
-		970884EB20A6FCEC005323DB /* žir_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E920A6FCEB005323DB /* žir_vii.jpg */; };
+		9708850C20A709B1005323DB /* bundeva_ix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850420A709B1005323DB /* bundeva_ix.jpg */; };
+		9708850D20A709B1005323DB /* bundeva_ix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850420A709B1005323DB /* bundeva_ix.jpg */; };
+		9708850E20A709B1005323DB /* bundeva_dama.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850520A709B1005323DB /* bundeva_dama.jpg */; };
+		9708850F20A709B1005323DB /* bundeva_dama.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850520A709B1005323DB /* bundeva_dama.jpg */; };
+		9708851020A709B1005323DB /* bundeva_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850620A709B1005323DB /* bundeva_vii.jpg */; };
+		9708851120A709B1005323DB /* bundeva_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850620A709B1005323DB /* bundeva_vii.jpg */; };
+		9708851220A709B1005323DB /* bundeva_kralj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850720A709B1005323DB /* bundeva_kralj.jpg */; };
+		9708851320A709B1005323DB /* bundeva_kralj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850720A709B1005323DB /* bundeva_kralj.jpg */; };
+		9708851420A709B1005323DB /* bundeva_dečko.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850820A709B1005323DB /* bundeva_dečko.jpg */; };
+		9708851520A709B1005323DB /* bundeva_dečko.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850820A709B1005323DB /* bundeva_dečko.jpg */; };
+		9708851620A709B1005323DB /* bundeva_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850920A709B1005323DB /* bundeva_kec.jpg */; };
+		9708851720A709B1005323DB /* bundeva_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850920A709B1005323DB /* bundeva_kec.jpg */; };
+		9708851820A709B1005323DB /* bundeva_viii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850A20A709B1005323DB /* bundeva_viii.jpg */; };
+		9708851920A709B1005323DB /* bundeva_viii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850A20A709B1005323DB /* bundeva_viii.jpg */; };
+		9708851A20A709B1005323DB /* bundeva_x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850B20A709B1005323DB /* bundeva_x.jpg */; };
+		9708851B20A709B1005323DB /* bundeva_x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708850B20A709B1005323DB /* bundeva_x.jpg */; };
+		9708852420A709BC005323DB /* list_x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708851C20A709BB005323DB /* list_x.jpg */; };
+		9708852520A709BC005323DB /* list_x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708851C20A709BB005323DB /* list_x.jpg */; };
+		9708852620A709BC005323DB /* list_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708851D20A709BB005323DB /* list_kec.jpg */; };
+		9708852720A709BC005323DB /* list_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708851D20A709BB005323DB /* list_kec.jpg */; };
+		9708852820A709BC005323DB /* list_kralj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708851E20A709BB005323DB /* list_kralj.jpg */; };
+		9708852920A709BC005323DB /* list_kralj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708851E20A709BB005323DB /* list_kralj.jpg */; };
+		9708852A20A709BC005323DB /* list_viii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708851F20A709BB005323DB /* list_viii.jpg */; };
+		9708852B20A709BC005323DB /* list_viii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708851F20A709BB005323DB /* list_viii.jpg */; };
+		9708852C20A709BC005323DB /* list_dečko.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708852020A709BB005323DB /* list_dečko.jpg */; };
+		9708852D20A709BC005323DB /* list_dečko.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708852020A709BB005323DB /* list_dečko.jpg */; };
+		9708852E20A709BC005323DB /* list_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708852120A709BC005323DB /* list_vii.jpg */; };
+		9708852F20A709BC005323DB /* list_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708852120A709BC005323DB /* list_vii.jpg */; };
+		9708853020A709BC005323DB /* list_dama.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708852220A709BC005323DB /* list_dama.jpg */; };
+		9708853120A709BC005323DB /* list_dama.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708852220A709BC005323DB /* list_dama.jpg */; };
+		9708853220A709BC005323DB /* list_ix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708852320A709BC005323DB /* list_ix.jpg */; };
+		9708853320A709BC005323DB /* list_ix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708852320A709BC005323DB /* list_ix.jpg */; };
+		9708853C20A709C6005323DB /* srce_viii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853420A709C5005323DB /* srce_viii.jpg */; };
+		9708853D20A709C6005323DB /* srce_viii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853420A709C5005323DB /* srce_viii.jpg */; };
+		9708853E20A709C6005323DB /* srce_x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853520A709C5005323DB /* srce_x.jpg */; };
+		9708853F20A709C6005323DB /* srce_x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853520A709C5005323DB /* srce_x.jpg */; };
+		9708854020A709C6005323DB /* srce_ix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853620A709C5005323DB /* srce_ix.jpg */; };
+		9708854120A709C6005323DB /* srce_ix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853620A709C5005323DB /* srce_ix.jpg */; };
+		9708854220A709C6005323DB /* srce_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853720A709C5005323DB /* srce_kec.jpg */; };
+		9708854320A709C6005323DB /* srce_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853720A709C5005323DB /* srce_kec.jpg */; };
+		9708854420A709C6005323DB /* srce_kralj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853820A709C5005323DB /* srce_kralj.jpg */; };
+		9708854520A709C6005323DB /* srce_kralj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853820A709C5005323DB /* srce_kralj.jpg */; };
+		9708854620A709C6005323DB /* srce_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853920A709C5005323DB /* srce_vii.jpg */; };
+		9708854720A709C6005323DB /* srce_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853920A709C5005323DB /* srce_vii.jpg */; };
+		9708854820A709C6005323DB /* srce_dečko.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853A20A709C5005323DB /* srce_dečko.jpg */; };
+		9708854920A709C6005323DB /* srce_dečko.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853A20A709C5005323DB /* srce_dečko.jpg */; };
+		9708854A20A709C6005323DB /* srce_dama.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853B20A709C6005323DB /* srce_dama.jpg */; };
+		9708854B20A709C6005323DB /* srce_dama.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708853B20A709C6005323DB /* srce_dama.jpg */; };
+		9708855420A709CF005323DB /* žir_dama.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708854C20A709CE005323DB /* žir_dama.jpg */; };
+		9708855520A709CF005323DB /* žir_dama.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708854C20A709CE005323DB /* žir_dama.jpg */; };
+		9708855620A709CF005323DB /* žir_kralj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708854D20A709CE005323DB /* žir_kralj.jpg */; };
+		9708855720A709CF005323DB /* žir_kralj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708854D20A709CE005323DB /* žir_kralj.jpg */; };
+		9708855820A709CF005323DB /* žir_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708854E20A709CE005323DB /* žir_vii.jpg */; };
+		9708855920A709CF005323DB /* žir_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708854E20A709CE005323DB /* žir_vii.jpg */; };
+		9708855A20A709CF005323DB /* žir_viii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708854F20A709CF005323DB /* žir_viii.jpg */; };
+		9708855B20A709CF005323DB /* žir_viii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708854F20A709CF005323DB /* žir_viii.jpg */; };
+		9708855C20A709CF005323DB /* žir_x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708855020A709CF005323DB /* žir_x.jpg */; };
+		9708855D20A709CF005323DB /* žir_x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708855020A709CF005323DB /* žir_x.jpg */; };
+		9708855E20A709CF005323DB /* žir_ix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708855120A709CF005323DB /* žir_ix.jpg */; };
+		9708855F20A709CF005323DB /* žir_ix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708855120A709CF005323DB /* žir_ix.jpg */; };
+		9708856020A709CF005323DB /* žir_dečko.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708855220A709CF005323DB /* žir_dečko.jpg */; };
+		9708856120A709CF005323DB /* žir_dečko.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708855220A709CF005323DB /* žir_dečko.jpg */; };
+		9708856220A709CF005323DB /* žir_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708855320A709CF005323DB /* žir_kec.jpg */; };
+		9708856320A709CF005323DB /* žir_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708855320A709CF005323DB /* žir_kec.jpg */; };
+		9708856520A70A4F005323DB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856420A70A4F005323DB /* Card.swift */; };
+		9708856620A70A4F005323DB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856420A70A4F005323DB /* Card.swift */; };
 		971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11EE209E5A3300198DE5 /* AppDelegate.swift */; };
 		971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* MainViewController.swift */; };
 		971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F2209E5A3300198DE5 /* Main.storyboard */; };
@@ -85,9 +147,40 @@
 		970884B620A4CB39005323DB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		970884B820A4DBA4005323DB /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		970884E020A6ED34005323DB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		970884E320A6F3CA005323DB /* žir_kec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_kec.jpg"; path = "2002/žir_kec.jpg"; sourceTree = "<group>"; };
 		970884E620A6F581005323DB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		970884E920A6FCEB005323DB /* žir_vii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_vii.jpg"; path = "2002/žir_vii.jpg"; sourceTree = "<group>"; };
+		9708850420A709B1005323DB /* bundeva_ix.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bundeva_ix.jpg; path = 2002/bundeva_ix.jpg; sourceTree = "<group>"; };
+		9708850520A709B1005323DB /* bundeva_dama.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bundeva_dama.jpg; path = 2002/bundeva_dama.jpg; sourceTree = "<group>"; };
+		9708850620A709B1005323DB /* bundeva_vii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bundeva_vii.jpg; path = 2002/bundeva_vii.jpg; sourceTree = "<group>"; };
+		9708850720A709B1005323DB /* bundeva_kralj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bundeva_kralj.jpg; path = 2002/bundeva_kralj.jpg; sourceTree = "<group>"; };
+		9708850820A709B1005323DB /* bundeva_dečko.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bundeva_dečko.jpg"; path = "2002/bundeva_dečko.jpg"; sourceTree = "<group>"; };
+		9708850920A709B1005323DB /* bundeva_kec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bundeva_kec.jpg; path = 2002/bundeva_kec.jpg; sourceTree = "<group>"; };
+		9708850A20A709B1005323DB /* bundeva_viii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bundeva_viii.jpg; path = 2002/bundeva_viii.jpg; sourceTree = "<group>"; };
+		9708850B20A709B1005323DB /* bundeva_x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bundeva_x.jpg; path = 2002/bundeva_x.jpg; sourceTree = "<group>"; };
+		9708851C20A709BB005323DB /* list_x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = list_x.jpg; path = 2002/list_x.jpg; sourceTree = "<group>"; };
+		9708851D20A709BB005323DB /* list_kec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = list_kec.jpg; path = 2002/list_kec.jpg; sourceTree = "<group>"; };
+		9708851E20A709BB005323DB /* list_kralj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = list_kralj.jpg; path = 2002/list_kralj.jpg; sourceTree = "<group>"; };
+		9708851F20A709BB005323DB /* list_viii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = list_viii.jpg; path = 2002/list_viii.jpg; sourceTree = "<group>"; };
+		9708852020A709BB005323DB /* list_dečko.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "list_dečko.jpg"; path = "2002/list_dečko.jpg"; sourceTree = "<group>"; };
+		9708852120A709BC005323DB /* list_vii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = list_vii.jpg; path = 2002/list_vii.jpg; sourceTree = "<group>"; };
+		9708852220A709BC005323DB /* list_dama.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = list_dama.jpg; path = 2002/list_dama.jpg; sourceTree = "<group>"; };
+		9708852320A709BC005323DB /* list_ix.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = list_ix.jpg; path = 2002/list_ix.jpg; sourceTree = "<group>"; };
+		9708853420A709C5005323DB /* srce_viii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = srce_viii.jpg; path = 2002/srce_viii.jpg; sourceTree = "<group>"; };
+		9708853520A709C5005323DB /* srce_x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = srce_x.jpg; path = 2002/srce_x.jpg; sourceTree = "<group>"; };
+		9708853620A709C5005323DB /* srce_ix.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = srce_ix.jpg; path = 2002/srce_ix.jpg; sourceTree = "<group>"; };
+		9708853720A709C5005323DB /* srce_kec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = srce_kec.jpg; path = 2002/srce_kec.jpg; sourceTree = "<group>"; };
+		9708853820A709C5005323DB /* srce_kralj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = srce_kralj.jpg; path = 2002/srce_kralj.jpg; sourceTree = "<group>"; };
+		9708853920A709C5005323DB /* srce_vii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = srce_vii.jpg; path = 2002/srce_vii.jpg; sourceTree = "<group>"; };
+		9708853A20A709C5005323DB /* srce_dečko.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "srce_dečko.jpg"; path = "2002/srce_dečko.jpg"; sourceTree = "<group>"; };
+		9708853B20A709C6005323DB /* srce_dama.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = srce_dama.jpg; path = 2002/srce_dama.jpg; sourceTree = "<group>"; };
+		9708854C20A709CE005323DB /* žir_dama.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_dama.jpg"; path = "2002/žir_dama.jpg"; sourceTree = "<group>"; };
+		9708854D20A709CE005323DB /* žir_kralj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_kralj.jpg"; path = "2002/žir_kralj.jpg"; sourceTree = "<group>"; };
+		9708854E20A709CE005323DB /* žir_vii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_vii.jpg"; path = "2002/žir_vii.jpg"; sourceTree = "<group>"; };
+		9708854F20A709CF005323DB /* žir_viii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_viii.jpg"; path = "2002/žir_viii.jpg"; sourceTree = "<group>"; };
+		9708855020A709CF005323DB /* žir_x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_x.jpg"; path = "2002/žir_x.jpg"; sourceTree = "<group>"; };
+		9708855120A709CF005323DB /* žir_ix.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_ix.jpg"; path = "2002/žir_ix.jpg"; sourceTree = "<group>"; };
+		9708855220A709CF005323DB /* žir_dečko.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_dečko.jpg"; path = "2002/žir_dečko.jpg"; sourceTree = "<group>"; };
+		9708855320A709CF005323DB /* žir_kec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_kec.jpg"; path = "2002/žir_kec.jpg"; sourceTree = "<group>"; };
+		9708856420A70A4F005323DB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		971E11EB209E5A3300198DE5 /* bela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971E11EE209E5A3300198DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		971E11F0209E5A3300198DE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -171,8 +264,38 @@
 		970884E220A6F3BC005323DB /* 2002 */ = {
 			isa = PBXGroup;
 			children = (
-				970884E320A6F3CA005323DB /* žir_kec.jpg */,
-				970884E920A6FCEB005323DB /* žir_vii.jpg */,
+				9708854C20A709CE005323DB /* žir_dama.jpg */,
+				9708855220A709CF005323DB /* žir_dečko.jpg */,
+				9708855120A709CF005323DB /* žir_ix.jpg */,
+				9708855320A709CF005323DB /* žir_kec.jpg */,
+				9708854D20A709CE005323DB /* žir_kralj.jpg */,
+				9708854E20A709CE005323DB /* žir_vii.jpg */,
+				9708854F20A709CF005323DB /* žir_viii.jpg */,
+				9708855020A709CF005323DB /* žir_x.jpg */,
+				9708853B20A709C6005323DB /* srce_dama.jpg */,
+				9708853A20A709C5005323DB /* srce_dečko.jpg */,
+				9708853620A709C5005323DB /* srce_ix.jpg */,
+				9708853720A709C5005323DB /* srce_kec.jpg */,
+				9708853820A709C5005323DB /* srce_kralj.jpg */,
+				9708853920A709C5005323DB /* srce_vii.jpg */,
+				9708853420A709C5005323DB /* srce_viii.jpg */,
+				9708853520A709C5005323DB /* srce_x.jpg */,
+				9708852220A709BC005323DB /* list_dama.jpg */,
+				9708852020A709BB005323DB /* list_dečko.jpg */,
+				9708852320A709BC005323DB /* list_ix.jpg */,
+				9708851D20A709BB005323DB /* list_kec.jpg */,
+				9708851E20A709BB005323DB /* list_kralj.jpg */,
+				9708852120A709BC005323DB /* list_vii.jpg */,
+				9708851F20A709BB005323DB /* list_viii.jpg */,
+				9708851C20A709BB005323DB /* list_x.jpg */,
+				9708850520A709B1005323DB /* bundeva_dama.jpg */,
+				9708850820A709B1005323DB /* bundeva_dečko.jpg */,
+				9708850420A709B1005323DB /* bundeva_ix.jpg */,
+				9708850920A709B1005323DB /* bundeva_kec.jpg */,
+				9708850720A709B1005323DB /* bundeva_kralj.jpg */,
+				9708850620A709B1005323DB /* bundeva_vii.jpg */,
+				9708850A20A709B1005323DB /* bundeva_viii.jpg */,
+				9708850B20A709B1005323DB /* bundeva_x.jpg */,
 			);
 			name = 2002;
 			sourceTree = "<group>";
@@ -265,6 +388,7 @@
 				971E123220A1D4E900198DE5 /* Room.swift */,
 				971E123D20A2D2E500198DE5 /* Prefs.swift */,
 				971E124120A2D60B00198DE5 /* Constants.swift */,
+				9708856420A70A4F005323DB /* Card.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -396,21 +520,51 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9708856020A709CF005323DB /* žir_dečko.jpg in Resources */,
+				9708852620A709BC005323DB /* list_kec.jpg in Resources */,
+				9708855620A709CF005323DB /* žir_kralj.jpg in Resources */,
 				970884B520A4CAFA005323DB /* Game.storyboard in Resources */,
-				970884EA20A6FCEC005323DB /* žir_vii.jpg in Resources */,
 				971E1217209F1E4800198DE5 /* up.png in Resources */,
+				9708854A20A709C6005323DB /* srce_dama.jpg in Resources */,
+				9708852A20A709BC005323DB /* list_viii.jpg in Resources */,
 				971E1208209F139200198DE5 /* Room.storyboard in Resources */,
+				9708854220A709C6005323DB /* srce_kec.jpg in Resources */,
+				9708851220A709B1005323DB /* bundeva_kralj.jpg in Resources */,
 				971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */,
+				9708854020A709C6005323DB /* srce_ix.jpg in Resources */,
+				9708855820A709CF005323DB /* žir_vii.jpg in Resources */,
+				9708854420A709C6005323DB /* srce_kralj.jpg in Resources */,
+				9708851A20A709B1005323DB /* bundeva_x.jpg in Resources */,
+				9708855E20A709CF005323DB /* žir_ix.jpg in Resources */,
 				971E1201209E622000198DE5 /* GoogleService-Info.plist in Resources */,
+				9708854820A709C6005323DB /* srce_dečko.jpg in Resources */,
 				971E127120A32E6400198DE5 /* MatchCell.xib in Resources */,
-				970884E420A6F3CB005323DB /* žir_kec.jpg in Resources */,
+				9708855420A709CF005323DB /* žir_dama.jpg in Resources */,
+				9708850E20A709B1005323DB /* bundeva_dama.jpg in Resources */,
+				9708855C20A709CF005323DB /* žir_x.jpg in Resources */,
+				9708852E20A709BC005323DB /* list_vii.jpg in Resources */,
+				9708851820A709B1005323DB /* bundeva_viii.jpg in Resources */,
 				971E1216209F1E4800198DE5 /* up@2x.png in Resources */,
+				9708852C20A709BC005323DB /* list_dečko.jpg in Resources */,
+				9708852820A709BC005323DB /* list_kralj.jpg in Resources */,
+				9708851420A709B1005323DB /* bundeva_dečko.jpg in Resources */,
+				9708853C20A709C6005323DB /* srce_viii.jpg in Resources */,
 				971E123920A2248300198DE5 /* Localizable.strings in Resources */,
+				9708850C20A709B1005323DB /* bundeva_ix.jpg in Resources */,
+				9708856220A709CF005323DB /* žir_kec.jpg in Resources */,
+				9708854620A709C6005323DB /* srce_vii.jpg in Resources */,
+				9708855A20A709CF005323DB /* žir_viii.jpg in Resources */,
+				9708851020A709B1005323DB /* bundeva_vii.jpg in Resources */,
+				9708851620A709B1005323DB /* bundeva_kec.jpg in Resources */,
+				9708852420A709BC005323DB /* list_x.jpg in Resources */,
 				971E121B209F1F7900198DE5 /* Rules.storyboard in Resources */,
 				971E1219209F1F6300198DE5 /* Leaderboard.storyboard in Resources */,
 				971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */,
 				970884E120A6ED34005323DB /* GameScene.sks in Resources */,
+				9708853020A709BC005323DB /* list_dama.jpg in Resources */,
+				9708853220A709BC005323DB /* list_ix.jpg in Resources */,
 				971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */,
+				9708853E20A709C6005323DB /* srce_x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,15 +572,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9708852B20A709BC005323DB /* list_viii.jpg in Resources */,
+				9708855D20A709CF005323DB /* žir_x.jpg in Resources */,
+				9708851320A709B1005323DB /* bundeva_kralj.jpg in Resources */,
+				9708853320A709BC005323DB /* list_ix.jpg in Resources */,
+				9708850F20A709B1005323DB /* bundeva_dama.jpg in Resources */,
+				9708851720A709B1005323DB /* bundeva_kec.jpg in Resources */,
 				971E125C20A303BD00198DE5 /* up.png in Resources */,
+				9708851520A709B1005323DB /* bundeva_dečko.jpg in Resources */,
 				971E125F20A303BD00198DE5 /* GoogleService-Info.plist in Resources */,
+				9708854320A709C6005323DB /* srce_kec.jpg in Resources */,
+				9708855920A709CF005323DB /* žir_vii.jpg in Resources */,
+				9708851920A709B1005323DB /* bundeva_viii.jpg in Resources */,
+				9708854120A709C6005323DB /* srce_ix.jpg in Resources */,
+				9708855F20A709CF005323DB /* žir_ix.jpg in Resources */,
+				9708850D20A709B1005323DB /* bundeva_ix.jpg in Resources */,
+				9708851B20A709B1005323DB /* bundeva_x.jpg in Resources */,
+				9708854720A709C6005323DB /* srce_vii.jpg in Resources */,
+				9708854520A709C6005323DB /* srce_kralj.jpg in Resources */,
+				9708855520A709CF005323DB /* žir_dama.jpg in Resources */,
+				9708851120A709B1005323DB /* bundeva_vii.jpg in Resources */,
+				9708854B20A709C6005323DB /* srce_dama.jpg in Resources */,
 				971E126020A303BD00198DE5 /* up@2x.png in Resources */,
 				971E126120A303BD00198DE5 /* Localizable.strings in Resources */,
-				970884EB20A6FCEC005323DB /* žir_vii.jpg in Resources */,
+				9708854920A709C6005323DB /* srce_dečko.jpg in Resources */,
+				9708852920A709BC005323DB /* list_kralj.jpg in Resources */,
+				9708855720A709CF005323DB /* žir_kralj.jpg in Resources */,
+				9708852520A709BC005323DB /* list_x.jpg in Resources */,
+				9708852D20A709BC005323DB /* list_dečko.jpg in Resources */,
+				9708853D20A709C6005323DB /* srce_viii.jpg in Resources */,
+				9708855B20A709CF005323DB /* žir_viii.jpg in Resources */,
+				9708856120A709CF005323DB /* žir_dečko.jpg in Resources */,
 				971E126220A303BD00198DE5 /* Rules.storyboard in Resources */,
 				971E126320A303BD00198DE5 /* Leaderboard.storyboard in Resources */,
-				970884E520A6F3CB005323DB /* žir_kec.jpg in Resources */,
 				971E126420A303BD00198DE5 /* Assets.xcassets in Resources */,
+				9708852720A709BC005323DB /* list_kec.jpg in Resources */,
+				9708853F20A709C6005323DB /* srce_x.jpg in Resources */,
+				9708853120A709BC005323DB /* list_dama.jpg in Resources */,
+				9708856320A709CF005323DB /* žir_kec.jpg in Resources */,
+				9708852F20A709BC005323DB /* list_vii.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +752,7 @@
 				970884B720A4CB39005323DB /* GameViewController.swift in Sources */,
 				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
 				971E123520A2171300198DE5 /* CreateGameViewController.swift in Sources */,
+				9708856520A70A4F005323DB /* Card.swift in Sources */,
 				971E1210209F1B8900198DE5 /* PlayerStat.swift in Sources */,
 				971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */,
 				971E121D209F328000198DE5 /* MessageFunc.swift in Sources */,
@@ -599,6 +784,7 @@
 				971E124F20A303BD00198DE5 /* PlayerStat.swift in Sources */,
 				970884E820A6F581005323DB /* GameScene.swift in Sources */,
 				971E125020A303BD00198DE5 /* MenuViewController.swift in Sources */,
+				9708856620A70A4F005323DB /* Card.swift in Sources */,
 				971E125120A303BD00198DE5 /* MessageFunc.swift in Sources */,
 				971E125220A303BD00198DE5 /* AppDelegate.swift in Sources */,
 				971E125320A303BD00198DE5 /* Prefs.swift in Sources */,

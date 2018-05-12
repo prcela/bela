@@ -14,17 +14,26 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        let cardNames = ["žir_kec.jpg","žir_vii.jpg"]
+        let cards: [Card] = [
+            Card(boja: .žir, broj: .vii),
+            Card(boja: .žir, broj: .dama),
+            Card(boja: .srce, broj: .kec),
+            Card(boja: .list, broj: .ix),
+            Card(boja: .bundeva, broj: .viii),
+            Card(boja: .bundeva, broj: .kec),
+            Card(boja: .list, broj: .vii)
+        ]
         
-        for (idx,cardName) in cardNames.enumerated() {
-            let cardW = size.width * 0.3
-            let cardRatio = CGFloat(374)/CGFloat(587)
+        for (idx,card) in cards.enumerated() {
+            let cardW = size.width * 0.2
+            let tex = SKTexture(imageNamed: card.imageName())
+            let cardRatio = tex.size().width/tex.size().height
             let cardNode = SKShapeNode(rectOf: CGSize(width: cardW, height: cardW/cardRatio), cornerRadius: cardW*0.08)
             cardNode.fillColor = .white
-            cardNode.fillTexture = SKTexture(imageNamed: cardName)
+            cardNode.fillTexture = tex
             cardNode.strokeColor = .black
             cardNode.zPosition = 0.01*CGFloat(idx)
-            cardNode.position = CGPoint(x: CGFloat(idx)*40, y: CGFloat(idx)*10)
+            cardNode.position = CGPoint(x: -150+CGFloat(idx)*40, y: -40+CGFloat(idx)*10)
             addChild(cardNode)
         }
         
