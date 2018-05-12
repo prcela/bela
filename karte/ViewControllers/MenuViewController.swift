@@ -31,5 +31,8 @@ class MenuViewController: UIViewController {
         onlinePlayersCtLbl?.text = String(format: lstr("Online players count"), Room.shared.playersInfo.count)
     }
 
+    @IBAction func onLeaderboard(_ sender: Any) {
+        MainViewController.shared?.openGame()
+    }
     
 }

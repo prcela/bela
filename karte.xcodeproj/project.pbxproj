@@ -14,6 +14,10 @@
 		970884E120A6ED34005323DB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 970884E020A6ED34005323DB /* GameScene.sks */; };
 		970884E420A6F3CB005323DB /* žir_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E320A6F3CA005323DB /* žir_kec.jpg */; };
 		970884E520A6F3CB005323DB /* žir_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E320A6F3CA005323DB /* žir_kec.jpg */; };
+		970884E720A6F581005323DB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* GameScene.swift */; };
+		970884E820A6F581005323DB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* GameScene.swift */; };
+		970884EA20A6FCEC005323DB /* žir_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E920A6FCEB005323DB /* žir_vii.jpg */; };
+		970884EB20A6FCEC005323DB /* žir_vii.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E920A6FCEB005323DB /* žir_vii.jpg */; };
 		971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11EE209E5A3300198DE5 /* AppDelegate.swift */; };
 		971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* MainViewController.swift */; };
 		971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F2209E5A3300198DE5 /* Main.storyboard */; };
@@ -82,6 +86,8 @@
 		970884B820A4DBA4005323DB /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		970884E020A6ED34005323DB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		970884E320A6F3CA005323DB /* žir_kec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_kec.jpg"; path = "2002/žir_kec.jpg"; sourceTree = "<group>"; };
+		970884E620A6F581005323DB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		970884E920A6FCEB005323DB /* žir_vii.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_vii.jpg"; path = "2002/žir_vii.jpg"; sourceTree = "<group>"; };
 		971E11EB209E5A3300198DE5 /* bela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971E11EE209E5A3300198DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		971E11F0209E5A3300198DE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				970884E020A6ED34005323DB /* GameScene.sks */,
+				970884E620A6F581005323DB /* GameScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -165,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				970884E320A6F3CA005323DB /* žir_kec.jpg */,
+				970884E920A6FCEB005323DB /* žir_vii.jpg */,
 			);
 			name = 2002;
 			sourceTree = "<group>";
@@ -389,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				970884B520A4CAFA005323DB /* Game.storyboard in Resources */,
+				970884EA20A6FCEC005323DB /* žir_vii.jpg in Resources */,
 				971E1217209F1E4800198DE5 /* up.png in Resources */,
 				971E1208209F139200198DE5 /* Room.storyboard in Resources */,
 				971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */,
@@ -413,6 +422,7 @@
 				971E125F20A303BD00198DE5 /* GoogleService-Info.plist in Resources */,
 				971E126020A303BD00198DE5 /* up@2x.png in Resources */,
 				971E126120A303BD00198DE5 /* Localizable.strings in Resources */,
+				970884EB20A6FCEC005323DB /* žir_vii.jpg in Resources */,
 				971E126220A303BD00198DE5 /* Rules.storyboard in Resources */,
 				971E126320A303BD00198DE5 /* Leaderboard.storyboard in Resources */,
 				970884E520A6F3CB005323DB /* žir_kec.jpg in Resources */,
@@ -564,6 +574,7 @@
 				971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */,
 				971E123E20A2D2E500198DE5 /* Prefs.swift in Sources */,
 				971E1222209F3D1600198DE5 /* DateExt.swift in Sources */,
+				970884E720A6F581005323DB /* GameScene.swift in Sources */,
 				971E127020A32E6400198DE5 /* MatchCell.swift in Sources */,
 				971E121F209F3C2F00198DE5 /* StatItem.swift in Sources */,
 				971E122D20A1D23400198DE5 /* TableInfo.swift in Sources */,
@@ -586,6 +597,7 @@
 				971E124D20A303BD00198DE5 /* MainViewController.swift in Sources */,
 				971E124E20A303BD00198DE5 /* CreateGameViewController.swift in Sources */,
 				971E124F20A303BD00198DE5 /* PlayerStat.swift in Sources */,
+				970884E820A6F581005323DB /* GameScene.swift in Sources */,
 				971E125020A303BD00198DE5 /* MenuViewController.swift in Sources */,
 				971E125120A303BD00198DE5 /* MessageFunc.swift in Sources */,
 				971E125220A303BD00198DE5 /* AppDelegate.swift in Sources */,
