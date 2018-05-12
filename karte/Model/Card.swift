@@ -16,6 +16,10 @@ struct Card {
         let naziv = String("\(boja)_\(broj).jpg")
         return naziv
     }
+    
+    func nodeName() -> String {
+        return "\(boja)_\(broj)"
+    }
 }
 
 enum Boja {

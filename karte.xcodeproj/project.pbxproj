@@ -80,6 +80,12 @@
 		9708856320A709CF005323DB /* žir_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708855320A709CF005323DB /* žir_kec.jpg */; };
 		9708856520A70A4F005323DB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856420A70A4F005323DB /* Card.swift */; };
 		9708856620A70A4F005323DB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856420A70A4F005323DB /* Card.swift */; };
+		9708856820A72DE2005323DB /* CardGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856720A72DE2005323DB /* CardGroup.swift */; };
+		9708856920A72DE2005323DB /* CardGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856720A72DE2005323DB /* CardGroup.swift */; };
+		9708856B20A72FCD005323DB /* deck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708856A20A72FCC005323DB /* deck.jpg */; };
+		9708856C20A72FCD005323DB /* deck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708856A20A72FCC005323DB /* deck.jpg */; };
+		9708856E20A75FCE005323DB /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856D20A75FCE005323DB /* CardNode.swift */; };
+		9708856F20A75FCE005323DB /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856D20A75FCE005323DB /* CardNode.swift */; };
 		971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11EE209E5A3300198DE5 /* AppDelegate.swift */; };
 		971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* MainViewController.swift */; };
 		971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F2209E5A3300198DE5 /* Main.storyboard */; };
@@ -181,6 +187,9 @@
 		9708855220A709CF005323DB /* žir_dečko.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_dečko.jpg"; path = "2002/žir_dečko.jpg"; sourceTree = "<group>"; };
 		9708855320A709CF005323DB /* žir_kec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_kec.jpg"; path = "2002/žir_kec.jpg"; sourceTree = "<group>"; };
 		9708856420A70A4F005323DB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9708856720A72DE2005323DB /* CardGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGroup.swift; sourceTree = "<group>"; };
+		9708856A20A72FCC005323DB /* deck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = deck.jpg; sourceTree = "<group>"; };
+		9708856D20A75FCE005323DB /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
 		971E11EB209E5A3300198DE5 /* bela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971E11EE209E5A3300198DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		971E11F0209E5A3300198DE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +266,7 @@
 			children = (
 				970884E020A6ED34005323DB /* GameScene.sks */,
 				970884E620A6F581005323DB /* GameScene.swift */,
+				9708856D20A75FCE005323DB /* CardNode.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -389,6 +399,7 @@
 				971E123D20A2D2E500198DE5 /* Prefs.swift */,
 				971E124120A2D60B00198DE5 /* Constants.swift */,
 				9708856420A70A4F005323DB /* Card.swift */,
+				9708856720A72DE2005323DB /* CardGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -396,6 +407,7 @@
 		971E1213209F1E2A00198DE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9708856A20A72FCC005323DB /* deck.jpg */,
 				970884E220A6F3BC005323DB /* 2002 */,
 				971E1215209F1E4800198DE5 /* up.png */,
 				971E1214209F1E4700198DE5 /* up@2x.png */,
@@ -540,6 +552,7 @@
 				9708854820A709C6005323DB /* srce_dečko.jpg in Resources */,
 				971E127120A32E6400198DE5 /* MatchCell.xib in Resources */,
 				9708855420A709CF005323DB /* žir_dama.jpg in Resources */,
+				9708856B20A72FCD005323DB /* deck.jpg in Resources */,
 				9708850E20A709B1005323DB /* bundeva_dama.jpg in Resources */,
 				9708855C20A709CF005323DB /* žir_x.jpg in Resources */,
 				9708852E20A709BC005323DB /* list_vii.jpg in Resources */,
@@ -578,6 +591,7 @@
 				9708853320A709BC005323DB /* list_ix.jpg in Resources */,
 				9708850F20A709B1005323DB /* bundeva_dama.jpg in Resources */,
 				9708851720A709B1005323DB /* bundeva_kec.jpg in Resources */,
+				9708856C20A72FCD005323DB /* deck.jpg in Resources */,
 				971E125C20A303BD00198DE5 /* up.png in Resources */,
 				9708851520A709B1005323DB /* bundeva_dečko.jpg in Resources */,
 				971E125F20A303BD00198DE5 /* GoogleService-Info.plist in Resources */,
@@ -743,6 +757,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				971E122F20A1D3A800198DE5 /* MatchInfo.swift in Sources */,
+				9708856820A72DE2005323DB /* CardGroup.swift in Sources */,
 				971E124220A2D60B00198DE5 /* Constants.swift in Sources */,
 				971E120D209F196300198DE5 /* WsApi.swift in Sources */,
 				971E124020A2D41000198DE5 /* UIViewControllerExt.swift in Sources */,
@@ -763,6 +778,7 @@
 				971E127020A32E6400198DE5 /* MatchCell.swift in Sources */,
 				971E121F209F3C2F00198DE5 /* StatItem.swift in Sources */,
 				971E122D20A1D23400198DE5 /* TableInfo.swift in Sources */,
+				9708856E20A75FCE005323DB /* CardNode.swift in Sources */,
 				971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */,
 				971E123320A1D4E900198DE5 /* Room.swift in Sources */,
 			);
@@ -790,9 +806,11 @@
 				971E125320A303BD00198DE5 /* Prefs.swift in Sources */,
 				971E125420A303BD00198DE5 /* DateExt.swift in Sources */,
 				971E125520A303BD00198DE5 /* StatItem.swift in Sources */,
+				9708856F20A75FCE005323DB /* CardNode.swift in Sources */,
 				971E125620A303BD00198DE5 /* TableInfo.swift in Sources */,
 				971E125720A303BD00198DE5 /* RoomViewController.swift in Sources */,
 				971E125820A303BD00198DE5 /* Room.swift in Sources */,
+				9708856920A72DE2005323DB /* CardGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

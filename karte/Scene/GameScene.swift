@@ -11,37 +11,63 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    let initialGroup = CardGroup()
+    let handGroup0 = PlayerHandGroup()
+    let handGroup1 = PlayerHandGroup()
+    let handGroup2 = PlayerHandGroup()
+    let handGroup3 = PlayerHandGroup()
     
     override func didMove(to view: SKView) {
         
-        let cards: [Card] = [
-            Card(boja: .žir, broj: .vii),
-            Card(boja: .žir, broj: .dama),
-            Card(boja: .srce, broj: .kec),
-            Card(boja: .list, broj: .ix),
-            Card(boja: .bundeva, broj: .viii),
-            Card(boja: .bundeva, broj: .kec),
-            Card(boja: .list, broj: .vii)
-        ]
+        // move all cards to initial group
+        initialGroup.pos = CGPoint(x: -50, y: 10)
+        initialGroup.zRotation = 1
+        for boja in [Boja.bundeva,Boja.list,Boja.srce,Boja.žir] {
+            for broj in [Broj.vii,Broj.viii,Broj.ix,Broj.x,Broj.dečko,Broj.dama,Broj.kralj,Broj.kec] {
+                initialGroup.cards.append(Card(boja: boja, broj: broj))
+            }
+        }
         
-        for (idx,card) in cards.enumerated() {
-            let cardW = size.width * 0.2
-            let tex = SKTexture(imageNamed: card.imageName())
-            let cardRatio = tex.size().width/tex.size().height
-            let cardSize = CGSize(width: cardW, height: cardW/cardRatio)
-            let cardNode = SKCropNode()
-            let shapeNode = SKShapeNode(rectOf: cardSize, cornerRadius: cardW*0.08)
-            cardNode.maskNode = shapeNode
-            let spriteNode = SKSpriteNode(texture: tex, size: cardSize)
-            cardNode.addChild(spriteNode)
-            cardNode.name = "card"
-            shapeNode.fillColor = .white
-            shapeNode.strokeColor = .black
-            cardNode.zPosition = 0.01*CGFloat(idx)
-            cardNode.position = CGPoint(x: -150+CGFloat(idx)*40, y: -40+CGFloat(idx)*10)
+        for (idx,card) in initialGroup.cards.enumerated()
+        {
+            let cardW = size.width * 0.15
+            let cardNode = CardNode(card: card,width: cardW)
+            cardNode.zPosition = initialGroup.zPosition(at: idx)
+            cardNode.position = initialGroup.position(at: idx)
+            cardNode.zRotation = initialGroup.zRotation(at: idx)
             addChild(cardNode)
         }
         
+        
+        let nodeP0 = self.childNode(withName: "//PlayerPlus0")!
+        handGroup0.setNodePlacement(node: nodeP0)
+        
+        let nodeP1 = self.childNode(withName: "//PlayerPlus1")!
+        handGroup1.setNodePlacement(node: nodeP1)
+        
+        let nodeP2 = self.childNode(withName: "//PlayerPlus2")!
+        handGroup2.setNodePlacement(node: nodeP2)
+        
+        let nodeP3 = self.childNode(withName: "//PlayerPlus3")!
+        handGroup3.setNodePlacement(node: nodeP3)
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            for group in [self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3] {
+                for idx in 0...7 {
+                    let card = self.initialGroup.cards.popLast()!
+                    group.cards.append(card)
+                    let duration = 0.5
+                    let actionPos = SKAction.move(to: group.position(at: idx), duration: duration)
+                    let actionRot = SKAction.rotate(toAngle: group.zRotation, duration: duration, shortestUnitArc: true)
+                    let cardNode = self.childNode(withName: card.nodeName())!
+                    cardNode.zPosition = group.zPosition(at: idx)
+                    
+                    cardNode.run(actionPos)
+                    cardNode.run(actionRot)
+                }
+            }
+        }
         
     }
     
@@ -63,10 +89,11 @@ class GameScene: SKScene {
         if let card = cards.first(where: { (card) -> Bool in
             return card.contains(pos)
         }) {
-            let action = SKAction.move(by: CGVector(dx: 10, dy: 50), duration: 0.2)
-            let action1 = SKAction.rotate(byAngle: CGFloat.pi, duration: 0.2)
-            card.run(action)
-            card.run(action1)
+            let duration = 0.5
+            let actionPos = SKAction.move(to: handGroup0.position(at: 0), duration: duration)
+            let actionRot = SKAction.rotate(toAngle: handGroup0.zRotation, duration: duration, shortestUnitArc: true)
+            card.run(actionPos)
+            card.run(actionRot)
         }
     }
 }
