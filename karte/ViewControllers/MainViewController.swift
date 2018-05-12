@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAnalytics
+import SwiftyJSON
 
 class MainViewController: UIViewController {
     
@@ -25,6 +26,7 @@ class MainViewController: UIViewController {
         nc.addObserver(self, selector: #selector(onWsDidConnect), name: WsAPI.onDidConnect, object: nil)
         nc.addObserver(self, selector: #selector(onWsDidDisconnect), name: WsAPI.onDidDisconnect, object: nil)
         nc.addObserver(self, selector: #selector(onPlayerStat), name: WsAPI.onPlayerStatReceived, object: nil)
+        nc.addObserver(self, selector: #selector(joinedTable), name: WsAPI.onPlayerJoinedToTable, object: nil)
         
         MainViewController.shared = self
     }
@@ -106,6 +108,20 @@ class MainViewController: UIViewController {
         
         let playerTitle = "\(name)  💎 \(diamonds)"
         playerBtn?.setTitle(playerTitle, for: .normal)
+    }
+    
+    @objc func joinedTable(notification: Notification) {
+        let json = notification.object as! JSON
+        let joinedPlayerId = json["joined_player_id"].stringValue
+        guard joinedPlayerId == PlayerStat.shared.id else {return}
+        
+        // ooo thats me, go into game
+        openGame()
+        
+    }
+    
+    func openGame() {
+        performSegue(withIdentifier: "game", sender: nil)
     }
 
 }

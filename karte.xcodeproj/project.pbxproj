@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		970884B520A4CAFA005323DB /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 970884B420A4CAFA005323DB /* Game.storyboard */; };
 		970884B720A4CB39005323DB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884B620A4CB39005323DB /* GameViewController.swift */; };
+		970884B920A4DBA4005323DB /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970884B820A4DBA4005323DB /* SceneKit.framework */; };
+		970884BA20A4DBAB005323DB /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970884B820A4DBA4005323DB /* SceneKit.framework */; };
+		970884E120A6ED34005323DB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 970884E020A6ED34005323DB /* GameScene.sks */; };
+		970884E420A6F3CB005323DB /* žir_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E320A6F3CA005323DB /* žir_kec.jpg */; };
+		970884E520A6F3CB005323DB /* žir_kec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 970884E320A6F3CA005323DB /* žir_kec.jpg */; };
 		971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11EE209E5A3300198DE5 /* AppDelegate.swift */; };
 		971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* MainViewController.swift */; };
 		971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F2209E5A3300198DE5 /* Main.storyboard */; };
@@ -74,6 +79,9 @@
 		93A3F16595814A68B2181BAC /* Pods-bela.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.debug.xcconfig"; sourceTree = "<group>"; };
 		970884B420A4CAFA005323DB /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		970884B620A4CB39005323DB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		970884B820A4DBA4005323DB /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		970884E020A6ED34005323DB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		970884E320A6F3CA005323DB /* žir_kec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "žir_kec.jpg"; path = "2002/žir_kec.jpg"; sourceTree = "<group>"; };
 		971E11EB209E5A3300198DE5 /* bela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971E11EE209E5A3300198DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		971E11F0209E5A3300198DE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970884B920A4DBA4005323DB /* SceneKit.framework in Frameworks */,
 				C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970884BA20A4DBAB005323DB /* SceneKit.framework in Frameworks */,
 				971E125A20A303BD00198DE5 /* Pods_bela.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,9 +147,26 @@
 		3C6CD1E6D2B9C76A6654E768 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				970884B820A4DBA4005323DB /* SceneKit.framework */,
 				AF3594C2438D728B8DC593CF /* Pods_bela.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		970884DF20A6ECE4005323DB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				970884E020A6ED34005323DB /* GameScene.sks */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		970884E220A6F3BC005323DB /* 2002 */ = {
+			isa = PBXGroup;
+			children = (
+				970884E320A6F3CA005323DB /* žir_kec.jpg */,
+			);
+			name = 2002;
 			sourceTree = "<group>";
 		};
 		971E11E2209E5A3300198DE5 = {
@@ -167,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				971E11EE209E5A3300198DE5 /* AppDelegate.swift */,
+				970884DF20A6ECE4005323DB /* Scene */,
 				971E126D20A32DFE00198DE5 /* Views */,
 				971E123620A2243F00198DE5 /* Locale */,
 				971E1204209EFF8700198DE5 /* Storyboards */,
@@ -236,6 +264,7 @@
 		971E1213209F1E2A00198DE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				970884E220A6F3BC005323DB /* 2002 */,
 				971E1215209F1E4800198DE5 /* up.png */,
 				971E1214209F1E4700198DE5 /* up@2x.png */,
 			);
@@ -365,11 +394,13 @@
 				971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */,
 				971E1201209E622000198DE5 /* GoogleService-Info.plist in Resources */,
 				971E127120A32E6400198DE5 /* MatchCell.xib in Resources */,
+				970884E420A6F3CB005323DB /* žir_kec.jpg in Resources */,
 				971E1216209F1E4800198DE5 /* up@2x.png in Resources */,
 				971E123920A2248300198DE5 /* Localizable.strings in Resources */,
 				971E121B209F1F7900198DE5 /* Rules.storyboard in Resources */,
 				971E1219209F1F6300198DE5 /* Leaderboard.storyboard in Resources */,
 				971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */,
+				970884E120A6ED34005323DB /* GameScene.sks in Resources */,
 				971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +415,7 @@
 				971E126120A303BD00198DE5 /* Localizable.strings in Resources */,
 				971E126220A303BD00198DE5 /* Rules.storyboard in Resources */,
 				971E126320A303BD00198DE5 /* Leaderboard.storyboard in Resources */,
+				970884E520A6F3CB005323DB /* žir_kec.jpg in Resources */,
 				971E126420A303BD00198DE5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

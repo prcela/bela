@@ -71,11 +71,20 @@
                     <connections>
                         <outlet property="connectingLbl" destination="AYl-mf-qnp" id="0li-t5-5hR"/>
                         <outlet property="playerBtn" destination="J6O-oO-TQa" id="ML4-sL-Aam"/>
+                        <segue destination="vkl-iz-QQu" kind="presentation" identifier="game" id="8Aa-0K-nDi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsx-q8-rR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-162" y="354"/>
+        </scene>
+        <!--Game-->
+        <scene sceneID="Hby-WI-PPH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Game" id="vkl-iz-QQu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jDn-cR-smO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-169" y="896"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YZZ-ma-URz">

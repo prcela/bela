@@ -18,7 +18,6 @@ class MenuViewController: UIViewController {
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(onRoomInfo), name: Room.onInfo, object: nil)
-        nc.addObserver(self, selector: #selector(joinedTable), name: WsAPI.onPlayerJoinedToTable, object: nil)
     }
     
     override func viewDidLoad() {
@@ -32,13 +31,5 @@ class MenuViewController: UIViewController {
         onlinePlayersCtLbl?.text = String(format: lstr("Online players count"), Room.shared.playersInfo.count)
     }
 
-    @objc func joinedTable(notification: Notification) {
-        let json = notification.object as! JSON
-        let joinedPlayerId = json["joined_player_id"].stringValue
-        guard joinedPlayerId == PlayerStat.shared.id else {return}
-        
-        // ooo thats me
-        let gameVC = UIStoryboard(name: "Game", bundle: nil).instantiateInitialViewController()!
-        navigationController?.pushViewController(gameVC, animated: true)
-    }
+    
 }

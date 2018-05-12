@@ -14,10 +14,10 @@
         <scene sceneID="ixo-ur-G9C">
             <objects>
                 <viewController id="Pfn-BG-3Ds" customClass="GameViewController" customModule="bela" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eB9-BP-fgY">
+                    <view key="view" contentMode="scaleToFill" id="eB9-BP-fgY" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="74r-HU-M3N"/>
                     </view>
                 </viewController>
