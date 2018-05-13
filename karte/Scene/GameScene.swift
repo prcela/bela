@@ -17,11 +17,14 @@ class GameScene: SKScene {
     let handGroup2 = PlayerHandGroup()
     let handGroup3 = PlayerHandGroup()
     
+    let talonGroup0 = CardGroup()
+    
     override func didMove(to view: SKView) {
         
         // move all cards to initial group
-        initialGroup.pos = CGPoint(x: -50, y: 10)
-        initialGroup.zRotation = 1
+        let nodeInitial = self.childNode(withName: "//Initial")!
+        initialGroup.setNodePlacement(node: nodeInitial)
+        
         for boja in [Boja.bundeva,Boja.list,Boja.srce,Boja.žir] {
             for broj in [Broj.vii,Broj.viii,Broj.ix,Broj.x,Broj.dečko,Broj.dama,Broj.kralj,Broj.kec] {
                 initialGroup.cards.append(Card(boja: boja, broj: broj))
@@ -35,15 +38,19 @@ class GameScene: SKScene {
             cardNode.zPosition = initialGroup.zPosition(at: idx)
             cardNode.position = initialGroup.position(at: idx)
             cardNode.zRotation = initialGroup.zRotation(at: idx)
+            cardNode.backNode?.isHidden = false
+            cardNode.frontNode?.isHidden = true
             addChild(cardNode)
         }
         
         
-        let nodeP0 = self.childNode(withName: "//PlayerPlus0")!
+        let nodeP0 = self.childNode(withName: "//PlayerPlus0") as! SKLabelNode
         handGroup0.setNodePlacement(node: nodeP0)
+        nodeP0.text = "Veca"
         
-        let nodeP1 = self.childNode(withName: "//PlayerPlus1")!
+        let nodeP1 = self.childNode(withName: "//PlayerPlus1") as! SKLabelNode
         handGroup1.setNodePlacement(node: nodeP1)
+        nodeP1.text = "Krešimir"
         
         let nodeP2 = self.childNode(withName: "//PlayerPlus2")!
         handGroup2.setNodePlacement(node: nodeP2)
@@ -53,18 +60,30 @@ class GameScene: SKScene {
         
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            for group in [self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3] {
-                for idx in 0...7 {
+            for (idxGroup,group) in [self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3].enumerated() {
+                for idx in 0...5 {
                     let card = self.initialGroup.cards.popLast()!
                     group.cards.append(card)
                     let duration = 0.5
                     let actionPos = SKAction.move(to: group.position(at: idx), duration: duration)
                     let actionRot = SKAction.rotate(toAngle: group.zRotation, duration: duration, shortestUnitArc: true)
-                    let cardNode = self.childNode(withName: card.nodeName())!
-                    cardNode.zPosition = group.zPosition(at: idx)
+                    let cardNode = self.childNode(withName: card.nodeName()) as! CardNode
                     
-                    cardNode.run(actionPos)
-                    cardNode.run(actionRot)
+                    
+                    let actionWait = SKAction.wait(forDuration: 0.2*Double(idx)+1.2*Double(idxGroup))
+                    let actionGroup = SKAction.group([actionPos,actionRot])
+                    let actionSequence = SKAction.sequence([actionWait,actionGroup])
+                    cardNode.run(actionSequence) {
+                        cardNode.zPosition = group.zPosition(at: idx)
+                        
+                        if group === self.handGroup0 {
+                            cardNode.backNode?.isHidden = true
+                            cardNode.frontNode?.isHidden = false
+                        } else {
+                            cardNode.backNode?.isHidden = false
+                            cardNode.frontNode?.isHidden = true
+                        }
+                    }
                 }
             }
         }
