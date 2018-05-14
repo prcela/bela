@@ -19,6 +19,8 @@ class GameScene: SKScene {
     
     let talon0 = LinearGroup(capacity: 2, delta: 10)
     let talon1 = LinearGroup(capacity: 2, delta: 10)
+    let talon2 = LinearGroup(capacity: 2, delta: 10)
+    let talon3 = LinearGroup(capacity: 2, delta: 10)
     
     let talonGroup0 = CardGroup()
     
@@ -27,8 +29,8 @@ class GameScene: SKScene {
         // move all cards to initial group
         let nodeInitial = self.childNode(withName: "//Initial")!
         initialGroup.setNodePlacement(node: nodeInitial)
-        for group in [initialGroup,handGroup1,handGroup2,handGroup3,talon0,talon1] {
-            group.scale = 0.75
+        for group in [initialGroup,handGroup1,handGroup2,handGroup3,talon0,talon1,talon2,talon3] {
+            group.scale = 0.72
         }
         
         for boja in [Boja.bundeva,Boja.list,Boja.srce,Boja.žir] {
@@ -51,29 +53,19 @@ class GameScene: SKScene {
         }
         
         
-        let nodeP0 = self.childNode(withName: "//PlayerPlus0") as! SKLabelNode
-        handGroup0.setNodePlacement(node: nodeP0)
-        nodeP0.text = "Veca"
+        for (idx,group) in [handGroup0,handGroup1,handGroup2,handGroup3].enumerated() {
+            let lblNode = self.childNode(withName: "//PlayerPlus\(idx)") as! SKLabelNode
+            lblNode.text = "Player \(idx)"
+            group.setNodePlacement(node: lblNode)
+        }
         
-        let nodeP1 = self.childNode(withName: "//PlayerPlus1") as! SKLabelNode
-        handGroup1.setNodePlacement(node: nodeP1)
-        nodeP1.text = "Krešimir"
-        
-        let nodeP2 = self.childNode(withName: "//PlayerPlus2")!
-        handGroup2.setNodePlacement(node: nodeP2)
-        
-        let nodeP3 = self.childNode(withName: "//PlayerPlus3")!
-        handGroup3.setNodePlacement(node: nodeP3)
-        
-        let nodeTalon0 = childNode(withName: "//Talon0")!
-        talon0.setNodePlacement(node: nodeTalon0)
-        
-        let nodeTalon1 = childNode(withName: "//Talon1")!
-        talon1.setNodePlacement(node: nodeTalon1)
-        
+        for (idx,talon) in [talon0,talon1,talon2,talon3].enumerated() {
+            let nodeTalon = childNode(withName: "//Talon\(idx)")!
+            talon.setNodePlacement(node: nodeTalon)
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            for (idxGroup,group) in [self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3,self.talon0,self.talon1].enumerated() {
+            for (idxGroup,group) in [self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3,self.talon0,self.talon1,self.talon2,self.talon3].enumerated() {
                 let ctInGroup = group.capacity == 2 ? 2:6
                 for idx in 0..<ctInGroup {
                     self.moveCard(fromGroup: self.initialGroup,
