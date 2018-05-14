@@ -17,19 +17,19 @@ class GameScene: SKScene {
     let handGroup2 = LinearGroup(capacity: 8, delta: 20)
     let handGroup3 = LinearGroup(capacity: 8, delta: 15)
     
-    let talon0 = LinearGroup(capacity: 2, delta: 10)
-    let talon1 = LinearGroup(capacity: 2, delta: 10)
-    let talon2 = LinearGroup(capacity: 2, delta: 10)
-    let talon3 = LinearGroup(capacity: 2, delta: 10)
+    let talonGroup0 = LinearGroup(capacity: 2, delta: 10)
+    let talonGroup1 = LinearGroup(capacity: 2, delta: 10)
+    let talonGroup2 = LinearGroup(capacity: 2, delta: 10)
+    let talonGroup3 = LinearGroup(capacity: 2, delta: 10)
     
-    let talonGroup0 = CardGroup()
+    let centerGroup = CenterGroup()
     
     override func didMove(to view: SKView) {
         
         // move all cards to initial group
         let nodeInitial = self.childNode(withName: "//Initial")!
         initialGroup.setNodePlacement(node: nodeInitial)
-        for group in [initialGroup,handGroup1,handGroup2,handGroup3,talon0,talon1,talon2,talon3] {
+        for group in [initialGroup,handGroup1,handGroup2,handGroup3,talonGroup0,talonGroup1,talonGroup2,talonGroup3] {
             group.scale = 0.72
         }
         
@@ -59,42 +59,69 @@ class GameScene: SKScene {
             group.setNodePlacement(node: lblNode)
         }
         
-        for (idx,talon) in [talon0,talon1,talon2,talon3].enumerated() {
+        let nodeCenter = childNode(withName: "//Center")!
+        centerGroup.setNodePlacement(node: nodeCenter)
+        centerGroup.scale = 0.85
+        
+        for (idx,talon) in [talonGroup0,talonGroup1,talonGroup2,talonGroup3].enumerated() {
             let nodeTalon = childNode(withName: "//Talon\(idx)")!
             talon.setNodePlacement(node: nodeTalon)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            for (idxGroup,group) in [self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3,self.talon0,self.talon1,self.talon2,self.talon3].enumerated() {
+            for (idxGroup,group) in [self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3,self.talonGroup0,self.talonGroup1,self.talonGroup2,self.talonGroup3].enumerated() {
                 let ctInGroup = group.capacity == 2 ? 2:6
                 for idx in 0..<ctInGroup {
                     self.moveCard(fromGroup: self.initialGroup,
+                                  fromIdx: self.initialGroup.cards.count-1,
                                   toGroup: group,
-                                  idx: idx,
+                                  toIdx: idx,
                                   waitDuration: 0.2*Double(idx)+1.2*Double(idxGroup),
                                   duration: 0.5)
+                }
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+10) {
+            let srcGroups = [self.talonGroup0,self.talonGroup1,self.talonGroup2,self.talonGroup3]
+            let dstGroups = [self.self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3]
+            
+            for (idxGroup,srcGroup) in srcGroups.enumerated() {
+                let dstGroup = dstGroups[idxGroup]
+                for (idx,_) in srcGroup.cards.enumerated() {
+                    self.moveCard(fromGroup: srcGroup, fromIdx: 0, toGroup: dstGroup, toIdx: 6+idx, waitDuration: 0.2*Double(idx)+0.4*Double(idxGroup), duration: 0.5)
                 }
             }
         }
     }
     
     @discardableResult
-    func moveCard(fromGroup: CardGroup, toGroup: CardGroup, idx: Int, waitDuration:Double, duration: Double) -> Bool {
-        let card = fromGroup.cards.popLast()!
-        toGroup.cards.append(card)
+    func moveCard(fromGroup: CardGroup, fromIdx: Int, toGroup: CardGroup, toIdx: Int, waitDuration:Double, duration: Double) -> Bool {
+        let card = fromGroup.cards.remove(at: fromIdx)
+        toGroup.cards.insert(card, at: toIdx)
         let duration = 0.5
-        let actionPos = SKAction.move(to: toGroup.position(at: idx), duration: duration)
-        let actionRot = SKAction.rotate(toAngle: toGroup.zRotation, duration: duration, shortestUnitArc: true)
+        let actionPos = SKAction.move(to: toGroup.position(at: toIdx), duration: duration)
+        let actionRot = SKAction.rotate(toAngle: toGroup.zRotation(at: toIdx), duration: duration, shortestUnitArc: true)
         let actionScale = SKAction.scale(to: toGroup.scale, duration: duration)
         let cardNode = self.childNode(withName: card.nodeName()) as! CardNode
         
         let actionWait = SKAction.wait(forDuration: waitDuration)
         let actionGroup = SKAction.group([actionPos,actionRot,actionScale])
         let actionSequence = SKAction.sequence([actionWait,actionGroup])
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+waitDuration+0.5*duration) {
+            cardNode.zPosition = toGroup.zPosition(at: toIdx)
+        }
+        
+        
+        if toGroup === self.centerGroup {
+            cardNode.backNode?.isHidden = true
+            cardNode.frontNode?.isHidden = false
+        }
+        
         cardNode.run(actionSequence) {
-            cardNode.zPosition = toGroup.zPosition(at: idx)
             
-            if toGroup === self.handGroup0 {
+            if toGroup === self.handGroup0 || toGroup === self.centerGroup {
                 cardNode.backNode?.isHidden = true
                 cardNode.frontNode?.isHidden = false
             } else {
@@ -105,6 +132,21 @@ class GameScene: SKScene {
         return true
     }
     
+    @discardableResult
+    func moveCard(cardName: String, toGroup: CardGroup, waitDuration:Double, duration: Double) -> Bool
+    {
+        var idxFound: Int?
+        if let group = [initialGroup,handGroup0,handGroup1,handGroup2,handGroup3,talonGroup0,talonGroup1,talonGroup2,talonGroup3].first(where: { (group) -> Bool in
+            idxFound = group.cards.index(where: { (card) -> Bool in
+                return card.nodeName() == cardName
+            })
+            return idxFound != nil
+        }) {
+            return moveCard(fromGroup: group, fromIdx: idxFound!, toGroup: toGroup, toIdx: toGroup.cards.count, waitDuration: waitDuration, duration: duration)
+        }
+        return false
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
             self.touchUp(atPoint: t.location(in: self))
@@ -112,9 +154,9 @@ class GameScene: SKScene {
     }
     
     fileprivate func touchUp(atPoint pos : CGPoint) {
-        var cards = [SKCropNode]()
-        enumerateChildNodes(withName: "card") { (card, _) in
-            cards.append(card as! SKCropNode)
+        var cards = [CardNode]()
+        enumerateChildNodes(withName: "card_*") { (card, _) in
+            cards.append(card as! CardNode)
         }
         // sort from top to bottom
         cards.sort { (card0, card1) -> Bool in
@@ -123,11 +165,8 @@ class GameScene: SKScene {
         if let card = cards.first(where: { (card) -> Bool in
             return card.contains(pos)
         }) {
-            let duration = 0.5
-            let actionPos = SKAction.move(to: handGroup0.position(at: 0), duration: duration)
-            let actionRot = SKAction.rotate(toAngle: handGroup0.zRotation, duration: duration, shortestUnitArc: true)
-            card.run(actionPos)
-            card.run(actionRot)
+            centerGroup.zRotation = card.zRotation
+            moveCard(cardName: card.name!, toGroup: centerGroup, waitDuration: 0, duration: 0.5)
         }
     }
 }

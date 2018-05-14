@@ -58,3 +58,15 @@ class LinearGroup: CardGroup
     }
 }
 
+class CenterGroup: CardGroup {
+    
+    override func position(at idx: Int) -> CGPoint {
+        let pos = super.position(at: idx)
+        var rot = zRotation
+        let rightDir = CGVector(dx: cos(rot), dy: sin(rot))
+        rot += 0.5*CGFloat.pi
+        let updir = CGVector(dx: cos(rot), dy: sin(rot))
+        return CGPoint(x: pos.x-30*updir.dx-15*rightDir.dx, y: pos.y-30*updir.dy-15*rightDir.dy)
+    }
+}
+

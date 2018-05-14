@@ -18,7 +18,7 @@ struct Card {
     }
     
     func nodeName() -> String {
-        return "\(boja)_\(broj)"
+        return "card_\(boja)_\(broj)"
     }
 }
 
