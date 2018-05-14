@@ -22,7 +22,7 @@ class CardGroup {
         return pos
     }
     func zPosition(at idx: Int) -> CGFloat {
-        return CGFloat(idx)*0.01
+        return CGFloat(idx+1)*0.01
     }
     func zRotation(at idx:Int) -> CGFloat {
         return zRotation

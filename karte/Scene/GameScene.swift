@@ -24,6 +24,9 @@ class GameScene: SKScene {
     
     let centerGroup = CenterGroup()
     
+    let winGroup0 = CardGroup()
+    let winGroup1 = CardGroup()
+    
     override func didMove(to view: SKView) {
         
         // move all cards to initial group
@@ -68,31 +71,12 @@ class GameScene: SKScene {
             talon.setNodePlacement(node: nodeTalon)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            for (idxGroup,group) in [self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3,self.talonGroup0,self.talonGroup1,self.talonGroup2,self.talonGroup3].enumerated() {
-                let ctInGroup = group.capacity == 2 ? 2:6
-                for idx in 0..<ctInGroup {
-                    self.moveCard(fromGroup: self.initialGroup,
-                                  fromIdx: self.initialGroup.cards.count-1,
-                                  toGroup: group,
-                                  toIdx: idx,
-                                  waitDuration: 0.2*Double(idx)+1.2*Double(idxGroup),
-                                  duration: 0.5)
-                }
-            }
+        for (idx,group) in [winGroup0,winGroup1].enumerated() {
+            let node = childNode(withName: "//Win\(idx)")!
+            group.setNodePlacement(node: node)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+10) {
-            let srcGroups = [self.talonGroup0,self.talonGroup1,self.talonGroup2,self.talonGroup3]
-            let dstGroups = [self.self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3]
-            
-            for (idxGroup,srcGroup) in srcGroups.enumerated() {
-                let dstGroup = dstGroups[idxGroup]
-                for (idx,_) in srcGroup.cards.enumerated() {
-                    self.moveCard(fromGroup: srcGroup, fromIdx: 0, toGroup: dstGroup, toIdx: 6+idx, waitDuration: 0.2*Double(idx)+0.4*Double(idxGroup), duration: 0.5)
-                }
-            }
-        }
+        
     }
     
     @discardableResult
@@ -167,6 +151,41 @@ class GameScene: SKScene {
         }) {
             centerGroup.zRotation = card.zRotation
             moveCard(cardName: card.name!, toGroup: centerGroup, waitDuration: 0, duration: 0.5)
+            
+            if centerGroup.cards.count == 4 {
+                for _ in centerGroup.cards {
+                    moveCard(fromGroup: centerGroup, fromIdx: 0, toGroup: winGroup1, toIdx: winGroup1.cards.count, waitDuration: 2, duration: 0.3)
+                }
+            }
+        }
+    }
+    
+    func testPreview()
+    {
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            for (idxGroup,group) in [self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3,self.talonGroup0,self.talonGroup1,self.talonGroup2,self.talonGroup3].enumerated() {
+                let ctInGroup = group.capacity == 2 ? 2:6
+                for idx in 0..<ctInGroup {
+                    self.moveCard(fromGroup: self.initialGroup,
+                                  fromIdx: self.initialGroup.cards.count-1,
+                                  toGroup: group,
+                                  toIdx: idx,
+                                  waitDuration: 0.2*Double(idx)+1.2*Double(idxGroup),
+                                  duration: 0.5)
+                }
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+10) {
+            let srcGroups = [self.talonGroup0,self.talonGroup1,self.talonGroup2,self.talonGroup3]
+            let dstGroups = [self.self.handGroup0,self.handGroup1,self.handGroup2,self.handGroup3]
+            
+            for (idxGroup,srcGroup) in srcGroups.enumerated() {
+                let dstGroup = dstGroups[idxGroup]
+                for (idx,_) in srcGroup.cards.enumerated() {
+                    self.moveCard(fromGroup: srcGroup, fromIdx: 0, toGroup: dstGroup, toIdx: 6+idx, waitDuration: 0.2*Double(idx)+0.4*Double(idxGroup), duration: 0.5)
+                }
+            }
         }
     }
 }
