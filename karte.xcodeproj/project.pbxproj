@@ -86,6 +86,10 @@
 		9708856C20A72FCD005323DB /* deck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9708856A20A72FCC005323DB /* deck.jpg */; };
 		9708856E20A75FCE005323DB /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856D20A75FCE005323DB /* CardNode.swift */; };
 		9708856F20A75FCE005323DB /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856D20A75FCE005323DB /* CardNode.swift */; };
+		9708857120A8B612005323DB /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9708857020A8B612005323DB /* menu@2x.png */; };
+		9708857220A8B612005323DB /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9708857020A8B612005323DB /* menu@2x.png */; };
+		9708857420A8B76C005323DB /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708857320A8B76C005323DB /* LeaderboardViewController.swift */; };
+		9708857520A8B76C005323DB /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708857320A8B76C005323DB /* LeaderboardViewController.swift */; };
 		971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11EE209E5A3300198DE5 /* AppDelegate.swift */; };
 		971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* MainViewController.swift */; };
 		971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F2209E5A3300198DE5 /* Main.storyboard */; };
@@ -190,6 +194,8 @@
 		9708856720A72DE2005323DB /* CardGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGroup.swift; sourceTree = "<group>"; };
 		9708856A20A72FCC005323DB /* deck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = deck.jpg; sourceTree = "<group>"; };
 		9708856D20A75FCE005323DB /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
+		9708857020A8B612005323DB /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		9708857320A8B76C005323DB /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		971E11EB209E5A3300198DE5 /* bela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971E11EE209E5A3300198DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		971E11F0209E5A3300198DE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +366,7 @@
 				971E123420A2171300198DE5 /* CreateGameViewController.swift */,
 				971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */,
 				970884B620A4CB39005323DB /* GameViewController.swift */,
+				9708857320A8B76C005323DB /* LeaderboardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -410,6 +417,7 @@
 				9708856A20A72FCC005323DB /* deck.jpg */,
 				970884E220A6F3BC005323DB /* 2002 */,
 				971E1215209F1E4800198DE5 /* up.png */,
+				9708857020A8B612005323DB /* menu@2x.png */,
 				971E1214209F1E4700198DE5 /* up@2x.png */,
 			);
 			path = Resources;
@@ -567,6 +575,7 @@
 				9708856220A709CF005323DB /* žir_kec.jpg in Resources */,
 				9708854620A709C6005323DB /* srce_vii.jpg in Resources */,
 				9708855A20A709CF005323DB /* žir_viii.jpg in Resources */,
+				9708857120A8B612005323DB /* menu@2x.png in Resources */,
 				9708851020A709B1005323DB /* bundeva_vii.jpg in Resources */,
 				9708851620A709B1005323DB /* bundeva_kec.jpg in Resources */,
 				9708852420A709BC005323DB /* list_x.jpg in Resources */,
@@ -609,6 +618,7 @@
 				9708854B20A709C6005323DB /* srce_dama.jpg in Resources */,
 				971E126020A303BD00198DE5 /* up@2x.png in Resources */,
 				971E126120A303BD00198DE5 /* Localizable.strings in Resources */,
+				9708857220A8B612005323DB /* menu@2x.png in Resources */,
 				9708854920A709C6005323DB /* srce_dečko.jpg in Resources */,
 				9708852920A709BC005323DB /* list_kralj.jpg in Resources */,
 				9708855720A709CF005323DB /* žir_kralj.jpg in Resources */,
@@ -758,6 +768,7 @@
 			files = (
 				971E122F20A1D3A800198DE5 /* MatchInfo.swift in Sources */,
 				9708856820A72DE2005323DB /* CardGroup.swift in Sources */,
+				9708857420A8B76C005323DB /* LeaderboardViewController.swift in Sources */,
 				971E124220A2D60B00198DE5 /* Constants.swift in Sources */,
 				971E120D209F196300198DE5 /* WsApi.swift in Sources */,
 				971E124020A2D41000198DE5 /* UIViewControllerExt.swift in Sources */,
@@ -810,6 +821,7 @@
 				971E125620A303BD00198DE5 /* TableInfo.swift in Sources */,
 				971E125720A303BD00198DE5 /* RoomViewController.swift in Sources */,
 				971E125820A303BD00198DE5 /* Room.swift in Sources */,
+				9708857520A8B76C005323DB /* LeaderboardViewController.swift in Sources */,
 				9708856920A72DE2005323DB /* CardGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

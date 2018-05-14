@@ -30,5 +30,10 @@ class GameViewController: UIViewController {
             view.showsNodeCount = true
         }
     }
-
+    
+    @IBAction func onMenu(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
