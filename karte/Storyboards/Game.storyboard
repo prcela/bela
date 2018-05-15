@@ -30,14 +30,49 @@
                                     <action selector="onMenu:" destination="Pfn-BG-3Ds" eventType="touchUpInside" id="wNi-b3-TtD"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKP-T8-9pH">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gID-Fx-7gU">
+                                        <rect key="frame" x="282.5" y="163.5" width="101" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                        <state key="normal" title="Resume"/>
+                                        <connections>
+                                            <action selector="onResume:" destination="Pfn-BG-3Ds" eventType="touchUpInside" id="8hD-YR-UG9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZN-5O-LQV">
+                                        <rect key="frame" x="297" y="205" width="74" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                        <state key="normal" title="Leave"/>
+                                        <connections>
+                                            <action selector="onLeave:" destination="Pfn-BG-3Ds" eventType="touchUpInside" id="CkZ-AL-eZa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.75203339041095896" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gID-Fx-7gU" firstAttribute="centerY" secondItem="qKP-T8-9pH" secondAttribute="centerY" id="1vJ-XL-mnU"/>
+                                    <constraint firstItem="iZN-5O-LQV" firstAttribute="centerX" secondItem="qKP-T8-9pH" secondAttribute="centerX" id="Wwr-in-Y6M"/>
+                                    <constraint firstItem="iZN-5O-LQV" firstAttribute="top" secondItem="gID-Fx-7gU" secondAttribute="bottom" constant="-6.5" id="ohU-sO-Cdy"/>
+                                    <constraint firstItem="gID-Fx-7gU" firstAttribute="centerX" secondItem="qKP-T8-9pH" secondAttribute="centerX" id="rLf-kV-cL0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pT0-d6-Di3" firstAttribute="top" secondItem="eB9-BP-fgY" secondAttribute="topMargin" constant="8" id="20w-8e-biF"/>
+                            <constraint firstItem="qKP-T8-9pH" firstAttribute="top" secondItem="74r-HU-M3N" secondAttribute="top" id="DAU-Im-bGv"/>
                             <constraint firstItem="pT0-d6-Di3" firstAttribute="leading" secondItem="74r-HU-M3N" secondAttribute="leading" constant="8" id="DT7-cy-gJW"/>
+                            <constraint firstItem="74r-HU-M3N" firstAttribute="trailing" secondItem="qKP-T8-9pH" secondAttribute="trailing" id="EgX-uD-tCb"/>
+                            <constraint firstItem="qKP-T8-9pH" firstAttribute="leading" secondItem="74r-HU-M3N" secondAttribute="leading" id="OrD-Gb-tcQ"/>
+                            <constraint firstItem="74r-HU-M3N" firstAttribute="bottom" secondItem="qKP-T8-9pH" secondAttribute="bottom" id="vcd-al-wKR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="74r-HU-M3N"/>
                     </view>
+                    <connections>
+                        <outlet property="overlayView" destination="qKP-T8-9pH" id="PAt-kc-61N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNc-HI-a1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,4 +82,5 @@
     <resources>
         <image name="menu.png" width="85" height="85"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -113,9 +113,12 @@ class MainViewController: UIViewController {
     @objc func joinedTable(notification: Notification) {
         let json = notification.object as! JSON
         let joinedPlayerId = json["joined_player_id"].stringValue
+        let table = TableInfo(json: json["table"])
+        Room.shared.tablesInfo[table.id] = table
         guard joinedPlayerId == PlayerStat.shared.id else {return}
         
         // ooo thats me, go into game
+        PlayerStat.shared.tableId = table.id
         openGame()
         
     }

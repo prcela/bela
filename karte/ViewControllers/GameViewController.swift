@@ -11,8 +11,12 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var overlayView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        overlayView.isHidden = true
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -32,8 +36,14 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func onMenu(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        overlayView.isHidden = false
     }
     
+    @IBAction func onResume(_ sender: Any) {
+        overlayView.isHidden = true
+    }
     
+    @IBAction func onLeave(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }

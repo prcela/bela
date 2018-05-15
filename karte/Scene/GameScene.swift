@@ -27,6 +27,8 @@ class GameScene: SKScene {
     let winGroup0 = CardGroup()
     let winGroup1 = CardGroup()
     
+    var playersLbls = [SKLabelNode]()
+    
     override func didMove(to view: SKView) {
         
         // move all cards to initial group
@@ -55,11 +57,13 @@ class GameScene: SKScene {
             addChild(cardNode)
         }
         
-        
+        playersLbls.removeAll()
         for (idx,group) in [handGroup0,handGroup1,handGroup2,handGroup3].enumerated() {
-            let lblNode = self.childNode(withName: "//PlayerPlus\(idx)") as! SKLabelNode
+            let node = childNode(withName: "//PlayerPos\(idx)")!
+            let lblNode = childNode(withName: "//PlayerPlus\(idx)") as! SKLabelNode
             lblNode.text = "Player \(idx)"
-            group.setNodePlacement(node: lblNode)
+            group.setNodePlacement(node: node)
+            playersLbls.append(lblNode)
         }
         
         let nodeCenter = childNode(withName: "//Center")!
@@ -76,7 +80,23 @@ class GameScene: SKScene {
             group.setNodePlacement(node: node)
         }
         
+        if let tableId = PlayerStat.shared.tableId,
+            let table = Room.shared.tablesInfo[tableId],
+            var idx = table.playersId.index(of: PlayerStat.shared.id)
+        {
+            for relIdx in 0..<table.capacity {
+                if idx < table.playersId.count {
+                    let playerId = table.playersId[idx]
+                    let p = Room.shared.playersInfo[playerId]
+                    playersLbls[relIdx].text = p?.alias
+                } else {
+                    playersLbls[relIdx].text = "?"
+                }
+                idx = (idx+1)%table.capacity
+            }
+        }
         
+        testPreview()
     }
     
     @discardableResult
