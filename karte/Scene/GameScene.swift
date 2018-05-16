@@ -96,7 +96,7 @@ class GameScene: SKScene {
             }
         }
         
-        testPreview()
+        // testPreview()
     }
     
     @discardableResult

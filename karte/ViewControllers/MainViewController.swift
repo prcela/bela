@@ -17,6 +17,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var playerBtn: UIButton?
     @IBOutlet weak var connectingLbl: UILabel?
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
