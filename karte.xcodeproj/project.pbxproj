@@ -163,6 +163,12 @@
 		97E9A9F020B8073E00DB5454 /* StatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9EE20B8073E00DB5454 /* StatTableViewController.swift */; };
 		97E9A9F220B808E100DB5454 /* StatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9F120B808E100DB5454 /* StatsTableView.swift */; };
 		97E9A9F320B808E100DB5454 /* StatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9F120B808E100DB5454 /* StatsTableView.swift */; };
+		97E9A9F520B80D8300DB5454 /* GraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9F420B80D8300DB5454 /* GraphsViewController.swift */; };
+		97E9A9F620B80D8300DB5454 /* GraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9F420B80D8300DB5454 /* GraphsViewController.swift */; };
+		97E9A9F820B80E2E00DB5454 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9F720B80E2E00DB5454 /* GraphsView.swift */; };
+		97E9A9F920B80E2E00DB5454 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9F720B80E2E00DB5454 /* GraphsView.swift */; };
+		97E9A9FC20B8159500DB5454 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */; };
+		97E9A9FD20B8159500DB5454 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -255,6 +261,9 @@
 		97E9A9EB20B7E90900DB5454 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		97E9A9EE20B8073E00DB5454 /* StatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewController.swift; sourceTree = "<group>"; };
 		97E9A9F120B808E100DB5454 /* StatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableView.swift; sourceTree = "<group>"; };
+		97E9A9F420B80D8300DB5454 /* GraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsViewController.swift; sourceTree = "<group>"; };
+		97E9A9F720B80E2E00DB5454 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
+		97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButton.swift; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -395,6 +404,7 @@
 				97E9A9E820B6FA6F00DB5454 /* PlayerContainer.swift */,
 				97E9A9EB20B7E90900DB5454 /* ProfileViewController.swift */,
 				97E9A9EE20B8073E00DB5454 /* StatTableViewController.swift */,
+				97E9A9F420B80D8300DB5454 /* GraphsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -475,6 +485,8 @@
 				971E126E20A32E6400198DE5 /* MatchCell.swift */,
 				971E126F20A32E6400198DE5 /* MatchCell.xib */,
 				97E9A9F120B808E100DB5454 /* StatsTableView.swift */,
+				97E9A9F720B80E2E00DB5454 /* GraphsView.swift */,
+				97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -825,7 +837,10 @@
 				97E9A9E920B6FA6F00DB5454 /* PlayerContainer.swift in Sources */,
 				97E9A9E620B6F85F00DB5454 /* ContainerViewController.swift in Sources */,
 				971E127020A32E6400198DE5 /* MatchCell.swift in Sources */,
+				97E9A9FC20B8159500DB5454 /* UnderlineButton.swift in Sources */,
 				971E121F209F3C2F00198DE5 /* StatItem.swift in Sources */,
+				97E9A9F820B80E2E00DB5454 /* GraphsView.swift in Sources */,
+				97E9A9F520B80D8300DB5454 /* GraphsViewController.swift in Sources */,
 				97E9A9EF20B8073E00DB5454 /* StatTableViewController.swift in Sources */,
 				971E122D20A1D23400198DE5 /* TableInfo.swift in Sources */,
 				97E9A9F220B808E100DB5454 /* StatsTableView.swift in Sources */,
@@ -839,6 +854,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97E9A9F620B80D8300DB5454 /* GraphsViewController.swift in Sources */,
 				971E124620A303BD00198DE5 /* MatchInfo.swift in Sources */,
 				971E124820A303BD00198DE5 /* WsApi.swift in Sources */,
 				971E124920A303BD00198DE5 /* UIViewControllerExt.swift in Sources */,
@@ -849,6 +865,7 @@
 				97E9A9E420B6F7A800DB5454 /* PlayerViewController.swift in Sources */,
 				97E9A9F020B8073E00DB5454 /* StatTableViewController.swift in Sources */,
 				971E124D20A303BD00198DE5 /* MainViewController.swift in Sources */,
+				97E9A9F920B80E2E00DB5454 /* GraphsView.swift in Sources */,
 				971E124E20A303BD00198DE5 /* CreateGameViewController.swift in Sources */,
 				97E9A9F320B808E100DB5454 /* StatsTableView.swift in Sources */,
 				971E124F20A303BD00198DE5 /* PlayerStat.swift in Sources */,
@@ -857,6 +874,7 @@
 				971E125020A303BD00198DE5 /* MenuViewController.swift in Sources */,
 				9708856620A70A4F005323DB /* Card.swift in Sources */,
 				971E125120A303BD00198DE5 /* MessageFunc.swift in Sources */,
+				97E9A9FD20B8159500DB5454 /* UnderlineButton.swift in Sources */,
 				97E9A9D520B18B4D00DB5454 /* CardTransition.swift in Sources */,
 				971E125220A303BD00198DE5 /* AppDelegate.swift in Sources */,
 				971E125320A303BD00198DE5 /* Prefs.swift in Sources */,

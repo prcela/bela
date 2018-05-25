@@ -41,6 +41,9 @@
                                 <state key="normal" title="Button" image="up.png">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="JEl-v9-Pnf" kind="presentation" identifier="player" id="kKr-bW-V0a"/>
+                                </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYl-mf-qnp">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
@@ -85,6 +88,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDn-cR-smO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-169" y="896"/>
+        </scene>
+        <!--Player-->
+        <scene sceneID="N3n-5c-wIc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Player" id="JEl-v9-Pnf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qdt-37-RX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="76" y="881"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YZZ-ma-URz">

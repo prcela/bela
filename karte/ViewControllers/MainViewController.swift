@@ -48,6 +48,13 @@ class MainViewController: UIViewController {
         WsAPI.shared.connect()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "player" {
+            let playerVC = segue.destination as! PlayerViewController
+            playerVC.playerId = PlayerStat.shared.id
+        }
+    }
+    
     func evaluateRetention()
     {
         let calendar = Calendar.current
