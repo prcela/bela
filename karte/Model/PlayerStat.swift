@@ -9,25 +9,38 @@
 import Foundation
 import SwiftyJSON
 
-extension Notification.Name
-{
-    static let playerDiamondsChanged = NSNotification.Name("Notification.playerDiamondsChanged")
-    static let playerStatItemsChanged = NSNotification.Name("Notification.playerStatItemsChanged")
-    static let playerAliasChanged = NSNotification.Name("Notification.playerAliasChanged")
-}
-
 
 class PlayerStat: NSObject, NSCoding
 {
     static var shared = PlayerStat()
+    
+    static let DiamondsChanged = NSNotification.Name("Notification.playerDiamondsChanged")
+    static let ItemsChanged = NSNotification.Name("Notification.playerStatItemsChanged")
+    static let AliasChanged = NSNotification.Name("Notification.playerAliasChanged")
+    static let FlagChanged = Notification.Name("Notification.playerFlagChanged")
+    
     var id: String
-    var alias: String
+    var alias: String {
+        didSet {
+            if alias != oldValue {
+                NotificationCenter.default.post(name: PlayerStat.AliasChanged, object: nil)
+            }
+        }
+    }
+    
+    var flag: String = "🏳️" {
+        didSet {
+            if flag != oldValue {
+                NotificationCenter.default.post(name: PlayerStat.FlagChanged, object: nil)
+            }
+        }
+    }
     
     var diamonds = 100 {
         didSet {
             print("Diamonds didSet: \(diamonds)")
             if diamonds != oldValue {
-                NotificationCenter.default.post(name: .playerDiamondsChanged, object: diamonds)
+                NotificationCenter.default.post(name: PlayerStat.DiamondsChanged, object: diamonds)
             }
         }
     }
@@ -35,7 +48,7 @@ class PlayerStat: NSObject, NSCoding
     var items = [StatItem]() {
         didSet {
             if items.count != oldValue.count {
-                NotificationCenter.default.post(name: .playerStatItemsChanged, object: items)
+                NotificationCenter.default.post(name: PlayerStat.ItemsChanged, object: items)
             }
         }
     }

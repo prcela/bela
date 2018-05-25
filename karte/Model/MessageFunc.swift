@@ -12,10 +12,12 @@ enum MessageFunc: String
 {
     case Acked = "ack"
     case PlayerStat = "player_stat"
+    case StatItems = "stat_items"
     case UpdatePlayer = "update_player"
     case RoomInfo = "room_info"
     case CreateTable = "create_table"
     case LeaveTable = "leave_table"
     case JoinTable = "join_table"
+    case Transitions = "transitions"
 }
 

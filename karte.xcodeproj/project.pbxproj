@@ -120,7 +120,6 @@
 		971E124020A2D41000198DE5 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */; };
 		971E124220A2D60B00198DE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E124120A2D60B00198DE5 /* Constants.swift */; };
 		971E124620A303BD00198DE5 /* MatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E122E20A1D3A800198DE5 /* MatchInfo.swift */; };
-		971E124720A303BD00198DE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E124120A2D60B00198DE5 /* Constants.swift */; };
 		971E124820A303BD00198DE5 /* WsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E120C209F196300198DE5 /* WsApi.swift */; };
 		971E124920A303BD00198DE5 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */; };
 		971E124A20A303BD00198DE5 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E122A20A1D0D000198DE5 /* PlayerInfo.swift */; };
@@ -148,6 +147,22 @@
 		971E126420A303BD00198DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F5209E5A3400198DE5 /* Assets.xcassets */; };
 		971E127020A32E6400198DE5 /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E126E20A32E6400198DE5 /* MatchCell.swift */; };
 		971E127120A32E6400198DE5 /* MatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971E126F20A32E6400198DE5 /* MatchCell.xib */; };
+		97E9A9D420B18B4D00DB5454 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9D320B18B4D00DB5454 /* CardTransition.swift */; };
+		97E9A9D520B18B4D00DB5454 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9D320B18B4D00DB5454 /* CardTransition.swift */; };
+		97E9A9E020B6F6B700DB5454 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E9A9DF20B6F6B700DB5454 /* Player.storyboard */; };
+		97E9A9E120B6F6B700DB5454 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E9A9DF20B6F6B700DB5454 /* Player.storyboard */; };
+		97E9A9E320B6F7A800DB5454 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9E220B6F7A800DB5454 /* PlayerViewController.swift */; };
+		97E9A9E420B6F7A800DB5454 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9E220B6F7A800DB5454 /* PlayerViewController.swift */; };
+		97E9A9E620B6F85F00DB5454 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9E520B6F85F00DB5454 /* ContainerViewController.swift */; };
+		97E9A9E720B6F85F00DB5454 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9E520B6F85F00DB5454 /* ContainerViewController.swift */; };
+		97E9A9E920B6FA6F00DB5454 /* PlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9E820B6FA6F00DB5454 /* PlayerContainer.swift */; };
+		97E9A9EA20B6FA6F00DB5454 /* PlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9E820B6FA6F00DB5454 /* PlayerContainer.swift */; };
+		97E9A9EC20B7E90900DB5454 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9EB20B7E90900DB5454 /* ProfileViewController.swift */; };
+		97E9A9ED20B7E90900DB5454 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9EB20B7E90900DB5454 /* ProfileViewController.swift */; };
+		97E9A9EF20B8073E00DB5454 /* StatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9EE20B8073E00DB5454 /* StatTableViewController.swift */; };
+		97E9A9F020B8073E00DB5454 /* StatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9EE20B8073E00DB5454 /* StatTableViewController.swift */; };
+		97E9A9F220B808E100DB5454 /* StatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9F120B808E100DB5454 /* StatsTableView.swift */; };
+		97E9A9F320B808E100DB5454 /* StatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9F120B808E100DB5454 /* StatsTableView.swift */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -232,6 +247,14 @@
 		971E126C20A303BE00198DE5 /* lora-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "lora-Info.plist"; path = "/Users/prcela/work/bela/lora-Info.plist"; sourceTree = "<absolute>"; };
 		971E126E20A32E6400198DE5 /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		971E126F20A32E6400198DE5 /* MatchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchCell.xib; sourceTree = "<group>"; };
+		97E9A9D320B18B4D00DB5454 /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
+		97E9A9DF20B6F6B700DB5454 /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
+		97E9A9E220B6F7A800DB5454 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		97E9A9E520B6F85F00DB5454 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		97E9A9E820B6FA6F00DB5454 /* PlayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainer.swift; sourceTree = "<group>"; };
+		97E9A9EB20B7E90900DB5454 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		97E9A9EE20B8073E00DB5454 /* StatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewController.swift; sourceTree = "<group>"; };
+		97E9A9F120B808E100DB5454 /* StatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableView.swift; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -367,6 +390,11 @@
 				971E123F20A2D41000198DE5 /* UIViewControllerExt.swift */,
 				970884B620A4CB39005323DB /* GameViewController.swift */,
 				9708857320A8B76C005323DB /* LeaderboardViewController.swift */,
+				97E9A9E220B6F7A800DB5454 /* PlayerViewController.swift */,
+				97E9A9E520B6F85F00DB5454 /* ContainerViewController.swift */,
+				97E9A9E820B6FA6F00DB5454 /* PlayerContainer.swift */,
+				97E9A9EB20B7E90900DB5454 /* ProfileViewController.swift */,
+				97E9A9EE20B8073E00DB5454 /* StatTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -380,6 +408,7 @@
 				971E1218209F1F6300198DE5 /* Leaderboard.storyboard */,
 				971E121A209F1F7900198DE5 /* Rules.storyboard */,
 				970884B420A4CAFA005323DB /* Game.storyboard */,
+				97E9A9DF20B6F6B700DB5454 /* Player.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -407,6 +436,7 @@
 				971E124120A2D60B00198DE5 /* Constants.swift */,
 				9708856420A70A4F005323DB /* Card.swift */,
 				9708856720A72DE2005323DB /* CardGroup.swift */,
+				97E9A9D320B18B4D00DB5454 /* CardTransition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,6 +474,7 @@
 			children = (
 				971E126E20A32E6400198DE5 /* MatchCell.swift */,
 				971E126F20A32E6400198DE5 /* MatchCell.xib */,
+				97E9A9F120B808E100DB5454 /* StatsTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -545,6 +576,7 @@
 				9708855620A709CF005323DB /* žir_kralj.jpg in Resources */,
 				970884B520A4CAFA005323DB /* Game.storyboard in Resources */,
 				971E1217209F1E4800198DE5 /* up.png in Resources */,
+				97E9A9E020B6F6B700DB5454 /* Player.storyboard in Resources */,
 				9708854A20A709C6005323DB /* srce_dama.jpg in Resources */,
 				9708852A20A709BC005323DB /* list_viii.jpg in Resources */,
 				971E1208209F139200198DE5 /* Room.storyboard in Resources */,
@@ -623,6 +655,7 @@
 				9708852920A709BC005323DB /* list_kralj.jpg in Resources */,
 				9708855720A709CF005323DB /* žir_kralj.jpg in Resources */,
 				9708852520A709BC005323DB /* list_x.jpg in Resources */,
+				97E9A9E120B6F6B700DB5454 /* Player.storyboard in Resources */,
 				9708852D20A709BC005323DB /* list_dečko.jpg in Resources */,
 				9708853D20A709C6005323DB /* srce_viii.jpg in Resources */,
 				9708855B20A709CF005323DB /* žir_viii.jpg in Resources */,
@@ -776,19 +809,26 @@
 				971E1212209F1C9000198DE5 /* Helper.swift in Sources */,
 				971E123120A1D3CE00198DE5 /* MatchResult.swift in Sources */,
 				970884B720A4CB39005323DB /* GameViewController.swift in Sources */,
+				97E9A9D420B18B4D00DB5454 /* CardTransition.swift in Sources */,
 				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
+				97E9A9EC20B7E90900DB5454 /* ProfileViewController.swift in Sources */,
 				971E123520A2171300198DE5 /* CreateGameViewController.swift in Sources */,
 				9708856520A70A4F005323DB /* Card.swift in Sources */,
 				971E1210209F1B8900198DE5 /* PlayerStat.swift in Sources */,
 				971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */,
 				971E121D209F328000198DE5 /* MessageFunc.swift in Sources */,
+				97E9A9E320B6F7A800DB5454 /* PlayerViewController.swift in Sources */,
 				971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */,
 				971E123E20A2D2E500198DE5 /* Prefs.swift in Sources */,
 				971E1222209F3D1600198DE5 /* DateExt.swift in Sources */,
 				970884E720A6F581005323DB /* GameScene.swift in Sources */,
+				97E9A9E920B6FA6F00DB5454 /* PlayerContainer.swift in Sources */,
+				97E9A9E620B6F85F00DB5454 /* ContainerViewController.swift in Sources */,
 				971E127020A32E6400198DE5 /* MatchCell.swift in Sources */,
 				971E121F209F3C2F00198DE5 /* StatItem.swift in Sources */,
+				97E9A9EF20B8073E00DB5454 /* StatTableViewController.swift in Sources */,
 				971E122D20A1D23400198DE5 /* TableInfo.swift in Sources */,
+				97E9A9F220B808E100DB5454 /* StatsTableView.swift in Sources */,
 				9708856E20A75FCE005323DB /* CardNode.swift in Sources */,
 				971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */,
 				971E123320A1D4E900198DE5 /* Room.swift in Sources */,
@@ -800,22 +840,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				971E124620A303BD00198DE5 /* MatchInfo.swift in Sources */,
-				971E124720A303BD00198DE5 /* Constants.swift in Sources */,
 				971E124820A303BD00198DE5 /* WsApi.swift in Sources */,
 				971E124920A303BD00198DE5 /* UIViewControllerExt.swift in Sources */,
 				971E124A20A303BD00198DE5 /* PlayerInfo.swift in Sources */,
 				971E124B20A303BD00198DE5 /* Helper.swift in Sources */,
 				971E124C20A303BD00198DE5 /* MatchResult.swift in Sources */,
+				97E9A9E720B6F85F00DB5454 /* ContainerViewController.swift in Sources */,
+				97E9A9E420B6F7A800DB5454 /* PlayerViewController.swift in Sources */,
+				97E9A9F020B8073E00DB5454 /* StatTableViewController.swift in Sources */,
 				971E124D20A303BD00198DE5 /* MainViewController.swift in Sources */,
 				971E124E20A303BD00198DE5 /* CreateGameViewController.swift in Sources */,
+				97E9A9F320B808E100DB5454 /* StatsTableView.swift in Sources */,
 				971E124F20A303BD00198DE5 /* PlayerStat.swift in Sources */,
 				970884E820A6F581005323DB /* GameScene.swift in Sources */,
+				97E9A9ED20B7E90900DB5454 /* ProfileViewController.swift in Sources */,
 				971E125020A303BD00198DE5 /* MenuViewController.swift in Sources */,
 				9708856620A70A4F005323DB /* Card.swift in Sources */,
 				971E125120A303BD00198DE5 /* MessageFunc.swift in Sources */,
+				97E9A9D520B18B4D00DB5454 /* CardTransition.swift in Sources */,
 				971E125220A303BD00198DE5 /* AppDelegate.swift in Sources */,
 				971E125320A303BD00198DE5 /* Prefs.swift in Sources */,
 				971E125420A303BD00198DE5 /* DateExt.swift in Sources */,
+				97E9A9EA20B6FA6F00DB5454 /* PlayerContainer.swift in Sources */,
 				971E125520A303BD00198DE5 /* StatItem.swift in Sources */,
 				9708856F20A75FCE005323DB /* CardNode.swift in Sources */,
 				971E125620A303BD00198DE5 /* TableInfo.swift in Sources */,

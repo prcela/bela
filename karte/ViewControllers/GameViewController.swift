@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import SwiftyJSON
 
 class GameViewController: UIViewController {
 
@@ -16,6 +17,13 @@ class GameViewController: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(onTransitions(notification:)), name: WsAPI.onTransitions, object: nil)
     }
     
     override func viewDidLoad() {
@@ -30,6 +38,14 @@ class GameViewController: UIViewController {
             // Set the scale mode to scale to fit the window
             scene?.scaleMode = .aspectFill
             
+            if let tableId = PlayerStat.shared.tableId,
+                let tableInfo = Room.shared.tablesInfo[tableId],
+                let localPlayerIdx = tableInfo.playersId.index(of: PlayerStat.shared.id)
+            {
+                scene?.localPlayerIdx = localPlayerIdx
+            }
+            
+            
             // Present the scene
             view.presentScene(scene)
             
@@ -38,6 +54,14 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
+    }
+    
+    @objc func onTransitions(notification: Notification) {
+        let json = notification.object as! JSON
+        let transitions = json.arrayValue.map { (json) -> CardTransition in
+            return CardTransition(json: json)
+        }
+        scene?.onTransitions(transitions: transitions)
     }
     
     @IBAction func onMenu(_ sender: Any) {

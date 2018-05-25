@@ -29,6 +29,8 @@ class WsAPI
     static let onPlayerStatReceived = Notification.Name("WsAPI.onPlayerStatReceived")
     static let onRoomInfo = Notification.Name("WsAPI.onRoomInfo")
     static let onPlayerJoinedToTable = Notification.Name("WsAPI.onPlayerJoinedToTable")
+    static let onTransitions = Notification.Name("WsAPI.onTransitions")
+    static let onStatItems = Notification.Name("WsAPI.onStatItems")
     
     fileprivate var retryCount = 0
     fileprivate var pingInterval: TimeInterval = 40
@@ -76,6 +78,12 @@ class WsAPI
     {
         let json = JSON(["playerId":PlayerStat.shared.id, "last_n":10])
         send(.PlayerStat, json: json)
+    }
+    
+    func statItems(playerId: String)
+    {
+        let json = JSON(["player_id":playerId])
+        send(.StatItems, json: json)
     }
     
     var unsentMessages = [String]()
@@ -170,6 +178,9 @@ extension WsAPI: WebSocketDelegate
                     
                 case .JoinTable:
                     nc.post(name: WsAPI.onPlayerJoinedToTable, object: json)
+                    
+                case .Transitions:
+                    nc.post(name: WsAPI.onTransitions, object: json["transitions"])
                     
                 default:
                     break

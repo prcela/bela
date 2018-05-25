@@ -11,12 +11,17 @@ import CoreGraphics
 import SpriteKit
 
 class CardGroup {
+    var id: String
     var pos = CGPoint.zero
     var zRotation = CGFloat(0)
     var zPosition = CGFloat(0)
     var scale = CGFloat(1)
     
     var cards = [Card]()
+    
+    init(id: String) {
+        self.id = id
+    }
     
     func position(at idx: Int) -> CGPoint {
         return pos
@@ -42,9 +47,10 @@ class LinearGroup: CardGroup
     var delta:CGFloat
     var dir = CGVector(dx: 1, dy: 0)
     
-    init(capacity:Int,delta:CGFloat) {
+    init(id: String, capacity:Int, delta:CGFloat) {
         self.capacity = capacity
         self.delta = delta
+        super.init(id: id)
     }
     
     override func position(at idx: Int) -> CGPoint { 

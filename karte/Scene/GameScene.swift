@@ -11,21 +11,23 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    let initialGroup = CardGroup()
-    let handGroup0 = LinearGroup(capacity: 8, delta: 35)
-    let handGroup1 = LinearGroup(capacity: 8, delta: 15)
-    let handGroup2 = LinearGroup(capacity: 8, delta: 20)
-    let handGroup3 = LinearGroup(capacity: 8, delta: 15)
+    var localPlayerIdx: Int = 0
     
-    let talonGroup0 = LinearGroup(capacity: 2, delta: 10)
-    let talonGroup1 = LinearGroup(capacity: 2, delta: 10)
-    let talonGroup2 = LinearGroup(capacity: 2, delta: 10)
-    let talonGroup3 = LinearGroup(capacity: 2, delta: 10)
+    let initialGroup = CardGroup(id: "Initial")
+    let handGroup0 = LinearGroup(id: "Hand0", capacity: 8, delta: 35)
+    let handGroup1 = LinearGroup(id: "Hand1", capacity: 8, delta: 15)
+    let handGroup2 = LinearGroup(id: "Hand2", capacity: 8, delta: 20)
+    let handGroup3 = LinearGroup(id: "Hand3", capacity: 8, delta: 15)
     
-    let centerGroup = CenterGroup()
+    let talonGroup0 = LinearGroup(id: "Talon0", capacity: 2, delta: 10)
+    let talonGroup1 = LinearGroup(id: "Talon1", capacity: 2, delta: 10)
+    let talonGroup2 = LinearGroup(id: "Talon2", capacity: 2, delta: 10)
+    let talonGroup3 = LinearGroup(id: "Talon3", capacity: 2, delta: 10)
     
-    let winGroup0 = CardGroup()
-    let winGroup1 = CardGroup()
+    let centerGroup = CenterGroup(id: "Center")
+    
+    let winGroup0 = CardGroup(id: "Win0")
+    let winGroup1 = CardGroup(id: "Win1")
     
     var playersLbls = [SKLabelNode]()
     
@@ -59,6 +61,7 @@ class GameScene: SKScene {
         
         playersLbls.removeAll()
         for (idx,group) in [handGroup0,handGroup1,handGroup2,handGroup3].enumerated() {
+            let idx = (idx+4-localPlayerIdx)%4
             let node = childNode(withName: "//PlayerPos\(idx)")!
             let lblNode = childNode(withName: "//PlayerPlus\(idx)") as! SKLabelNode
             lblNode.text = "Player \(idx)"
@@ -71,6 +74,7 @@ class GameScene: SKScene {
         centerGroup.scale = 0.85
         
         for (idx,talon) in [talonGroup0,talonGroup1,talonGroup2,talonGroup3].enumerated() {
+            let idx = (idx+4-localPlayerIdx)%4
             let nodeTalon = childNode(withName: "//Talon\(idx)")!
             talon.setNodePlacement(node: nodeTalon)
         }
@@ -81,18 +85,17 @@ class GameScene: SKScene {
         }
         
         if let tableId = PlayerStat.shared.tableId,
-            let table = Room.shared.tablesInfo[tableId],
-            var idx = table.playersId.index(of: PlayerStat.shared.id)
+            let table = Room.shared.tablesInfo[tableId]
         {
-            for relIdx in 0..<table.capacity {
+            for idx in 0..<table.capacity {
+                let idx = (idx+4-localPlayerIdx)%4
                 if idx < table.playersId.count {
                     let playerId = table.playersId[idx]
                     let p = Room.shared.playersInfo[playerId]
-                    playersLbls[relIdx].text = p?.alias
+                    playersLbls[idx].text = p?.alias
                 } else {
-                    playersLbls[relIdx].text = "?"
+                    playersLbls[idx].text = "?"
                 }
-                idx = (idx+1)%table.capacity
             }
         }
         
@@ -123,9 +126,11 @@ class GameScene: SKScene {
             cardNode.frontNode?.isHidden = false
         }
         
+        let myHandGroup = group(by: "Hand\(localPlayerIdx)")!
+        
         cardNode.run(actionSequence) {
             
-            if toGroup === self.handGroup0 || toGroup === self.centerGroup {
+            if toGroup === myHandGroup || toGroup === self.centerGroup {
                 cardNode.backNode?.isHidden = true
                 cardNode.frontNode?.isHidden = false
             } else {
@@ -176,6 +181,27 @@ class GameScene: SKScene {
                 for _ in centerGroup.cards {
                     moveCard(fromGroup: centerGroup, fromIdx: 0, toGroup: winGroup1, toIdx: winGroup1.cards.count, waitDuration: 2, duration: 0.3)
                 }
+            }
+        }
+    }
+    
+    fileprivate func group(by id: String) -> CardGroup? {
+        let allGroups = [initialGroup,handGroup0,handGroup1,handGroup2,handGroup3,talonGroup0,talonGroup1,talonGroup2,talonGroup3,centerGroup,winGroup0,winGroup1]
+        return allGroups.first(where: { (group) -> Bool in
+            return group.id == id
+        })
+    }
+    
+    func onTransitions(transitions: [CardTransition]) {
+        for t in transitions {
+            if let fromGroup = group(by: t.fromGroupId),
+                let toGroup = group(by: t.toGroupId) {
+                moveCard(fromGroup: fromGroup,
+                         fromIdx: t.fromIdx,
+                         toGroup: toGroup,
+                         toIdx: t.toIdx,
+                         waitDuration: t.waitDuration,
+                         duration: t.duration)
             }
         }
     }

@@ -7,10 +7,16 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Card {
     let boja: Boja
     let broj: Broj
+    
+    init(boja: Boja, broj: Broj) {
+        self.boja = boja
+        self.broj = broj
+    }
     
     func imageName() -> String {
         let naziv = String("\(boja)_\(broj).jpg")
@@ -20,13 +26,18 @@ struct Card {
     func nodeName() -> String {
         return "card_\(boja)_\(broj)"
     }
+    
+    init(json: JSON) {
+        boja = Boja(rawValue: json["boja"].stringValue)!
+        broj = Broj(rawValue: json["broj"].intValue)!
+    }
 }
 
-enum Boja {
-    case žir
-    case bundeva
-    case srce
-    case list
+enum Boja: String {
+    case žir = "žir"
+    case bundeva = "bundeva"
+    case srce = "srce"
+    case list = "list"
 }
 
 enum Broj: Int {
