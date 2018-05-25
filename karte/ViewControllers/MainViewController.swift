@@ -32,6 +32,10 @@ class MainViewController: UIViewController {
         nc.addObserver(self, selector: #selector(onPlayerStat), name: WsAPI.onPlayerStatReceived, object: nil)
         nc.addObserver(self, selector: #selector(joinedTable), name: WsAPI.onPlayerJoinedToTable, object: nil)
         
+        nc.addObserver(self, selector: #selector(refreshPlayerInfo), name: PlayerStat.AliasChanged, object: nil)
+        nc.addObserver(self, selector: #selector(refreshPlayerInfo), name: PlayerStat.DiamondsChanged, object: nil)
+        nc.addObserver(self, selector: #selector(refreshPlayerInfo), name: PlayerStat.ItemsChanged, object: nil)
+        
         MainViewController.shared = self
     }
     

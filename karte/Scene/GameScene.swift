@@ -14,9 +14,9 @@ class GameScene: SKScene {
     var localPlayerIdx: Int = 0
     
     let initialGroup = CardGroup(id: "Initial")
-    let handGroup0 = LinearGroup(id: "Hand0", capacity: 8, delta: 35)
+    let handGroup0 = LinearGroup(id: "Hand0", capacity: 8, delta: 15)
     let handGroup1 = LinearGroup(id: "Hand1", capacity: 8, delta: 15)
-    let handGroup2 = LinearGroup(id: "Hand2", capacity: 8, delta: 20)
+    let handGroup2 = LinearGroup(id: "Hand2", capacity: 8, delta: 15)
     let handGroup3 = LinearGroup(id: "Hand3", capacity: 8, delta: 15)
     
     let talonGroup0 = LinearGroup(id: "Talon0", capacity: 2, delta: 10)
@@ -36,9 +36,13 @@ class GameScene: SKScene {
         // move all cards to initial group
         let nodeInitial = self.childNode(withName: "//Initial")!
         initialGroup.setNodePlacement(node: nodeInitial)
-        for group in [initialGroup,handGroup1,handGroup2,handGroup3,talonGroup0,talonGroup1,talonGroup2,talonGroup3] {
+        for group in [initialGroup,handGroup0,handGroup1,handGroup2,handGroup3,talonGroup0,talonGroup1,talonGroup2,talonGroup3] {
             group.scale = 0.72
         }
+        
+        let myHand = group(by: "Hand\(localPlayerIdx)") as! LinearGroup
+        myHand.scale = 1
+        myHand.delta = 30
         
         for boja in [Boja.bundeva,Boja.list,Boja.srce,Boja.žir] {
             for broj in [Broj.vii,Broj.viii,Broj.ix,Broj.x,Broj.dečko,Broj.dama,Broj.kralj,Broj.kec] {
