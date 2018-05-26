@@ -31,6 +31,24 @@ class GameScene: SKScene {
     
     var playersLbls = [SKLabelNode]()
     
+    fileprivate func refreshPlayersAliases()
+    {
+        if let tableId = PlayerStat.shared.tableId,
+            let table = Room.shared.tablesInfo[tableId]
+        {
+            for idx in 0..<table.capacity {
+                let idx = (idx+4-localPlayerIdx)%4
+                if idx < table.playersId.count {
+                    let playerId = table.playersId[idx]
+                    let p = Room.shared.playersInfo[playerId]
+                    playersLbls[idx].text = p?.alias
+                } else {
+                    playersLbls[idx].text = "?"
+                }
+            }
+        }
+    }
+    
     override func didMove(to view: SKView) {
         
         // move all cards to initial group
@@ -88,20 +106,7 @@ class GameScene: SKScene {
             group.setNodePlacement(node: node)
         }
         
-        if let tableId = PlayerStat.shared.tableId,
-            let table = Room.shared.tablesInfo[tableId]
-        {
-            for idx in 0..<table.capacity {
-                let idx = (idx+4-localPlayerIdx)%4
-                if idx < table.playersId.count {
-                    let playerId = table.playersId[idx]
-                    let p = Room.shared.playersInfo[playerId]
-                    playersLbls[idx].text = p?.alias
-                } else {
-                    playersLbls[idx].text = "?"
-                }
-            }
-        }
+        refreshPlayersAliases()
         
         // testPreview()
     }
@@ -208,6 +213,11 @@ class GameScene: SKScene {
                          duration: t.duration)
             }
         }
+    }
+    
+    func onPlayerJoined(_ joinedPlayerId: String)
+    {
+        refreshPlayersAliases()
     }
     
     func testPreview()

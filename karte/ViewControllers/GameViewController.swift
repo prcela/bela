@@ -11,6 +11,8 @@ import SpriteKit
 import SwiftyJSON
 
 class GameViewController: UIViewController {
+    
+    static weak var shared: GameViewController?
 
     @IBOutlet weak var overlayView: UIView!
     var scene: GameScene?
@@ -21,6 +23,8 @@ class GameViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        GameViewController.shared = self
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(onTransitions(notification:)), name: WsAPI.onTransitions, object: nil)

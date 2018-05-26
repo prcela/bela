@@ -130,11 +130,14 @@ class MainViewController: UIViewController {
         let joinedPlayerId = json["joined_player_id"].stringValue
         let table = TableInfo(json: json["table"])
         Room.shared.tablesInfo[table.id] = table
-        guard joinedPlayerId == PlayerStat.shared.id else {return}
         
-        // ooo thats me, go into game
-        PlayerStat.shared.tableId = table.id
-        openGame()
+        if joinedPlayerId == PlayerStat.shared.id {
+            // ooo thats me, go into game
+            PlayerStat.shared.tableId = table.id
+            openGame()
+        } else if PlayerStat.shared.tableId == table.id {
+            GameViewController.shared?.scene?.onPlayerJoined(joinedPlayerId)
+        }
         
     }
     
