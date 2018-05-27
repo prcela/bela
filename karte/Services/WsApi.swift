@@ -29,7 +29,8 @@ class WsAPI
     static let onPlayerStatReceived = Notification.Name("WsAPI.onPlayerStatReceived")
     static let onRoomInfo = Notification.Name("WsAPI.onRoomInfo")
     static let onPlayerJoinedToTable = Notification.Name("WsAPI.onPlayerJoinedToTable")
-    static let onTransitions = Notification.Name("WsAPI.onTransitions")
+    static let onStep = Notification.Name("WsAPI.onStep")
+    static let onGame = Notification.Name("WsAPI.onGame")
     static let onStatItems = Notification.Name("WsAPI.onStatItems")
     
     fileprivate var retryCount = 0
@@ -179,8 +180,11 @@ extension WsAPI: WebSocketDelegate
                 case .JoinTable:
                     nc.post(name: WsAPI.onPlayerJoinedToTable, object: json)
                     
-                case .Transitions:
-                    nc.post(name: WsAPI.onTransitions, object: json["transitions"])
+                case .Step:
+                    nc.post(name: WsAPI.onStep, object: json)
+                    
+                case .Game:
+                    nc.post(name: WsAPI.onGame, object: json)
                     
                 default:
                     break

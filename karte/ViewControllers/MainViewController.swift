@@ -136,7 +136,11 @@ class MainViewController: UIViewController {
             PlayerStat.shared.tableId = table.id
             openGame()
         } else if PlayerStat.shared.tableId == table.id {
-            GameViewController.shared?.scene?.onPlayerJoined(joinedPlayerId)
+            if let scene = GameViewController.shared?.scene {
+                scene.onPlayerJoined(joinedPlayerId)
+            } else if table.isFull() {
+                openGame()
+            }
         }
         
     }

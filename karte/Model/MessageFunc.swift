@@ -18,6 +18,7 @@ enum MessageFunc: String
     case CreateTable = "create_table"
     case LeaveTable = "leave_table"
     case JoinTable = "join_table"
-    case Transitions = "transitions"
+    case Step = "step"
+    case Game = "game"
 }
 

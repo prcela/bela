@@ -12,6 +12,7 @@ import SpriteKit
 class GameScene: SKScene {
     
     var localPlayerIdx: Int = 0
+    var enabledMoves = [Int:[CardEnabledMove]]()
     
     let initialGroup = CardGroup(id: "Initial")
     let handGroup0 = LinearGroup(id: "Hand0", capacity: 8, delta: 15)
@@ -172,19 +173,24 @@ class GameScene: SKScene {
     }
     
     fileprivate func touchUp(atPoint pos : CGPoint) {
-        var cards = [CardNode]()
+        var cardNodes = [CardNode]()
         enumerateChildNodes(withName: "card_*") { (card, _) in
-            cards.append(card as! CardNode)
+            cardNodes.append(card as! CardNode)
         }
         // sort from top to bottom
-        cards.sort { (card0, card1) -> Bool in
+        cardNodes.sort { (card0, card1) -> Bool in
             return card0.zPosition > card1.zPosition
         }
-        if let card = cards.first(where: { (card) -> Bool in
+        if let cardNode = cardNodes.first(where: { (card) -> Bool in
             return card.contains(pos)
-        }) {
-            centerGroup.zRotation = card.zRotation
-            moveCard(cardName: card.name!, toGroup: centerGroup, waitDuration: 0, duration: 0.5)
+        }),
+            let playerEnabledMoves = enabledMoves[localPlayerIdx],
+            let _ = playerEnabledMoves.first(where: { (enabledMove) -> Bool in
+                return enabledMove.card.nodeName() == cardNode.name
+            })
+        {
+            centerGroup.zRotation = cardNode.zRotation
+            moveCard(cardName: cardNode.name!, toGroup: centerGroup, waitDuration: 0, duration: 0.5)
             
             if centerGroup.cards.count == 4 {
                 for _ in centerGroup.cards {
@@ -201,7 +207,9 @@ class GameScene: SKScene {
         })
     }
     
-    func onTransitions(transitions: [CardTransition]) {
+    func onTransitions(transitions: [CardTransition], onFinished: @escaping () -> Void) {
+        var totalDuration:TimeInterval = 0
+        
         for t in transitions {
             if let fromGroup = group(by: t.fromGroupId),
                 let toGroup = group(by: t.toGroupId) {
@@ -211,10 +219,14 @@ class GameScene: SKScene {
                          toIdx: t.toIdx,
                          waitDuration: t.waitDuration,
                          duration: t.duration)
+                totalDuration = max(totalDuration, t.waitDuration + t.duration)
             }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now()+totalDuration) {
+            onFinished()
+        }
     }
-    
+        
     func onPlayerJoined(_ joinedPlayerId: String)
     {
         refreshPlayersAliases()

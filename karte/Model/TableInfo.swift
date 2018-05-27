@@ -38,4 +38,9 @@ struct TableInfo
         gameType = GameType(rawValue: json["game_type"].intValue)!
         upToPoints = json["up_to_points"].intValue
     }
+    
+    func isFull() -> Bool
+    {
+        return capacity == playersId.count
+    }
 }

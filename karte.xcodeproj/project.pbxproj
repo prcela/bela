@@ -169,6 +169,7 @@
 		97E9A9F920B80E2E00DB5454 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9F720B80E2E00DB5454 /* GraphsView.swift */; };
 		97E9A9FC20B8159500DB5454 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */; };
 		97E9A9FD20B8159500DB5454 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */; };
+		97E9AA0120BAC86300DB5454 /* CardEnabledMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9AA0020BAC86300DB5454 /* CardEnabledMove.swift */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -264,6 +265,7 @@
 		97E9A9F420B80D8300DB5454 /* GraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsViewController.swift; sourceTree = "<group>"; };
 		97E9A9F720B80E2E00DB5454 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
 		97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButton.swift; sourceTree = "<group>"; };
+		97E9AA0020BAC86300DB5454 /* CardEnabledMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnabledMove.swift; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -447,6 +449,7 @@
 				9708856420A70A4F005323DB /* Card.swift */,
 				9708856720A72DE2005323DB /* CardGroup.swift */,
 				97E9A9D320B18B4D00DB5454 /* CardTransition.swift */,
+				97E9AA0020BAC86300DB5454 /* CardEnabledMove.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				971E1212209F1C9000198DE5 /* Helper.swift in Sources */,
 				971E123120A1D3CE00198DE5 /* MatchResult.swift in Sources */,
 				970884B720A4CB39005323DB /* GameViewController.swift in Sources */,
+				97E9AA0120BAC86300DB5454 /* CardEnabledMove.swift in Sources */,
 				97E9A9D420B18B4D00DB5454 /* CardTransition.swift in Sources */,
 				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
 				97E9A9EC20B7E90900DB5454 /* ProfileViewController.swift in Sources */,

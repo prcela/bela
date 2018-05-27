@@ -27,7 +27,8 @@ class GameViewController: UIViewController {
         GameViewController.shared = self
         
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(onTransitions(notification:)), name: WsAPI.onTransitions, object: nil)
+        nc.addObserver(self, selector: #selector(onGame), name: WsAPI.onGame, object: nil)
+        nc.addObserver(self, selector: #selector(onStep(notification:)), name: WsAPI.onStep, object: nil)
     }
     
     override func viewDidLoad() {
@@ -60,12 +61,27 @@ class GameViewController: UIViewController {
         }
     }
     
-    @objc func onTransitions(notification: Notification) {
+    @objc
+    func onGame(notification: Notification) {
         let json = notification.object as! JSON
-        let transitions = json.arrayValue.map { (json) -> CardTransition in
+        
+    }
+    
+    @objc func onStep(notification: Notification) {
+        let json = notification.object as! JSON
+        let transitions = json["transitions"].arrayValue.map { (json) -> CardTransition in
             return CardTransition(json: json)
         }
-        scene?.onTransitions(transitions: transitions)
+        scene?.enabledMoves = [:]
+        scene?.onTransitions(transitions: transitions) {[weak self] in
+            var enabledMoves = [Int:[CardEnabledMove]]()
+            for (key,json) in json["enabled_moves"].dictionaryValue {
+                enabledMoves[Int(key)!] = json.arrayValue.map({ (json) -> CardEnabledMove in
+                    return CardEnabledMove(json: json)
+                })
+            }
+            self?.scene?.enabledMoves = enabledMoves
+        }
     }
     
     @IBAction func onMenu(_ sender: Any) {
