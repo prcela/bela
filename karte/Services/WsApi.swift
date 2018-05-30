@@ -184,7 +184,7 @@ extension WsAPI: WebSocketDelegate
                     nc.post(name: WsAPI.onStep, object: json)
                     
                 case .Game:
-                    nc.post(name: WsAPI.onGame, object: json)
+                    nc.post(name: WsAPI.onGame, object: json["game"])
                     
                 default:
                     break

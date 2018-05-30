@@ -64,7 +64,8 @@ class GameViewController: UIViewController {
     @objc
     func onGame(notification: Notification) {
         let json = notification.object as! JSON
-        
+        sharedGame = Bela(json: json)
+        scene?.onGame(cardGame: sharedGame!)
     }
     
     @objc func onStep(notification: Notification) {

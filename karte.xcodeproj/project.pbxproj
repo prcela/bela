@@ -170,6 +170,9 @@
 		97E9A9FC20B8159500DB5454 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */; };
 		97E9A9FD20B8159500DB5454 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */; };
 		97E9AA0120BAC86300DB5454 /* CardEnabledMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9AA0020BAC86300DB5454 /* CardEnabledMove.swift */; };
+		97E9AA0320BB54D600DB5454 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9AA0220BB54D600DB5454 /* CardGame.swift */; };
+		97E9AA0420BB54D600DB5454 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9AA0220BB54D600DB5454 /* CardGame.swift */; };
+		97E9AA0620BB554F00DB5454 /* Bela.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9AA0520BB554F00DB5454 /* Bela.swift */; };
 		C851BFE7D184D685ACB3294A /* Pods_bela.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3594C2438D728B8DC593CF /* Pods_bela.framework */; };
 /* End PBXBuildFile section */
 
@@ -266,6 +269,8 @@
 		97E9A9F720B80E2E00DB5454 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
 		97E9A9FB20B8159500DB5454 /* UnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButton.swift; sourceTree = "<group>"; };
 		97E9AA0020BAC86300DB5454 /* CardEnabledMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnabledMove.swift; sourceTree = "<group>"; };
+		97E9AA0220BB54D600DB5454 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		97E9AA0520BB554F00DB5454 /* Bela.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bela.swift; sourceTree = "<group>"; };
 		AF3594C2438D728B8DC593CF /* Pods_bela.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bela.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA48B637D789F3DD88878746 /* Pods-bela.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bela.release.xcconfig"; path = "Pods/Target Support Files/Pods-bela/Pods-bela.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -450,6 +455,8 @@
 				9708856720A72DE2005323DB /* CardGroup.swift */,
 				97E9A9D320B18B4D00DB5454 /* CardTransition.swift */,
 				97E9AA0020BAC86300DB5454 /* CardEnabledMove.swift */,
+				97E9AA0220BB54D600DB5454 /* CardGame.swift */,
+				97E9AA0520BB554F00DB5454 /* Bela.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -836,6 +843,7 @@
 				97E9A9E320B6F7A800DB5454 /* PlayerViewController.swift in Sources */,
 				971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */,
 				971E123E20A2D2E500198DE5 /* Prefs.swift in Sources */,
+				97E9AA0620BB554F00DB5454 /* Bela.swift in Sources */,
 				971E1222209F3D1600198DE5 /* DateExt.swift in Sources */,
 				970884E720A6F581005323DB /* GameScene.swift in Sources */,
 				97E9A9E920B6FA6F00DB5454 /* PlayerContainer.swift in Sources */,
@@ -849,6 +857,7 @@
 				971E122D20A1D23400198DE5 /* TableInfo.swift in Sources */,
 				97E9A9F220B808E100DB5454 /* StatsTableView.swift in Sources */,
 				9708856E20A75FCE005323DB /* CardNode.swift in Sources */,
+				97E9AA0320BB54D600DB5454 /* CardGame.swift in Sources */,
 				971E120A209F13D100198DE5 /* RoomViewController.swift in Sources */,
 				971E123320A1D4E900198DE5 /* Room.swift in Sources */,
 			);
@@ -879,6 +888,7 @@
 				9708856620A70A4F005323DB /* Card.swift in Sources */,
 				971E125120A303BD00198DE5 /* MessageFunc.swift in Sources */,
 				97E9A9FD20B8159500DB5454 /* UnderlineButton.swift in Sources */,
+				97E9AA0420BB54D600DB5454 /* CardGame.swift in Sources */,
 				97E9A9D520B18B4D00DB5454 /* CardTransition.swift in Sources */,
 				971E125220A303BD00198DE5 /* AppDelegate.swift in Sources */,
 				971E125320A303BD00198DE5 /* Prefs.swift in Sources */,

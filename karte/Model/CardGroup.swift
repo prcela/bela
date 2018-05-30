@@ -9,9 +9,18 @@
 import Foundation
 import CoreGraphics
 import SpriteKit
+import SwiftyJSON
+
+enum CardGroupVisibility: Int {
+    case Hidden = 0
+    case VisibleToLocalOnly
+    case Visible
+}
 
 class CardGroup {
     var id: String
+    var visibility: CardGroupVisibility
+    
     var pos = CGPoint.zero
     var zRotation = CGFloat(0)
     var zPosition = CGFloat(0)
@@ -21,6 +30,15 @@ class CardGroup {
     
     init(id: String) {
         self.id = id
+        self.visibility = .Hidden
+    }
+    
+    init(json: JSON) {
+        id = json["id"].stringValue
+        visibility = CardGroupVisibility(rawValue: json["visibility"].intValue)!
+        cards = json["cards"].arrayValue.map({ (json) -> Card in
+            return Card(json: json)
+        })
     }
     
     func position(at idx: Int) -> CGPoint {
@@ -37,6 +55,7 @@ class CardGroup {
         pos = node.position
         zPosition = node.zPosition
         zRotation = node.zRotation
+        scale = (node.xScale+node.yScale)/2
     }
 
 }
@@ -53,6 +72,13 @@ class LinearGroup: CardGroup
         super.init(id: id)
     }
     
+    override init(json: JSON) {
+        capacity = json["capacity"].intValue
+        delta = 15
+        super.init(json: json)
+    }
+    
+    
     override func position(at idx: Int) -> CGPoint { 
         return CGPoint(x: pos.x - (CGFloat(capacity/2)-0.5)*delta*dir.dx + CGFloat(idx)*delta*dir.dx, y: pos.y - (CGFloat(capacity/2)-0.5)*delta*dir.dy + CGFloat(idx)*delta*dir.dy)
     }
@@ -65,6 +91,14 @@ class LinearGroup: CardGroup
 }
 
 class CenterGroup: CardGroup {
+    
+    override init(id: String) {
+        super.init(id: id)
+    }
+    
+    override init(json: JSON) {
+        super.init(json: json)
+    }
     
     override func position(at idx: Int) -> CGPoint {
         let pos = super.position(at: idx)
