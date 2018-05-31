@@ -27,11 +27,27 @@ struct Card {
         return "card_\(boja)_\(broj)"
     }
     
+    func dictionary() -> [String:Any] {
+        return [
+            "boja":boja.rawValue,
+            "broj":broj.rawValue
+        ]
+    }
+    
     init(json: JSON) {
         boja = Boja(rawValue: json["boja"].stringValue)!
         broj = Broj(rawValue: json["broj"].intValue)!
     }
 }
+
+extension Card: Equatable {
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return
+            lhs.boja == rhs.boja &&
+                lhs.broj == rhs.broj
+    }
+}
+
 
 enum Boja: String {
     case žir = "žir"

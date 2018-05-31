@@ -20,5 +20,6 @@ enum MessageFunc: String
     case JoinTable = "join_table"
     case Step = "step"
     case Game = "game"
+    case Turn = "turn"
 }
 

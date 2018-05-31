@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class Bela
 {
+    var indexOfPlayerOnTurn = 0
     var initialGroup = CardGroup(id: "Initial")
     var centerGroup = CenterGroup(id: "Center")
     var handGroups = [
@@ -58,5 +59,9 @@ extension Bela: CardGame {
         return groups().first(where: { (group) -> Bool in
             return group.id == id
         })
+    }
+    
+    func idxOfPlayerOnTurn() -> Int {
+        return indexOfPlayerOnTurn
     }
 }

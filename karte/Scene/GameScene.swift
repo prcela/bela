@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import SwiftyJSON
 
 class GameScene: SKScene {
     
@@ -82,8 +83,12 @@ class GameScene: SKScene {
     
     
     @discardableResult
-    func moveCard(fromGroup: CardGroup, fromIdx: Int, toGroup: CardGroup, toIdx: Int, waitDuration:Double, duration: Double) -> Bool {
-        let card = fromGroup.cards.remove(at: fromIdx)
+    func move(card: Card, fromGroup: CardGroup, toGroup: CardGroup, toIdx: Int, waitDuration:Double, duration: Double) -> Bool {
+        if let fromIdx = fromGroup.cards.index(where: { (c) -> Bool in
+            return c == card
+        }) {
+            fromGroup.cards.remove(at: fromIdx)
+        }
         toGroup.cards.insert(card, at: toIdx)
         let duration = 0.5
         let actionPos = SKAction.move(to: toGroup.position(at: toIdx), duration: duration)
@@ -121,14 +126,17 @@ class GameScene: SKScene {
     @discardableResult
     func moveCard(cardName: String, toGroup: CardGroup, waitDuration:Double, duration: Double) -> Bool
     {
-        var idxFound: Int?
-        if let group = sharedGame?.groups().first(where: { (group) -> Bool in
-            idxFound = group.cards.index(where: { (card) -> Bool in
-                return card.nodeName() == cardName
+        var card: Card?
+        if let group = sharedGame.groups().first(where: { (group) -> Bool in
+            return group.cards.contains(where: { (c) -> Bool in
+                if c.nodeName() == cardName {
+                    card = c
+                    return true
+                }
+                return false
             })
-            return idxFound != nil
         }) {
-            return moveCard(fromGroup: group, fromIdx: idxFound!, toGroup: toGroup, toIdx: toGroup.cards.count, waitDuration: waitDuration, duration: duration)
+            return move(card: card!, fromGroup: group, toGroup: toGroup, toIdx: toGroup.cards.count, waitDuration: waitDuration, duration: duration)
         }
         return false
     }
@@ -152,37 +160,42 @@ class GameScene: SKScene {
             return card.contains(pos)
         }),
             let playerEnabledMoves = enabledMoves[localPlayerIdx],
-            let _ = playerEnabledMoves.first(where: { (enabledMove) -> Bool in
+            let enabledMove = playerEnabledMoves.first(where: { (enabledMove) -> Bool in
                 return enabledMove.card.nodeName() == cardNode.name
-            }),
-            let centerGroup = sharedGame?.group(by: "Center"),
-            let winGroup1 = sharedGame?.group(by: "Win1")
+            })
         {
-            
-            centerGroup.zRotation = cardNode.zRotation
-            moveCard(cardName: cardNode.name!, toGroup: centerGroup, waitDuration: 0, duration: 0.5)
-            
-            if centerGroup.cards.count == 4 {
-                for _ in centerGroup.cards {
-                    moveCard(fromGroup: centerGroup, fromIdx: 0, toGroup: winGroup1, toIdx: winGroup1.cards.count, waitDuration: 2, duration: 0.3)
-                }
+            if let toGroupId = enabledMove.toGroupId,
+                let toGroup = sharedGame.group(by: toGroupId) {
+                moveCard(cardName: enabledMove.card.nodeName(), toGroup: toGroup, waitDuration: 0, duration: 0.5)
             }
+            
+            WsAPI.shared.send(.Turn, json: JSON(["turn":"tap_card", "enabled_move":enabledMove.dictionary()]))
+            enabledMoves[localPlayerIdx]?.removeAll()
+            
+            // centerGroup.zRotation = cardNode.zRotation
+            // moveCard(cardName: cardNode.name!, toGroup: centerGroup, waitDuration: 0, duration: 0.5)
+            
+            // if centerGroup.cards.count == 4 {
+            //    for _ in centerGroup.cards {
+            //        moveCard(fromGroup: centerGroup, fromIdx: 0, toGroup: winGroup1, toIdx: winGroup1.cards.count, waitDuration: 2, duration: 0.3)
+            //    }
         }
     }
+    
     
     
     func onTransitions(transitions: [CardTransition], onFinished: @escaping () -> Void) {
         var totalDuration:TimeInterval = 0
         
         for t in transitions {
-            if let fromGroup = sharedGame?.group(by: t.fromGroupId),
-                let toGroup = sharedGame?.group(by: t.toGroupId) {
-                moveCard(fromGroup: fromGroup,
-                         fromIdx: t.fromIdx,
-                         toGroup: toGroup,
-                         toIdx: t.toIdx,
-                         waitDuration: t.waitDuration,
-                         duration: t.duration)
+            if let fromGroup = sharedGame.group(by: t.fromGroupId),
+                let toGroup = sharedGame.group(by: t.toGroupId) {
+                move(card: t.card,
+                     fromGroup: fromGroup,
+                     toGroup: toGroup,
+                     toIdx: t.toIdx,
+                     waitDuration: t.waitDuration,
+                     duration: t.duration)
                 totalDuration = max(totalDuration, t.waitDuration + t.duration)
             }
         }
@@ -190,7 +203,7 @@ class GameScene: SKScene {
             onFinished()
         }
     }
-        
+    
     func onPlayerJoined(_ joinedPlayerId: String)
     {
         refreshPlayersAliases()
