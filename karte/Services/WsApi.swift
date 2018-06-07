@@ -63,12 +63,12 @@ class WsAPI
     {
         if socket.isConnected
         {
-            print("➡️ping")
+            NSLog("➡️ping")
             socket.write(ping: Data())
         }
         else
         {
-            print("socket not connected")
+            NSLog("socket not connected")
         }
         DispatchQueue.main.asyncAfter(deadline: .now()+pingInterval) {
             self.ping()
@@ -97,10 +97,10 @@ class WsAPI
         if let text = json.rawString(String.Encoding.utf8, options: [])
         {
             if socket.isConnected {
-                print("➡️\(text)")
+                NSLog("➡️\(text)")
                 socket.write(string:text)
             } else if PlayerStat.shared.tableId != nil {
-                print("⬆️ Adding message to unsent!")
+                NSLog("⬆️ Adding message to unsent!")
                 unsentMessages.append(text)
             }
         }
@@ -108,7 +108,7 @@ class WsAPI
     
     func sendUnsentMessages() {
         guard unsentMessages.count < 20 else {return}
-        print("🕐 sending unsent messages")
+        NSLog("🕐 sending unsent messages")
         for msg in unsentMessages {
             socket.write(string: msg)
         }
@@ -117,7 +117,7 @@ class WsAPI
 
 extension WsAPI: WebSocketPongDelegate {
     func websocketDidReceivePong(socket: WebSocketClient, data: Data?) {
-        print("⬅️pong")
+        NSLog("⬅️pong")
     }
 }
 
@@ -125,21 +125,21 @@ extension WsAPI: WebSocketPongDelegate {
 extension WsAPI: WebSocketDelegate
 {
     func websocketDidConnect(socket: WebSocketClient) {
-        print("✅didConnect to socket")
+        NSLog("✅didConnect to socket")
         NotificationCenter.default.post(name: WsAPI.onDidConnect, object: nil)
         retryCount = 0
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("websocketDidReceiveData")
+        NSLog("websocketDidReceiveData")
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("⚠️websocketDidDisconnect")
+        NSLog("⚠️websocketDidDisconnect")
         NotificationCenter.default.post(name: WsAPI.onDidDisconnect, object: nil)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + min(Double(retryCount+1), 5)) {
-            print("retry connect")
+            NSLog("retry connect")
             self.connect()
             self.retryCount += 1
         }
@@ -151,7 +151,7 @@ extension WsAPI: WebSocketDelegate
         
         for line in lines
         {
-            print("⬅️\(line)")
+            NSLog("⬅️\(line)")
             let nc = NotificationCenter.default
             let json = JSON(parseJSON: line)
             

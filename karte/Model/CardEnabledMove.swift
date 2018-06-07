@@ -25,7 +25,7 @@ struct CardEnabledMove
     {
         var dic: [String:Any] = [
             "from_group_id":fromGroupId,
-            "card":card.dictionary
+            "card":card.dictionary()
         ]
         if let toGroupId = toGroupId {
             dic["to_group_id"] = toGroupId

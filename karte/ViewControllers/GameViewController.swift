@@ -73,16 +73,17 @@ class GameViewController: UIViewController {
         let transitions = json["transitions"].arrayValue.map { (json) -> CardTransition in
             return CardTransition(json: json)
         }
-        scene?.enabledMoves = [:]
-        scene?.onTransitions(transitions: transitions) {[weak self] in
-            var enabledMoves = [Int:[CardEnabledMove]]()
+        scene?.enabledMoves.removeAll()
+        scene?.onTransitions(transitions: transitions) {
+            print("Finished transitions")
             for (key,json) in json["enabled_moves"].dictionaryValue {
-                enabledMoves[Int(key)!] = json.arrayValue.map({ (json) -> CardEnabledMove in
+                self.scene?.enabledMoves[Int(key)!] = json.arrayValue.map({ (json) -> CardEnabledMove in
                     return CardEnabledMove(json: json)
                 })
             }
-            self?.scene?.enabledMoves = enabledMoves
         }
+        
+        
     }
     
     @IBAction func onMenu(_ sender: Any) {

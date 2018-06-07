@@ -12,8 +12,33 @@ import SwiftyJSON
 
 class GameScene: SKScene {
     
-    var localPlayerIdx: Int = 0
-    var enabledMoves = [Int:[CardEnabledMove]]()
+    var localPlayerIdx: Int = 0 {
+        didSet {
+            print("Local player index: \(localPlayerIdx)")
+        }
+    }
+    var enabledMoves = [Int:[CardEnabledMove]]() {
+        didSet {
+            if let localMoves = enabledMoves[localPlayerIdx] {
+                for move in localMoves {
+                    if let node = childNode(withName: move.card.nodeName()) {
+                        let actionScale = SKAction.scale(to: 1.2, duration: 0.5)
+                        node.run(actionScale)
+                    }
+                }
+            }
+            for (idx,lblNode) in playersLbls.enumerated() {
+                if let _ = enabledMoves[idx] {
+                    lblNode.color = UIColor.white
+                    lblNode.fontName = UIFont.systemFont(ofSize: 14, weight: .bold).fontName
+                } else {
+                    lblNode.color = UIColor.white.withAlphaComponent(0.5)
+                    lblNode.fontName = UIFont.systemFont(ofSize: 14, weight: .thin).fontName
+                }
+            }
+        }
+    }
+    
     var playersLbls = [SKLabelNode]()
     
     fileprivate func refreshPlayersAliases()
@@ -22,7 +47,6 @@ class GameScene: SKScene {
             let table = Room.shared.tablesInfo[tableId]
         {
             for idx in 0..<table.capacity {
-                let idx = (idx+4-localPlayerIdx)%4
                 if idx < table.playersId.count {
                     let playerId = table.playersId[idx]
                     let p = Room.shared.playersInfo[playerId]
@@ -39,13 +63,14 @@ class GameScene: SKScene {
         playersLbls.removeAll()
         for idx in 0...3 {
             let hNode = childNode(withName: "H\(idx)")
-            hNode?.name = "Hand\((idx+localPlayerIdx)%4)"
-            let idx = (idx+4-localPlayerIdx)%4
-            let lblNode = childNode(withName: "//PlayerPlus\(idx)") as! SKLabelNode
+            let lblNode = childNode(withName: "P\(idx)") as! SKLabelNode
+            let absIdx = (idx+localPlayerIdx)%4
+            hNode?.name = "Hand\(absIdx)"
+            lblNode.name = "Player\(absIdx)"
             lblNode.text = "Player \(idx)"
-            
             playersLbls.append(lblNode)
         }
+        playersLbls.sort { return $0.name! < $1.name! }
         refreshPlayersAliases()
         
         // testPreview()
@@ -90,6 +115,11 @@ class GameScene: SKScene {
             fromGroup.cards.remove(at: fromIdx)
         }
         toGroup.cards.insert(card, at: toIdx)
+        
+        if toGroup.id == "Center" {
+            toGroup.zRotation = fromGroup.zRotation
+        }
+        
         let duration = 0.5
         let actionPos = SKAction.move(to: toGroup.position(at: toIdx), duration: duration)
         let actionRot = SKAction.rotate(toAngle: toGroup.zRotation(at: toIdx), duration: duration, shortestUnitArc: true)
@@ -165,20 +195,16 @@ class GameScene: SKScene {
             })
         {
             if let toGroupId = enabledMove.toGroupId,
-                let toGroup = sharedGame.group(by: toGroupId) {
+                let toGroup = sharedGame.group(by: toGroupId)
+            {
+                if toGroupId == "Center" {
+                    toGroup.zRotation = cardNode.zRotation
+                }
                 moveCard(cardName: enabledMove.card.nodeName(), toGroup: toGroup, waitDuration: 0, duration: 0.5)
             }
             
             WsAPI.shared.send(.Turn, json: JSON(["turn":"tap_card", "enabled_move":enabledMove.dictionary()]))
             enabledMoves[localPlayerIdx]?.removeAll()
-            
-            // centerGroup.zRotation = cardNode.zRotation
-            // moveCard(cardName: cardNode.name!, toGroup: centerGroup, waitDuration: 0, duration: 0.5)
-            
-            // if centerGroup.cards.count == 4 {
-            //    for _ in centerGroup.cards {
-            //        moveCard(fromGroup: centerGroup, fromIdx: 0, toGroup: winGroup1, toIdx: winGroup1.cards.count, waitDuration: 2, duration: 0.3)
-            //    }
         }
     }
     
