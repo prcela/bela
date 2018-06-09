@@ -63,9 +63,11 @@ class GameScene: SKScene {
         playersLbls.removeAll()
         for idx in 0...3 {
             let hNode = childNode(withName: "H\(idx)")
+            let cNode = childNode(withName: "C\(idx)")
             let lblNode = childNode(withName: "P\(idx)") as! SKLabelNode
             let absIdx = (idx+localPlayerIdx)%4
             hNode?.name = "Hand\(absIdx)"
+            cNode?.name = "Center\(absIdx)"
             lblNode.name = "Player\(absIdx)"
             lblNode.text = "Player \(idx)"
             playersLbls.append(lblNode)
@@ -89,13 +91,13 @@ class GameScene: SKScene {
             
             let visible = group.visibility == .Visible || (group.visibility == .VisibleToLocalOnly && group.id.hasSuffix("\(localPlayerIdx)"))
             
-            for (idx,card) in group.cards.enumerated()
+            for card in group.cards
             {
                 let cardW = size.width * 0.15
                 let cardNode = CardNode(card: card,width: cardW)
-                cardNode.zPosition = group.zPosition(at: idx)
-                cardNode.position = group.position(at: idx)
-                cardNode.zRotation = group.zRotation(at: idx)
+                cardNode.zPosition = group.zPosition(for: card)
+                cardNode.position = group.position(for: card)
+                cardNode.zRotation = group.zRotation(for: card)
                 cardNode.frontNode?.isHidden = !visible
                 cardNode.backNode?.isHidden = visible
                 cardNode.setScale(group.scale)
@@ -108,46 +110,54 @@ class GameScene: SKScene {
     
     
     @discardableResult
-    func move(card: Card, fromGroup: CardGroup, toGroup: CardGroup, toIdx: Int, waitDuration:Double, duration: Double) -> Bool {
-        if let fromIdx = fromGroup.cards.index(where: { (c) -> Bool in
+    func move(card: Card, fromGroup: CardGroup, toGroup: CardGroup, toTop: Bool, waitDuration:Double, duration: Double) -> Bool {
+        guard let fromIdx = fromGroup.cards.index(where: { (c) -> Bool in
             return c == card
-        }) {
-            fromGroup.cards.remove(at: fromIdx)
+        }) else {
+            return false
         }
-        toGroup.cards.insert(card, at: toIdx)
         
-        if toGroup.id == "Center" {
-            toGroup.zRotation = fromGroup.zRotation
+        fromGroup.cards.remove(at: fromIdx)
+        if toTop {
+            toGroup.cards.append(card)
+        } else {
+            toGroup.cards.insert(card, at: 0)
+        }
+        
+        if toGroup.id.hasPrefix("Center") {
+            var sum = 0
+            for cg in sharedGame.groups().filter({ (group) -> Bool in
+                return group.id.hasPrefix("Center")
+            }) {
+                sum += cg.cards.count
+            }
+            toGroup.zPosition = CGFloat(sum)*0.1
         }
         
         let duration = 0.5
-        let actionPos = SKAction.move(to: toGroup.position(at: toIdx), duration: duration)
-        let actionRot = SKAction.rotate(toAngle: toGroup.zRotation(at: toIdx), duration: duration, shortestUnitArc: true)
-        let actionScale = SKAction.scale(to: toGroup.scale, duration: duration)
-        let cardNode = self.childNode(withName: card.nodeName()) as! CardNode
-        
-        let actionWait = SKAction.wait(forDuration: waitDuration)
-        let actionGroup = SKAction.group([actionPos,actionRot,actionScale])
-        let actionSequence = SKAction.sequence([actionWait,actionGroup])
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+waitDuration+0.5*duration) {
-            cardNode.zPosition = toGroup.zPosition(at: toIdx)
-        }
-        
-        
-        if toGroup.id == "Center" {
-            cardNode.backNode?.isHidden = true
-            cardNode.frontNode?.isHidden = false
-        }
-        
-        cardNode.run(actionSequence) {
+        for card in toGroup.cards {
+            let actionPos = SKAction.move(to: toGroup.position(for: card), duration: duration)
+            let actionRot = SKAction.rotate(toAngle: toGroup.zRotation(for: card), duration: duration, shortestUnitArc: true)
+            let actionScale = SKAction.scale(to: toGroup.scale, duration: duration)
+            let cardNode = self.childNode(withName: card.nodeName()) as! CardNode
             
-            if toGroup.id == "Hand\(self.localPlayerIdx)" || toGroup.id == "Center" {
+            let actionWait = SKAction.wait(forDuration: waitDuration)
+            let actionGroup = SKAction.group([actionPos,actionRot,actionScale])
+            let actionSequence = SKAction.sequence([actionWait,actionGroup])
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+waitDuration+0.5*duration) {
+                cardNode.zPosition = toGroup.zPosition(for: card)
+            }
+        
+            if toGroup.visibility == .Visible {
                 cardNode.backNode?.isHidden = true
                 cardNode.frontNode?.isHidden = false
-            } else {
-                cardNode.backNode?.isHidden = false
-                cardNode.frontNode?.isHidden = true
+            }
+            
+            cardNode.run(actionSequence) {
+                let visible = toGroup.visibility == .Visible || (toGroup.visibility == .VisibleToLocalOnly && toGroup.id.hasSuffix("\(self.localPlayerIdx)"))
+                cardNode.backNode?.isHidden = visible
+                cardNode.frontNode?.isHidden = !visible
             }
         }
         return true
@@ -166,7 +176,7 @@ class GameScene: SKScene {
                 return false
             })
         }) {
-            return move(card: card!, fromGroup: group, toGroup: toGroup, toIdx: toGroup.cards.count, waitDuration: waitDuration, duration: duration)
+            return move(card: card!, fromGroup: group, toGroup: toGroup, toTop: true, waitDuration: waitDuration, duration: duration)
         }
         return false
     }
@@ -186,24 +196,31 @@ class GameScene: SKScene {
         cardNodes.sort { (card0, card1) -> Bool in
             return card0.zPosition > card1.zPosition
         }
-        if let cardNode = cardNodes.first(where: { (card) -> Bool in
+        if let touchedCardNode = cardNodes.first(where: { (card) -> Bool in
             return card.contains(pos)
         }),
             let playerEnabledMoves = enabledMoves[localPlayerIdx],
             let enabledMove = playerEnabledMoves.first(where: { (enabledMove) -> Bool in
-                return enabledMove.card.nodeName() == cardNode.name
+                return enabledMove.card.nodeName() == touchedCardNode.name
             })
         {
             if let toGroupId = enabledMove.toGroupId,
                 let toGroup = sharedGame.group(by: toGroupId)
             {
-                if toGroupId == "Center" {
-                    toGroup.zRotation = cardNode.zRotation
-                }
                 moveCard(cardName: enabledMove.card.nodeName(), toGroup: toGroup, waitDuration: 0, duration: 0.5)
             }
             
             WsAPI.shared.send(.Turn, json: JSON(["turn":"tap_card", "enabled_move":enabledMove.dictionary()]))
+            
+            for enabledMove in playerEnabledMoves {
+                if let cn = cardNodes.first(where: { (cardNode) -> Bool in
+                    return cardNode.name == enabledMove.card.nodeName()
+                }), cn != touchedCardNode {
+                    let actionScale = SKAction.scale(to: 1, duration: 0.5)
+                    cn.run(actionScale)
+                }
+            }
+            
             enabledMoves[localPlayerIdx]?.removeAll()
         }
     }
@@ -219,7 +236,7 @@ class GameScene: SKScene {
                 move(card: t.card,
                      fromGroup: fromGroup,
                      toGroup: toGroup,
-                     toIdx: t.toIdx,
+                     toTop: t.toTop,
                      waitDuration: t.waitDuration,
                      duration: t.duration)
                 totalDuration = max(totalDuration, t.waitDuration + t.duration)

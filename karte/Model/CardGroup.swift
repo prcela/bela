@@ -41,13 +41,16 @@ class CardGroup {
         })
     }
     
-    func position(at idx: Int) -> CGPoint {
+    func position(for card: Card) -> CGPoint {
         return pos
     }
-    func zPosition(at idx: Int) -> CGFloat {
-        return CGFloat(idx+1)*0.01
+    func zPosition(for card: Card) -> CGFloat {
+        if let idx = cards.index(of: card) {
+            return zPosition + CGFloat(idx+1)*0.01
+        }
+        return 0.01
     }
-    func zRotation(at idx:Int) -> CGFloat {
+    func zRotation(for card:Card) -> CGFloat {
         return zRotation
     }
     
@@ -62,25 +65,25 @@ class CardGroup {
 
 class LinearGroup: CardGroup
 {
-    var capacity:Int
     var delta:CGFloat
     var dir = CGVector(dx: 1, dy: 0)
     
-    init(id: String, capacity:Int, delta:CGFloat) {
-        self.capacity = capacity
+    init(id: String, delta:CGFloat) {
         self.delta = delta
         super.init(id: id)
     }
     
     override init(json: JSON) {
-        capacity = json["capacity"].intValue
         delta = 15
         super.init(json: json)
     }
     
     
-    override func position(at idx: Int) -> CGPoint { 
-        return CGPoint(x: pos.x - (CGFloat(capacity/2)-0.5)*delta*dir.dx + CGFloat(idx)*delta*dir.dx, y: pos.y - (CGFloat(capacity/2)-0.5)*delta*dir.dy + CGFloat(idx)*delta*dir.dy)
+    override func position(for card: Card) -> CGPoint {
+        if let idx = cards.index(of: card) {
+            return CGPoint(x: pos.x - (CGFloat(cards.count/2)-0.5)*delta*dir.dx + CGFloat(idx)*delta*dir.dx, y: pos.y - (CGFloat(cards.count/2)-0.5)*delta*dir.dy + CGFloat(idx)*delta*dir.dy)
+        }
+        return CGPoint.zero
     }
     
     override func setNodePlacement(node: SKNode) {
@@ -90,23 +93,4 @@ class LinearGroup: CardGroup
     }
 }
 
-class CenterGroup: CardGroup {
-    
-    override init(id: String) {
-        super.init(id: id)
-    }
-    
-    override init(json: JSON) {
-        super.init(json: json)
-    }
-    
-    override func position(at idx: Int) -> CGPoint {
-        let pos = super.position(at: idx)
-        var rot = zRotation
-        let rightDir = CGVector(dx: cos(rot), dy: sin(rot))
-        rot += 0.5*CGFloat.pi
-        let updir = CGVector(dx: cos(rot), dy: sin(rot))
-        return CGPoint(x: pos.x-30*updir.dx-15*rightDir.dx, y: pos.y-30*updir.dy-15*rightDir.dy)
-    }
-}
 

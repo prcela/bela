@@ -17,7 +17,6 @@ private let ipServer = "139.59.142.160:80" // ovo je pravi port!
 
 let ipCurrent = ipLocalhost
 
-
 class WsAPI
 {
     static let shared = WsAPI()

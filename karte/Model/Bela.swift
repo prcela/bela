@@ -13,27 +13,34 @@ class Bela
 {
     var indexOfPlayerOnTurn = 0
     var initialGroup = CardGroup(id: "Initial")
-    var centerGroup = CenterGroup(id: "Center")
     var handGroups = [
-        LinearGroup(id: "Hand0", capacity: 8, delta: 15),
-        LinearGroup(id: "Hand1", capacity: 8, delta: 15),
-        LinearGroup(id: "Hand2", capacity: 8, delta: 15),
-        LinearGroup(id: "Hand3", capacity: 8, delta: 15)]
+        LinearGroup(id: "Hand0", delta: 15),
+        LinearGroup(id: "Hand1", delta: 15),
+        LinearGroup(id: "Hand2", delta: 15),
+        LinearGroup(id: "Hand3", delta: 15)]
     
     var talonGroups = [
-        LinearGroup(id: "Talon0", capacity: 2, delta: 10),
-        LinearGroup(id: "Talon1", capacity: 2, delta: 10),
-        LinearGroup(id: "Talon2", capacity: 2, delta: 10),
-        LinearGroup(id: "Talon3", capacity: 2, delta: 10)]
+        LinearGroup(id: "Talon0",  delta: 10),
+        LinearGroup(id: "Talon1",  delta: 10),
+        LinearGroup(id: "Talon2",  delta: 10),
+        LinearGroup(id: "Talon3",  delta: 10)]
     
     var winGroups = [
         CardGroup(id: "Win0"),
         CardGroup(id: "Win1")]
     
+    var centerGroups = [
+        CardGroup(id: "Center0"),
+        CardGroup(id: "Center1"),
+        CardGroup(id: "Center2"),
+        CardGroup(id: "Center3")]
+    
     init(json: JSON)
     {
         initialGroup = CardGroup(json: json["initial_group"])
-        centerGroup = CenterGroup(json: json["center_group"])
+        centerGroups = json["center_groups"].arrayValue.map({ (json) -> CardGroup in
+            return CardGroup(json: json)
+        })
         handGroups = json["hand_groups"].arrayValue.map({ (json) -> LinearGroup in
             return LinearGroup(json: json)
         })
@@ -48,10 +55,11 @@ class Bela
 
 extension Bela: CardGame {
     func groups() -> [CardGroup] {
-        var result = [initialGroup,centerGroup]
+        var result = [initialGroup]
         result.append(contentsOf: handGroups)
         result.append(contentsOf: talonGroups)
         result.append(contentsOf: winGroups)
+        result.append(contentsOf: centerGroups)
         return result
     }
     

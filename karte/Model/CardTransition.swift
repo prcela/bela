@@ -13,7 +13,7 @@ struct CardTransition {
     let card: Card
     let fromGroupId: String
     let toGroupId: String
-    let toIdx: Int
+    let toTop: Bool
     let waitDuration: TimeInterval
     let duration: TimeInterval
     
@@ -22,7 +22,7 @@ struct CardTransition {
         card = Card(json: json["card"])
         fromGroupId = json["from_group_id"].stringValue
         toGroupId = json["to_group_id"].stringValue
-        toIdx = json["to_idx"].intValue
+        toTop = json["to_top"].boolValue
         waitDuration = json["wait_duration"].doubleValue
         duration = json["duration"].doubleValue
     }
