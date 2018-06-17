@@ -12,6 +12,7 @@ var sharedGame: CardGame!
 
 protocol CardGame: class
 {
+    var state: GameState {get set}
     func groups() -> [CardGroup]
     func group(by id: String) -> CardGroup?
     func idxOfPlayerOnTurn() -> Int

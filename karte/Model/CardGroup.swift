@@ -60,6 +60,12 @@ class CardGroup {
         zRotation = node.zRotation
         scale = (node.xScale+node.yScale)/2
     }
+    
+    func card(name: String) -> Card? {
+        return cards.first(where: { (card) -> Bool in
+            return card.nodeName() == name
+        })
+    }
 
 }
 

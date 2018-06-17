@@ -22,7 +22,7 @@ class GameScene: SKScene {
             if let localMoves = enabledMoves[localPlayerIdx] {
                 for move in localMoves {
                     if let node = childNode(withName: move.card.nodeName()) {
-                        let actionScale = SKAction.scale(to: 1.2, duration: 0.5)
+                        let actionScale = SKAction.scale(to: 1.2, duration: 0.2)
                         node.run(actionScale)
                     }
                 }
@@ -168,13 +168,8 @@ class GameScene: SKScene {
     {
         var card: Card?
         if let group = sharedGame.groups().first(where: { (group) -> Bool in
-            return group.cards.contains(where: { (c) -> Bool in
-                if c.nodeName() == cardName {
-                    card = c
-                    return true
-                }
-                return false
-            })
+            card = group.card(name: cardName)
+            return card != nil
         }) {
             return move(card: card!, fromGroup: group, toGroup: toGroup, toTop: true, waitDuration: waitDuration, duration: duration)
         }
@@ -212,12 +207,14 @@ class GameScene: SKScene {
             
             WsAPI.shared.send(.Turn, json: JSON(["turn":"tap_card", "enabled_move":enabledMove.dictionary()]))
             
-            for enabledMove in playerEnabledMoves {
-                if let cn = cardNodes.first(where: { (cardNode) -> Bool in
-                    return cardNode.name == enabledMove.card.nodeName()
-                }), cn != touchedCardNode {
-                    let actionScale = SKAction.scale(to: 1, duration: 0.5)
-                    cn.run(actionScale)
+            if let fromGroup = sharedGame.group(by: enabledMove.fromGroupId) {
+                for enabledMove in playerEnabledMoves {
+                    if let cn = cardNodes.first(where: { (cardNode) -> Bool in
+                        return cardNode.name == enabledMove.card.nodeName()
+                    }), cn != touchedCardNode {
+                        let actionScale = SKAction.scale(to: fromGroup.scale, duration: 0.5)
+                        cn.run(actionScale)
+                    }
                 }
             }
             

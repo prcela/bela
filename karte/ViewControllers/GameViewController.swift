@@ -70,6 +70,7 @@ class GameViewController: UIViewController {
     
     @objc func onStep(notification: Notification) {
         let json = notification.object as! JSON
+        sharedGame.state = GameState(rawValue: json["state"].intValue)!
         let transitions = json["transitions"].arrayValue.map { (json) -> CardTransition in
             return CardTransition(json: json)
         }

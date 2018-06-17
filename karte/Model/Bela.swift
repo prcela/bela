@@ -9,8 +9,17 @@
 import Foundation
 import SwiftyJSON
 
+enum GameState: Int {
+    case Init        = 0
+    case Dealed      = 1
+    case Call        = 2
+    case PickedTalon = 3
+    case Play        = 4
+}
+
 class Bela
 {
+    var state: GameState = .Init
     var indexOfPlayerOnTurn = 0
     var initialGroup = CardGroup(id: "Initial")
     var handGroups = [
