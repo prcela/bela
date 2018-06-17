@@ -27,7 +27,7 @@
 		971E11EF209E5A3300198DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11EE209E5A3300198DE5 /* AppDelegate.swift */; };
 		971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E11F0209E5A3300198DE5 /* MainViewController.swift */; };
 		971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F2209E5A3300198DE5 /* Main.storyboard */; };
-		971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F5209E5A3400198DE5 /* Assets.xcassets */; };
+		971E11F6209E5A3400198DE5 /* Bela.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F5209E5A3400198DE5 /* Bela.xcassets */; };
 		971E11F9209E5A3400198DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F7209E5A3400198DE5 /* LaunchScreen.storyboard */; };
 		971E1201209E622000198DE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 971E1200209E622000198DE5 /* GoogleService-Info.plist */; };
 		971E1206209EFFBF00198DE5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1205209EFFBF00198DE5 /* MenuViewController.swift */; };
@@ -78,7 +78,6 @@
 		971E126120A303BD00198DE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 971E123B20A2248300198DE5 /* Localizable.strings */; };
 		971E126220A303BD00198DE5 /* Rules.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E121A209F1F7900198DE5 /* Rules.storyboard */; };
 		971E126320A303BD00198DE5 /* Leaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971E1218209F1F6300198DE5 /* Leaderboard.storyboard */; };
-		971E126420A303BD00198DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971E11F5209E5A3400198DE5 /* Assets.xcassets */; };
 		971E127020A32E6400198DE5 /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E126E20A32E6400198DE5 /* MatchCell.swift */; };
 		971E127120A32E6400198DE5 /* MatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971E126F20A32E6400198DE5 /* MatchCell.xib */; };
 		97301A5020D64163005FCA5D /* madjarice.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97301A4F20D64163005FCA5D /* madjarice.xcassets */; };
@@ -128,7 +127,7 @@
 		971E11EE209E5A3300198DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		971E11F0209E5A3300198DE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		971E11F3209E5A3300198DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		971E11F5209E5A3400198DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		971E11F5209E5A3400198DE5 /* Bela.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bela.xcassets; sourceTree = "<group>"; };
 		971E11F8209E5A3400198DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		971E11FA209E5A3400198DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		971E1200209E622000198DE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -253,7 +252,7 @@
 				971E120E209F1B4200198DE5 /* Model */,
 				971E120B209F194500198DE5 /* Services */,
 				971E1213209F1E2A00198DE5 /* Resources */,
-				971E11F5209E5A3400198DE5 /* Assets.xcassets */,
+				971E11F5209E5A3400198DE5 /* Bela.xcassets */,
 				971E11FA209E5A3400198DE5 /* Info.plist */,
 				971E1200209E622000198DE5 /* GoogleService-Info.plist */,
 				971E1211209F1C9000198DE5 /* Helper.swift */,
@@ -470,7 +469,7 @@
 				9708857120A8B612005323DB /* menu@2x.png in Resources */,
 				971E121B209F1F7900198DE5 /* Rules.storyboard in Resources */,
 				971E1219209F1F6300198DE5 /* Leaderboard.storyboard in Resources */,
-				971E11F6209E5A3400198DE5 /* Assets.xcassets in Resources */,
+				971E11F6209E5A3400198DE5 /* Bela.xcassets in Resources */,
 				970884E120A6ED34005323DB /* GameScene.sks in Resources */,
 				971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */,
 			);
@@ -489,7 +488,6 @@
 				97E9A9E120B6F6B700DB5454 /* Player.storyboard in Resources */,
 				971E126220A303BD00198DE5 /* Rules.storyboard in Resources */,
 				971E126320A303BD00198DE5 /* Leaderboard.storyboard in Resources */,
-				971E126420A303BD00198DE5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
