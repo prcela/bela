@@ -21,6 +21,8 @@ class Bela
 {
     var state: GameState = .Init
     var indexOfPlayerOnTurn = 0
+    var idxPlayerCalled: Int?
+    var adut: Boja?
     var initialGroup = CardGroup(id: "Initial")
     var handGroups = [
         LinearGroup(id: "Hand0", delta: 15),
@@ -80,5 +82,21 @@ extension Bela: CardGame {
     
     func idxOfPlayerOnTurn() -> Int {
         return indexOfPlayerOnTurn
+    }
+    
+    func onEvent(event: GameEvent, scene: GameScene) {
+        switch event.category {
+        case "Player":
+            switch event.action {
+            case "Call":
+                adut = Boja(rawValue: event.label!)
+                idxPlayerCalled = event.value
+                scene.playersLbls[idxPlayerCalled!].text = event.label
+            default:
+                break
+            }
+        default:
+            break
+        }
     }
 }

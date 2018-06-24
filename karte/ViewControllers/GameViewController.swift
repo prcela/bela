@@ -83,6 +83,10 @@ class GameViewController: UIViewController {
                 })
             }
         }
+        if json["event"].exists() {
+            let event = GameEvent(json: json["event"])
+            sharedGame.onEvent(event: event, scene: scene!)
+        }
         
         
     }

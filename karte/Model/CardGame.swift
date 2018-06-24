@@ -16,4 +16,5 @@ protocol CardGame: class
     func groups() -> [CardGroup]
     func group(by id: String) -> CardGroup?
     func idxOfPlayerOnTurn() -> Int
+    func onEvent(event: GameEvent, scene: GameScene) 
 }

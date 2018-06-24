@@ -243,7 +243,7 @@ class GameScene: SKScene {
             onFinished()
         }
     }
-    
+        
     func onPlayerJoined(_ joinedPlayerId: String)
     {
         refreshPlayersAliases()

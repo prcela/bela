@@ -13,7 +13,7 @@ import SwiftyJSON
 private let ipLocalhost = "localhost:3000"
 private let ipHome = "192.168.5.15:3000"
 private let ipWork = "10.0.21.221:3000"
-private let ipServer = "139.59.142.160:80" // ovo je pravi port!
+private let ipServer = "karte.igre.app"
 
 let ipCurrent = ipLocalhost
 
@@ -39,8 +39,8 @@ class WsAPI
     var socket: WebSocket
     
     init() {
-        
-        let strURL = "ws://\(ipCurrent)/bela"
+        let scheme = ipCurrent == ipServer ? "wss":"ws"
+        let strURL = "\(scheme)://\(ipCurrent)/bela"
         let request = URLRequest(url: URL(string: strURL)!)
         socket = WebSocket(request: request, protocols: ["no-body"])
         

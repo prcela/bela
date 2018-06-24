@@ -82,6 +82,8 @@
 		971E127120A32E6400198DE5 /* MatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971E126F20A32E6400198DE5 /* MatchCell.xib */; };
 		97301A5020D64163005FCA5D /* madjarice.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97301A4F20D64163005FCA5D /* madjarice.xcassets */; };
 		97301A5120D64163005FCA5D /* madjarice.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97301A4F20D64163005FCA5D /* madjarice.xcassets */; };
+		97301A5320D7D5F3005FCA5D /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97301A5220D7D5F3005FCA5D /* GameEvent.swift */; };
+		97301A5420D7D5F3005FCA5D /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97301A5220D7D5F3005FCA5D /* GameEvent.swift */; };
 		97E9A9D420B18B4D00DB5454 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9D320B18B4D00DB5454 /* CardTransition.swift */; };
 		97E9A9D520B18B4D00DB5454 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9D320B18B4D00DB5454 /* CardTransition.swift */; };
 		97E9A9E020B6F6B700DB5454 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E9A9DF20B6F6B700DB5454 /* Player.storyboard */; };
@@ -160,6 +162,7 @@
 		971E126E20A32E6400198DE5 /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		971E126F20A32E6400198DE5 /* MatchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchCell.xib; sourceTree = "<group>"; };
 		97301A4F20D64163005FCA5D /* madjarice.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = madjarice.xcassets; sourceTree = "<group>"; };
+		97301A5220D7D5F3005FCA5D /* GameEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEvent.swift; sourceTree = "<group>"; };
 		97E9A9D320B18B4D00DB5454 /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
 		97E9A9DF20B6F6B700DB5454 /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
 		97E9A9E220B6F7A800DB5454 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +325,7 @@
 				97E9AA0020BAC86300DB5454 /* CardEnabledMove.swift */,
 				97E9AA0220BB54D600DB5454 /* CardGame.swift */,
 				97E9AA0520BB554F00DB5454 /* Bela.swift */,
+				97301A5220D7D5F3005FCA5D /* GameEvent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -624,6 +628,7 @@
 				9708857420A8B76C005323DB /* LeaderboardViewController.swift in Sources */,
 				971E124220A2D60B00198DE5 /* Constants.swift in Sources */,
 				971E120D209F196300198DE5 /* WsApi.swift in Sources */,
+				97301A5320D7D5F3005FCA5D /* GameEvent.swift in Sources */,
 				971E124020A2D41000198DE5 /* UIViewControllerExt.swift in Sources */,
 				971E122B20A1D0D000198DE5 /* PlayerInfo.swift in Sources */,
 				971E1212209F1C9000198DE5 /* Helper.swift in Sources */,
@@ -695,6 +700,7 @@
 				971E125520A303BD00198DE5 /* StatItem.swift in Sources */,
 				9708856F20A75FCE005323DB /* CardNode.swift in Sources */,
 				971E125620A303BD00198DE5 /* TableInfo.swift in Sources */,
+				97301A5420D7D5F3005FCA5D /* GameEvent.swift in Sources */,
 				971E125720A303BD00198DE5 /* RoomViewController.swift in Sources */,
 				971E125820A303BD00198DE5 /* Room.swift in Sources */,
 				9708857520A8B76C005323DB /* LeaderboardViewController.swift in Sources */,
@@ -862,7 +868,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.bela;
+				PRODUCT_BUNDLE_IDENTIFIER = app.igre.bela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -882,7 +888,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.prcela.bela;
+				PRODUCT_BUNDLE_IDENTIFIER = app.igre.bela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
