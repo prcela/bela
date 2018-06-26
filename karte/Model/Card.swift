@@ -50,7 +50,7 @@ extension Card: Equatable {
 
 
 enum Boja: String {
-    case žir = "žir"
+    case zir = "zir"
     case bundeva = "bundeva"
     case srce = "srce"
     case list = "list"
@@ -61,7 +61,7 @@ enum Broj: Int {
     case viii
     case ix
     case x
-    case dečko
+    case decko
     case dama
     case kralj
     case kec

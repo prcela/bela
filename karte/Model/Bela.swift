@@ -99,4 +99,27 @@ extension Bela: CardGame {
             break
         }
     }
+    
+    func refreshPlayersAliases(scene: GameScene)
+    {
+        if let tableId = PlayerStat.shared.tableId,
+            let table = Room.shared.tablesInfo[tableId]
+        {
+            for idx in 0..<table.capacity {
+                var alias = "?"
+                if idx < table.playersId.count {
+                    let playerId = table.playersId[idx]
+                    if let p = Room.shared.playersInfo[playerId] {
+                        alias = p.alias
+                    }
+                    if idxPlayerCalled == idx,
+                        let adut = adut
+                    {
+                        alias += " \(adut.rawValue)"
+                    }
+                }
+                scene.playersLbls[idx].text = alias
+            }
+        }
+    }
 }

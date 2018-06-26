@@ -70,7 +70,7 @@ class GameViewController: UIViewController {
     
     @objc func onStep(notification: Notification) {
         let json = notification.object as! JSON
-        sharedGame.state = GameState(rawValue: json["state"].intValue)!
+        sharedGame?.state = GameState(rawValue: json["state"].intValue)!
         let transitions = json["transitions"].arrayValue.map { (json) -> CardTransition in
             return CardTransition(json: json)
         }
@@ -85,7 +85,7 @@ class GameViewController: UIViewController {
         }
         if json["event"].exists() {
             let event = GameEvent(json: json["event"])
-            sharedGame.onEvent(event: event, scene: scene!)
+            sharedGame?.onEvent(event: event, scene: scene!)
         }
         
         

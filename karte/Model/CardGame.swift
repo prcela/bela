@@ -8,7 +8,7 @@
 
 import Foundation
 
-var sharedGame: CardGame!
+var sharedGame: CardGame?
 
 protocol CardGame: class
 {
@@ -16,5 +16,6 @@ protocol CardGame: class
     func groups() -> [CardGroup]
     func group(by id: String) -> CardGroup?
     func idxOfPlayerOnTurn() -> Int
-    func onEvent(event: GameEvent, scene: GameScene) 
+    func onEvent(event: GameEvent, scene: GameScene)
+    func refreshPlayersAliases(scene: GameScene)
 }

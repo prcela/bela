@@ -41,22 +41,7 @@ class GameScene: SKScene {
     
     var playersLbls = [SKLabelNode]()
     
-    fileprivate func refreshPlayersAliases()
-    {
-        if let tableId = PlayerStat.shared.tableId,
-            let table = Room.shared.tablesInfo[tableId]
-        {
-            for idx in 0..<table.capacity {
-                if idx < table.playersId.count {
-                    let playerId = table.playersId[idx]
-                    let p = Room.shared.playersInfo[playerId]
-                    playersLbls[idx].text = p?.alias
-                } else {
-                    playersLbls[idx].text = "?"
-                }
-            }
-        }
-    }
+    
     
     override func didMove(to view: SKView) {
         
@@ -73,7 +58,7 @@ class GameScene: SKScene {
             playersLbls.append(lblNode)
         }
         playersLbls.sort { return $0.name! < $1.name! }
-        refreshPlayersAliases()
+        sharedGame?.refreshPlayersAliases(scene: self)
         
         // testPreview()
     }
@@ -124,9 +109,11 @@ class GameScene: SKScene {
             toGroup.cards.insert(card, at: 0)
         }
         
-        if toGroup.id.hasPrefix("Center") {
+        if toGroup.id.hasPrefix("Center"),
+            let groups = sharedGame?.groups()
+        {
             var sum = 0
-            for cg in sharedGame.groups().filter({ (group) -> Bool in
+            for cg in groups.filter({ (group) -> Bool in
                 return group.id.hasPrefix("Center")
             }) {
                 sum += cg.cards.count
@@ -167,7 +154,7 @@ class GameScene: SKScene {
     func moveCard(cardName: String, toGroup: CardGroup, waitDuration:Double, duration: Double) -> Bool
     {
         var card: Card?
-        if let group = sharedGame.groups().first(where: { (group) -> Bool in
+        if let group = sharedGame?.groups().first(where: { (group) -> Bool in
             card = group.card(name: cardName)
             return card != nil
         }) {
@@ -200,14 +187,14 @@ class GameScene: SKScene {
             })
         {
             if let toGroupId = enabledMove.toGroupId,
-                let toGroup = sharedGame.group(by: toGroupId)
+                let toGroup = sharedGame?.group(by: toGroupId)
             {
                 moveCard(cardName: enabledMove.card.nodeName(), toGroup: toGroup, waitDuration: 0, duration: 0.5)
             }
             
             WsAPI.shared.send(.Turn, json: JSON(["turn":"tap_card", "enabled_move":enabledMove.dictionary()]))
             
-            if let fromGroup = sharedGame.group(by: enabledMove.fromGroupId) {
+            if let fromGroup = sharedGame?.group(by: enabledMove.fromGroupId) {
                 for enabledMove in playerEnabledMoves {
                     if let cn = cardNodes.first(where: { (cardNode) -> Bool in
                         return cardNode.name == enabledMove.card.nodeName()
@@ -228,8 +215,8 @@ class GameScene: SKScene {
         var totalDuration:TimeInterval = 0
         
         for t in transitions {
-            if let fromGroup = sharedGame.group(by: t.fromGroupId),
-                let toGroup = sharedGame.group(by: t.toGroupId) {
+            if let fromGroup = sharedGame?.group(by: t.fromGroupId),
+                let toGroup = sharedGame?.group(by: t.toGroupId) {
                 move(card: t.card,
                      fromGroup: fromGroup,
                      toGroup: toGroup,
@@ -243,11 +230,8 @@ class GameScene: SKScene {
             onFinished()
         }
     }
-        
-    func onPlayerJoined(_ joinedPlayerId: String)
-    {
-        refreshPlayersAliases()
-    }
+    
+    
     
     func testPreview()
     {

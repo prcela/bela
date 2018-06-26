@@ -137,7 +137,7 @@ class MainViewController: UIViewController {
             openGame()
         } else if PlayerStat.shared.tableId == table.id {
             if let scene = GameViewController.shared?.scene {
-                scene.onPlayerJoined(joinedPlayerId)
+                sharedGame?.refreshPlayersAliases(scene: scene)
             } else if table.isFull() {
                 openGame()
             }
