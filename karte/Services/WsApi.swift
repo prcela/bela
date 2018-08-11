@@ -54,6 +54,7 @@ class WsAPI
     
     func connect()
     {
+        socket.request.setValue("playerId=\(PlayerStat.shared.id)", forHTTPHeaderField: "Cookie")
         socket.connect()
         NotificationCenter.default.post(name: WsAPI.onConnect, object: nil)
     }

@@ -12,13 +12,13 @@ import SwiftyJSON
 class GameEvent {
     let category: String
     let action: String
-    let label: String?
-    let value: Int?
+    let label: String
+    let value: Int
     
     init(json: JSON) {
         category = json["category"].stringValue
         action = json["action"].stringValue
-        label = json["label"].string
-        value = json["value"].int
+        label = json["label"].stringValue
+        value = json["value"].intValue
     }
 }

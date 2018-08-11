@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import SpriteKit
 
 enum GameState: Int {
     case Init        = 0
@@ -89,9 +90,15 @@ extension Bela: CardGame {
         case "Player":
             switch event.action {
             case "Call":
-                adut = Boja(rawValue: event.label!)
+                adut = Boja(rawValue: event.label)
                 idxPlayerCalled = event.value
-                scene.playersLbls[idxPlayerCalled!].text = event.label
+                let tex = SKTexture(imageNamed: event.label)
+                let callNode = SKSpriteNode(texture: tex, size: CGSize(width:40,height:40))
+                let playerNameLbl = scene.playersLbls[idxPlayerCalled!]
+                callNode.position = playerNameLbl.position
+                callNode.zRotation = playerNameLbl.zRotation
+                callNode.name = "Adut"
+                scene.addChild(callNode)
             default:
                 break
             }
@@ -100,26 +107,4 @@ extension Bela: CardGame {
         }
     }
     
-    func refreshPlayersAliases(scene: GameScene)
-    {
-        if let tableId = PlayerStat.shared.tableId,
-            let table = Room.shared.tablesInfo[tableId]
-        {
-            for idx in 0..<table.capacity {
-                var alias = "?"
-                if idx < table.playersId.count {
-                    let playerId = table.playersId[idx]
-                    if let p = Room.shared.playersInfo[playerId] {
-                        alias = p.alias
-                    }
-                    if idxPlayerCalled == idx,
-                        let adut = adut
-                    {
-                        alias += " \(adut.rawValue)"
-                    }
-                }
-                scene.playersLbls[idx].text = alias
-            }
-        }
-    }
 }

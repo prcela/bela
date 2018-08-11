@@ -41,8 +41,6 @@ class GameScene: SKScene {
     
     var playersLbls = [SKLabelNode]()
     
-    
-    
     override func didMove(to view: SKView) {
         
         playersLbls.removeAll()
@@ -54,13 +52,31 @@ class GameScene: SKScene {
             hNode?.name = "Hand\(absIdx)"
             cNode?.name = "Center\(absIdx)"
             lblNode.name = "Player\(absIdx)"
-            lblNode.text = "Player \(idx)"
+            lblNode.text = "Player \(absIdx)"
             playersLbls.append(lblNode)
         }
         playersLbls.sort { return $0.name! < $1.name! }
-        sharedGame?.refreshPlayersAliases(scene: self)
+        refreshPlayersAliases()
         
         // testPreview()
+    }
+    
+    func refreshPlayersAliases()
+    {
+        if let tableId = PlayerStat.shared.tableId,
+            let table = Room.shared.tablesInfo[tableId]
+        {
+            for idx in 0..<table.capacity {
+                var alias = "?"
+                if idx < table.playersId.count {
+                    let playerId = table.playersId[idx]
+                    if let p = Room.shared.playersInfo[playerId] {
+                        alias = p.alias
+                    }
+                }
+                playersLbls[idx].text = alias
+            }
+        }
     }
     
     func onGame(cardGame: CardGame)

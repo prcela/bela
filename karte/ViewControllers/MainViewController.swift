@@ -96,7 +96,6 @@ class MainViewController: UIViewController {
     @objc func onWsDidConnect()
     {
         connectingLbl?.isHidden = true
-        WsAPI.shared.playerStat()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
             WsAPI.shared.sendUnsentMessages()
         }
@@ -137,7 +136,7 @@ class MainViewController: UIViewController {
             openGame()
         } else if PlayerStat.shared.tableId == table.id {
             if let scene = GameViewController.shared?.scene {
-                sharedGame?.refreshPlayersAliases(scene: scene)
+                scene.refreshPlayersAliases()
             } else if table.isFull() {
                 openGame()
             }

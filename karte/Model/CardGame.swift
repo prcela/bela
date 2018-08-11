@@ -17,5 +17,4 @@ protocol CardGame: class
     func group(by id: String) -> CardGroup?
     func idxOfPlayerOnTurn() -> Int
     func onEvent(event: GameEvent, scene: GameScene)
-    func refreshPlayersAliases(scene: GameScene)
 }
