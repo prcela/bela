@@ -57,6 +57,7 @@ enum Boja: String {
 }
 
 enum Broj: Int {
+    case kec = 1
     case vii = 7
     case viii
     case ix
@@ -64,5 +65,4 @@ enum Broj: Int {
     case decko
     case dama
     case kralj
-    case kec
 }
