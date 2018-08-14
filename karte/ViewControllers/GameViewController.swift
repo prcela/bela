@@ -71,24 +71,16 @@ class GameViewController: UIViewController {
     @objc func onStep(notification: Notification) {
         let json = notification.object as! JSON
         sharedGame?.state = GameState(rawValue: json["state"].intValue)!
-        let transitions = json["transitions"].arrayValue.map { (json) -> CardTransition in
-            return CardTransition(json: json)
-        }
+        let step = CardGameStep(json: json["step"])
+        
         scene?.enabledMoves.removeAll()
-        scene?.onTransitions(transitions: transitions) {
+        scene?.onTransitions(transitions: step.transitions) {
             print("Finished transitions")
-            for (key,json) in json["enabled_moves"].dictionaryValue {
-                self.scene?.enabledMoves[Int(key)!] = json.arrayValue.map({ (json) -> CardEnabledMove in
-                    return CardEnabledMove(json: json)
-                })
-            }
+            self.scene?.enabledMoves = step.enabledMoves
         }
-        if json["event"].exists() {
-            let event = GameEvent(json: json["event"])
+        if let event = step.event {
             sharedGame?.onEvent(event: event, scene: scene!)
         }
-        
-        
     }
     
     @IBAction func onMenu(_ sender: Any) {

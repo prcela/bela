@@ -102,6 +102,14 @@ extension Bela: CardGame {
             default:
                 break
             }
+            
+        case "Game":
+            switch event.action {
+            case "ChangedIdxPlayerOnTurn":
+                indexOfPlayerOnTurn = event.value
+            default:
+                break
+            }
         default:
             break
         }
