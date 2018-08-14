@@ -57,6 +57,7 @@ class CreateGameViewController: UIViewController {
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(updateTable), name: Room.onInfo, object: nil)
+        nc.addObserver(self, selector: #selector(updateTable), name: Room.onJoinedTable, object: nil)
     }
 
     override func viewDidLoad() {

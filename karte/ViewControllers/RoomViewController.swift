@@ -24,7 +24,9 @@ class RoomViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Room.onInfo, object: nil)
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(reload), name: Room.onInfo, object: nil)
+        nc.addObserver(self, selector: #selector(reload), name: Room.onJoinedTable, object: nil)
     }
     
     override func viewDidLoad() {

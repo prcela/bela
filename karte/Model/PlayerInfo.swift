@@ -15,7 +15,7 @@ struct PlayerInfo
     let alias: String
     let diamonds: Int
     let retentions: [Int]
-    let tableId: String?
+    var tableId: String?
     
     init(json: JSON) {
         id = json["id"].stringValue

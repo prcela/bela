@@ -30,7 +30,8 @@ class MainViewController: UIViewController {
         nc.addObserver(self, selector: #selector(onWsDidConnect), name: WsAPI.onDidConnect, object: nil)
         nc.addObserver(self, selector: #selector(onWsDidDisconnect), name: WsAPI.onDidDisconnect, object: nil)
         nc.addObserver(self, selector: #selector(onPlayerStat), name: WsAPI.onPlayerStatReceived, object: nil)
-        nc.addObserver(self, selector: #selector(joinedTable), name: WsAPI.onPlayerJoinedToTable, object: nil)
+        
+        nc.addObserver(self, selector: #selector(joinedTable), name: Room.onJoinedTable, object: nil)
         
         nc.addObserver(self, selector: #selector(refreshPlayerInfo), name: PlayerStat.AliasChanged, object: nil)
         nc.addObserver(self, selector: #selector(refreshPlayerInfo), name: PlayerStat.DiamondsChanged, object: nil)
@@ -127,17 +128,17 @@ class MainViewController: UIViewController {
     @objc func joinedTable(notification: Notification) {
         let json = notification.object as! JSON
         let joinedPlayerId = json["joined_player_id"].stringValue
-        let table = TableInfo(json: json["table"])
-        Room.shared.tablesInfo[table.id] = table
+        
+        let tableId = json["table"]["id"].stringValue
         
         if joinedPlayerId == PlayerStat.shared.id {
             // ooo thats me, go into game
-            PlayerStat.shared.tableId = table.id
+            PlayerStat.shared.tableId = tableId
             openGame()
-        } else if PlayerStat.shared.tableId == table.id {
+        } else if PlayerStat.shared.tableId == tableId {
             if let scene = GameViewController.shared?.scene {
                 scene.refreshPlayersAliases()
-            } else if table.isFull() {
+            } else if let table = Room.shared.tablesInfo[tableId], table.isFull() {
                 openGame()
             }
         }

@@ -11,13 +11,16 @@ import SwiftyJSON
 
 class Room {
     static let onInfo = Notification.Name("Room.onInfo")
+    static let onJoinedTable = Notification.Name("Room.onJoinedTable")
     static var shared = Room()
     
     var playersInfo = [String:PlayerInfo]()
     var tablesInfo = [String:TableInfo]()
     
     init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(onRoomInfo), name: WsAPI.onRoomInfo, object: nil)
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(onRoomInfo), name: WsAPI.onRoomInfo, object: nil)
+        nc.addObserver(self, selector: #selector(onJoinedTable), name: WsAPI.onPlayerJoinedToTable, object: nil)
     }
     
     @objc func onRoomInfo(notification: Notification)
@@ -36,6 +39,16 @@ class Room {
             return TableInfo(json: json)
         })
         NotificationCenter.default.post(name: Room.onInfo, object: nil)
+    }
+    
+    @objc func onJoinedTable(notification: Notification) {
+        let json = notification.object as! JSON
+        let table = TableInfo(json: json["table"])
+        let joinedPlayerId = json["joined_player_id"].stringValue
+        Room.shared.playersInfo[joinedPlayerId]?.tableId = table.id
+        Room.shared.tablesInfo[table.id] = table
+        
+        NotificationCenter.default.post(name: Room.onJoinedTable, object: json)
     }
     
     func freePlayers() -> [PlayerInfo] {
