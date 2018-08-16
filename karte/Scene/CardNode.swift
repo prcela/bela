@@ -12,6 +12,7 @@ import SpriteKit
 class CardNode: SKCropNode {
     var frontNode: SKSpriteNode?
     var backNode: SKSpriteNode?
+    var shapeNode: SKShapeNode?
     
     init(card:Card, width: CGFloat) {
         
@@ -19,12 +20,12 @@ class CardNode: SKCropNode {
         let texDeck = SKTexture(imageNamed: "deck.jpg")
         let cardRatio = tex.size().width/tex.size().height
         let cardSize = CGSize(width: width, height: width/cardRatio)
-        let shapeNode = SKShapeNode(rectOf: cardSize, cornerRadius: width*0.08)
+        shapeNode = SKShapeNode(rectOf: cardSize, cornerRadius: width*0.08)
         frontNode = SKSpriteNode(texture: tex, size: cardSize)
         backNode = SKSpriteNode(texture: texDeck, size: cardSize)
         backNode?.isHidden = true
-        shapeNode.fillColor = .white
-        shapeNode.strokeColor = .black
+        shapeNode?.fillColor = .white
+        shapeNode?.strokeColor = .black
         super.init()
         maskNode = shapeNode
         name = card.nodeName()

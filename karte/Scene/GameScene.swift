@@ -17,6 +17,7 @@ class GameScene: SKScene {
             print("Local player index: \(localPlayerIdx)")
         }
     }
+    var cardNodes = [CardNode]()
     var enabledMoves = [Int:[CardEnabledMove]]() {
         didSet {
             if let localMoves = enabledMoves[localPlayerIdx] {
@@ -29,10 +30,11 @@ class GameScene: SKScene {
             }
             for (idx,lblNode) in playersLbls.enumerated() {
                 if let _ = enabledMoves[idx] {
-                    lblNode.color = UIColor.white
+                    lblNode.fontColor = UIColor.yellow
                     lblNode.fontName = UIFont.systemFont(ofSize: 14, weight: .bold).fontName
+                    
                 } else {
-                    lblNode.color = UIColor.white.withAlphaComponent(0.5)
+                    lblNode.fontColor = UIColor.white
                     lblNode.fontName = UIFont.systemFont(ofSize: 14, weight: .thin).fontName
                 }
             }
@@ -81,6 +83,7 @@ class GameScene: SKScene {
     
     func onGame(cardGame: CardGame)
     {
+        cardNodes.removeAll()
         for group in cardGame.groups()
         {
             let groupNode = childNode(withName: group.id)!
@@ -103,8 +106,8 @@ class GameScene: SKScene {
                 cardNode.backNode?.isHidden = visible
                 cardNode.setScale(group.scale)
                 addChild(cardNode)
+                cardNodes.append(cardNode)
             }
-            
         }
     }
     
@@ -179,50 +182,96 @@ class GameScene: SKScene {
         return false
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches {
-            self.touchUp(atPoint: t.location(in: self))
-        }
-    }
-    
-    fileprivate func touchUp(atPoint pos : CGPoint) {
-        var cardNodes = [CardNode]()
-        enumerateChildNodes(withName: "card_*") { (card, _) in
-            cardNodes.append(card as! CardNode)
-        }
+    fileprivate func touchedCardNode(touches: Set<UITouch>) -> CardNode? {
+        
         // sort from top to bottom
         cardNodes.sort { (card0, card1) -> Bool in
             return card0.zPosition > card1.zPosition
         }
-        if let touchedCardNode = cardNodes.first(where: { (card) -> Bool in
-            return card.contains(pos)
-        }),
-            let playerEnabledMoves = enabledMoves[localPlayerIdx],
-            let enabledMove = playerEnabledMoves.first(where: { (enabledMove) -> Bool in
-                return enabledMove.card.nodeName() == touchedCardNode.name
-            })
-        {
-            if let toGroupId = enabledMove.toGroupId,
-                let toGroup = sharedGame?.group(by: toGroupId)
-            {
-                moveCard(cardName: enabledMove.card.nodeName(), toGroup: toGroup, waitDuration: 0, duration: 0.5)
+        for t in touches {
+            let pos = t.location(in: self)
+            
+            if let touchedCardNode = cardNodes.first(where: { (card) -> Bool in
+                return card.contains(pos)
+            }) {
+                return touchedCardNode
             }
-            
-            WsAPI.shared.send(.Turn, json: JSON(["turn":"tap_card", "enabled_move":enabledMove.dictionary()]))
-            
-            if let fromGroup = sharedGame?.group(by: enabledMove.fromGroupId) {
-                for enabledMove in playerEnabledMoves {
-                    if let cn = cardNodes.first(where: { (cardNode) -> Bool in
-                        return cardNode.name == enabledMove.card.nodeName()
-                    }), cn != touchedCardNode {
-                        let actionScale = SKAction.scale(to: fromGroup.scale, duration: 0.5)
-                        cn.run(actionScale)
+        }
+        return nil
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let playerEnabledMoves = enabledMoves[localPlayerIdx] else {return}
+        
+        if let touchedCardNode = touchedCardNode(touches: touches) {
+            for enabledMove in playerEnabledMoves {
+                if enabledMove.card.nodeName() == touchedCardNode.name {
+                    let actionScale = SKAction.scale(to: 1.3, duration: 0.2)
+                    touchedCardNode.run(actionScale)
+                }
+            }
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let playerEnabledMoves = enabledMoves[localPlayerIdx] else {return}
+        
+        let touchedCN = touchedCardNode(touches: touches)
+        for enabledMove in playerEnabledMoves {
+            if enabledMove.card.nodeName() == touchedCN?.name {
+                let desiredScale: CGFloat = 1.3
+                if touchedCN?.xScale != desiredScale {
+                    let actionScale = SKAction.scale(to: desiredScale, duration: 0.1)
+                    touchedCN?.run(actionScale)
+                }
+            } else {
+                if let node = childNode(withName: enabledMove.card.nodeName()) {
+                    let desiredScale: CGFloat = 1.2
+                    if node.xScale != desiredScale {
+                        let actionScale = SKAction.scale(to: desiredScale, duration: 0.1)
+                        node.run(actionScale)
                     }
                 }
             }
-            
-            enabledMoves[localPlayerIdx]?.removeAll()
         }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touchedCardNode = touchedCardNode(touches: touches) {
+            touchUp(cardNode: touchedCardNode)
+        }
+    }
+    
+    fileprivate func touchUp(cardNode: CardNode) {
+        
+        guard let playerEnabledMoves = enabledMoves[localPlayerIdx],
+            let enabledMove = playerEnabledMoves.first(where: { (enabledMove) -> Bool in
+                return enabledMove.card.nodeName() == cardNode.name
+            })
+        else { return }
+        
+        if let toGroupId = enabledMove.toGroupId,
+            let toGroup = sharedGame?.group(by: toGroupId)
+        {
+            moveCard(cardName: enabledMove.card.nodeName(), toGroup: toGroup, waitDuration: 0, duration: 0.5)
+        }
+        
+        WsAPI.shared.send(.Turn, json: JSON(["turn":"tap_card", "enabled_move":enabledMove.dictionary()]))
+        
+        // return all enabled cards to default group scale
+        if let fromGroup = sharedGame?.group(by: enabledMove.fromGroupId) {
+            
+            for enabledMove in playerEnabledMoves {
+                if let cn = cardNodes.first(where: { cn -> Bool in
+                    return cn.name == enabledMove.card.nodeName()
+                }), cn != cardNode {
+                    let actionScale = SKAction.scale(to: fromGroup.scale, duration: 0.5)
+                    cn.run(actionScale)
+                }
+            }
+        }
+        
+        enabledMoves[localPlayerIdx]?.removeAll()
     }
     
     
