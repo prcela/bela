@@ -26,10 +26,10 @@ class Bela
     var adut: Boja?
     var initialGroup = CardGroup(id: "Initial")
     var handGroups = [
-        LinearGroup(id: "Hand0", delta: 15),
-        LinearGroup(id: "Hand1", delta: 15),
-        LinearGroup(id: "Hand2", delta: 15),
-        LinearGroup(id: "Hand3", delta: 15)]
+        HandGroup(id: "Hand0", delta: 15),
+        HandGroup(id: "Hand1", delta: 15),
+        HandGroup(id: "Hand2", delta: 15),
+        HandGroup(id: "Hand3", delta: 15)]
     
     var talonGroups = [
         LinearGroup(id: "Talon0",  delta: 10),
@@ -53,8 +53,8 @@ class Bela
         centerGroups = json["center_groups"].arrayValue.map({ (json) -> CardGroup in
             return CardGroup(json: json)
         })
-        handGroups = json["hand_groups"].arrayValue.map({ (json) -> LinearGroup in
-            return LinearGroup(json: json)
+        handGroups = json["hand_groups"].arrayValue.map({ (json) -> HandGroup in
+            return HandGroup(json: json)
         })
         talonGroups = json["talon_groups"].arrayValue.map({ (json) -> LinearGroup in
             return LinearGroup(json: json)

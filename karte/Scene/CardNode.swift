@@ -25,7 +25,8 @@ class CardNode: SKCropNode {
         backNode = SKSpriteNode(texture: texDeck, size: cardSize)
         backNode?.isHidden = true
         shapeNode?.fillColor = .white
-        shapeNode?.strokeColor = .black
+//        shapeNode?.strokeColor = .black
+//        shapeNode?.lineWidth = 2
         super.init()
         maskNode = shapeNode
         name = card.nodeName()

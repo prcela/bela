@@ -99,4 +99,25 @@ class LinearGroup: CardGroup
     }
 }
 
-
+class HandGroup: LinearGroup
+{
+    override func position(for card: Card) -> CGPoint {
+        var cardPos = super.position(for: card)
+        let dx = cardPos.x-pos.x
+        let dy = cardPos.y-pos.y
+        let dist = sqrt(dx*dx+dy*dy)
+        let dirUp = CGVector(dx: cos(zRotation+CGFloat.pi/2), dy: sin(zRotation+CGFloat.pi/2))
+        let weight = dist*0.3
+        cardPos.x -= weight*dirUp.dx
+        cardPos.y -= weight*dirUp.dy
+        return cardPos
+    }
+    
+    override func zRotation(for card: Card) -> CGFloat {
+        let ctCards = cards.count
+        if let idx = cards.index(of: card) {
+            return zRotation - (CGFloat(idx)-0.5*CGFloat(ctCards))*CGFloat.pi/20
+        }
+        return zRotation
+    }
+}

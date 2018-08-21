@@ -90,7 +90,7 @@ class GameScene: SKScene {
             group.setNodePlacement(node: groupNode)
             
             if group.id == "Hand\(localPlayerIdx)" {
-                (group as! LinearGroup).delta = 30
+                (group as! LinearGroup).delta = 35
             }
             
             let visible = group.visibility == .Visible || (group.visibility == .VisibleToLocalOnly && group.id.hasSuffix("\(localPlayerIdx)"))
@@ -189,10 +189,10 @@ class GameScene: SKScene {
             return card0.zPosition > card1.zPosition
         }
         for t in touches {
-            let pos = t.location(in: self)
             
             if let touchedCardNode = cardNodes.first(where: { (card) -> Bool in
-                return card.contains(pos)
+                let pos = t.location(in: card)
+                return card.shapeNode!.frame.contains(pos)
             }) {
                 return touchedCardNode
             }
