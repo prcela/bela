@@ -13,6 +13,8 @@ import SwiftyJSON
 class GameViewController: UIViewController {
     
     static weak var shared: GameViewController?
+    
+    let stepQueue = OperationQueue()
 
     @IBOutlet weak var overlayView: UIView!
     var scene: GameScene?
@@ -25,6 +27,7 @@ class GameViewController: UIViewController {
         super.init(coder: aDecoder)
         
         GameViewController.shared = self
+        stepQueue.maxConcurrentOperationCount = 1
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(onGame), name: WsAPI.onGame, object: nil)
@@ -70,17 +73,34 @@ class GameViewController: UIViewController {
     
     @objc func onStep(notification: Notification) {
         let json = notification.object as! JSON
-        sharedGame?.state = GameState(rawValue: json["state"].intValue)!
-        let step = CardGameStep(json: json["step"])
         
-        scene?.enabledMoves.removeAll()
-        scene?.onTransitions(transitions: step.transitions) {
-            print("Finished transitions")
-            self.scene?.enabledMoves = step.enabledMoves
+        let op = BlockOperation {[weak self] in
+            let step = CardGameStep(json: json["step"])
+            var totalDuration: TimeInterval = 0
+            for t in step.transitions {
+                totalDuration = max(totalDuration, t.waitDuration + t.duration)
+            }
+            
+            DispatchQueue.main.async {
+                sharedGame?.state = GameState(rawValue: json["state"].intValue)!
+                
+                self?.scene?.enabledMoves.removeAll()
+                self?.scene?.onTransitions(transitions: step.transitions)
+            }
+            
+            
+            Thread.sleep(forTimeInterval: totalDuration)
+            print("Finished transitions for \(totalDuration)s")
+            
+            DispatchQueue.main.async {
+                self?.scene?.enabledMoves = step.enabledMoves
+                if let event = step.event,
+                    let scene = self?.scene {
+                    sharedGame?.onEvent(event: event, scene: scene)
+                }
+            }
         }
-        if let event = step.event {
-            sharedGame?.onEvent(event: event, scene: scene!)
-        }
+        stepQueue.addOperation(op)
     }
     
     @IBAction func onMenu(_ sender: Any) {

@@ -83,6 +83,9 @@ class GameScene: SKScene {
     
     func onGame(cardGame: CardGame)
     {
+        playersLbls.forEach { (node) in
+            node.removeAllChildren()
+        }
         cardNodes.removeAll()
         for group in cardGame.groups()
         {
@@ -276,9 +279,7 @@ class GameScene: SKScene {
     
     
     
-    func onTransitions(transitions: [CardTransition], onFinished: @escaping () -> Void) {
-        var totalDuration:TimeInterval = 0
-        
+    func onTransitions(transitions: [CardTransition]) {
         for t in transitions {
             if let fromGroup = sharedGame?.group(by: t.fromGroupId),
                 let toGroup = sharedGame?.group(by: t.toGroupId) {
@@ -288,15 +289,9 @@ class GameScene: SKScene {
                      toTop: t.toTop,
                      waitDuration: t.waitDuration,
                      duration: t.duration)
-                totalDuration = max(totalDuration, t.waitDuration + t.duration)
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now()+totalDuration) {
-            onFinished()
-        }
     }
-    
-    
     
     func testPreview()
     {
