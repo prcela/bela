@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import SceneKit
 import SwiftyJSON
 
 class GameViewController: UIViewController {
@@ -17,7 +18,11 @@ class GameViewController: UIViewController {
     let stepQueue = OperationQueue()
 
     @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var menuBtn: UIButton!
+    
     var scene: GameScene?
+    
+    @IBOutlet weak var scnView: SCNView!
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
@@ -38,8 +43,9 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         overlayView.isHidden = true
+        menuBtn.setImage(menuBtn.image(for: .normal)?.withRenderingMode(.alwaysTemplate), for: .normal)
         
-        if let view = self.view as! SKView? {
+        if let view = self.view as? SKView {
             // Load the SKScene from 'GameScene.sks'
             scene = SKScene(fileNamed: "GameScene") as? GameScene
             
@@ -62,6 +68,18 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
+        
+        scnView.showsStatistics = true
+        
+        if let cardScene = SCNScene(named: "Test.scnassets/card.scn"),
+            let cardNodeClone = cardScene.rootNode.childNode(withName: "card", recursively: true)?.clone()
+        {
+            cardNodeClone.position = SCNVector3(x: -0.015, y: 0.116, z: 0.136)
+            let frontNode = cardNodeClone.childNode(withName: "front", recursively: false)!
+            frontNode.geometry?.material(named: "front")?.diffuse.contents = UIImage(named: "Test.scnassets/bundeva_decko.jpg")
+            scnView.scene?.rootNode.addChildNode(cardNodeClone)
+        }
+        
     }
     
     @objc
@@ -73,9 +91,10 @@ class GameViewController: UIViewController {
     
     @objc func onStep(notification: Notification) {
         let json = notification.object as! JSON
+        let step = CardGameStep(json: json["step"])
         
         let op = BlockOperation {[weak self] in
-            let step = CardGameStep(json: json["step"])
+            
             var totalDuration: TimeInterval = 0
             for t in step.transitions {
                 totalDuration = max(totalDuration, t.waitDuration + t.duration)
@@ -89,6 +108,7 @@ class GameViewController: UIViewController {
             }
             
             
+            
             Thread.sleep(forTimeInterval: totalDuration)
             print("Finished transitions for \(totalDuration)s")
             
@@ -100,6 +120,7 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        
         stepQueue.addOperation(op)
     }
     
