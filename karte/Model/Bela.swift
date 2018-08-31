@@ -92,12 +92,15 @@ extension Bela: CardGame {
             case "Call":
                 adut = Boja(rawValue: event.label)
                 idxPlayerCalled = event.value
+                // TODO!
+                /*
                 let tex = SKTexture(imageNamed: event.label)
                 let callNode = SKSpriteNode(texture: tex, size: CGSize(width:20,height:20))
                 let playerNameLbl = scene.playersLbls[idxPlayerCalled!]
                 callNode.position = CGPoint(x: 0, y: 30)
                 callNode.name = "Adut"
                 playerNameLbl.addChild(callNode)
+                 */
             default:
                 break
             }

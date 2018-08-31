@@ -45,28 +45,15 @@ class GameViewController: UIViewController {
         overlayView.isHidden = true
         menuBtn.setImage(menuBtn.image(for: .normal)?.withRenderingMode(.alwaysTemplate), for: .normal)
         
-        if let view = self.view as? SKView {
-            // Load the SKScene from 'GameScene.sks'
-            scene = SKScene(fileNamed: "GameScene") as? GameScene
-            
-            // Set the scale mode to scale to fit the window
-            scene?.scaleMode = .aspectFill
-            
-            if let tableId = PlayerStat.shared.tableId,
-                let tableInfo = Room.shared.tablesInfo[tableId],
-                let localPlayerIdx = tableInfo.playersId.index(of: PlayerStat.shared.id)
-            {
-                scene?.localPlayerIdx = localPlayerIdx
-            }
-            
-            
-            // Present the scene
-            view.presentScene(scene)
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
+        scene = GameScene(named: "Test.scnassets/game.scn")
+        scnView.scene = scene
+        scene?.didMoveToView()
+        
+        if let tableId = PlayerStat.shared.tableId,
+            let tableInfo = Room.shared.tablesInfo[tableId],
+            let localPlayerIdx = tableInfo.playersId.index(of: PlayerStat.shared.id)
+        {
+            scene?.localPlayerIdx = localPlayerIdx
         }
         
         scnView.showsStatistics = true
@@ -126,12 +113,12 @@ class GameViewController: UIViewController {
     
     @IBAction func onMenu(_ sender: Any) {
         overlayView.isHidden = false
-        scene?.isUserInteractionEnabled = false
+        scnView?.isUserInteractionEnabled = false
     }
     
     @IBAction func onResume(_ sender: Any) {
         overlayView.isHidden = true
-        scene?.isUserInteractionEnabled = true
+        scnView?.isUserInteractionEnabled = true
         
     }
     

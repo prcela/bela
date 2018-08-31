@@ -12,8 +12,8 @@
 		970884B920A4DBA4005323DB /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970884B820A4DBA4005323DB /* SceneKit.framework */; };
 		970884BA20A4DBAB005323DB /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970884B820A4DBA4005323DB /* SceneKit.framework */; };
 		970884E120A6ED34005323DB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 970884E020A6ED34005323DB /* GameScene.sks */; };
-		970884E720A6F581005323DB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* GameScene.swift */; };
-		970884E820A6F581005323DB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* GameScene.swift */; };
+		970884E720A6F581005323DB /* SKGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* SKGameScene.swift */; };
+		970884E820A6F581005323DB /* SKGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* SKGameScene.swift */; };
 		9708856520A70A4F005323DB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856420A70A4F005323DB /* Card.swift */; };
 		9708856620A70A4F005323DB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856420A70A4F005323DB /* Card.swift */; };
 		9708856820A72DE2005323DB /* CardGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856720A72DE2005323DB /* CardGroup.swift */; };
@@ -82,8 +82,9 @@
 		97301A5120D64163005FCA5D /* madjarice.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97301A4F20D64163005FCA5D /* madjarice.xcassets */; };
 		97301A5320D7D5F3005FCA5D /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97301A5220D7D5F3005FCA5D /* GameEvent.swift */; };
 		97301A5420D7D5F3005FCA5D /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97301A5220D7D5F3005FCA5D /* GameEvent.swift */; };
-		975D46932136C4C100B031C0 /* GameScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 975D46922136C4C100B031C0 /* GameScene.scn */; };
 		975D46952136D4B100B031C0 /* Test.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 975D46942136D4B100B031C0 /* Test.scnassets */; };
+		975D469B213929E600B031C0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D469A213929E600B031C0 /* GameScene.swift */; };
+		975D469C213929E600B031C0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D469A213929E600B031C0 /* GameScene.swift */; };
 		97890FEE21233AD90003CE7D /* CardGameStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97890FED21233AD90003CE7D /* CardGameStep.swift */; };
 		97890FEF21233AD90003CE7D /* CardGameStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97890FED21233AD90003CE7D /* CardGameStep.swift */; };
 		97E9A9D420B18B4D00DB5454 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9A9D320B18B4D00DB5454 /* CardTransition.swift */; };
@@ -121,7 +122,7 @@
 		970884B620A4CB39005323DB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		970884B820A4DBA4005323DB /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		970884E020A6ED34005323DB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		970884E620A6F581005323DB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		970884E620A6F581005323DB /* SKGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKGameScene.swift; sourceTree = "<group>"; };
 		9708856420A70A4F005323DB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9708856720A72DE2005323DB /* CardGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGroup.swift; sourceTree = "<group>"; };
 		9708856D20A75FCE005323DB /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
@@ -164,9 +165,9 @@
 		971E126F20A32E6400198DE5 /* MatchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchCell.xib; sourceTree = "<group>"; };
 		97301A4F20D64163005FCA5D /* madjarice.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = madjarice.xcassets; sourceTree = "<group>"; };
 		97301A5220D7D5F3005FCA5D /* GameEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEvent.swift; sourceTree = "<group>"; };
-		975D46922136C4C100B031C0 /* GameScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = GameScene.scn; sourceTree = "<group>"; };
 		975D46942136D4B100B031C0 /* Test.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Test.scnassets; sourceTree = "<group>"; };
 		975D46962136D51F00B031C0 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		975D469A213929E600B031C0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		97890FED21233AD90003CE7D /* CardGameStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameStep.swift; sourceTree = "<group>"; };
 		97E9A9D320B18B4D00DB5454 /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
 		97E9A9DF20B6F6B700DB5454 /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
@@ -221,9 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				970884E020A6ED34005323DB /* GameScene.sks */,
-				970884E620A6F581005323DB /* GameScene.swift */,
+				970884E620A6F581005323DB /* SKGameScene.swift */,
 				9708856D20A75FCE005323DB /* CardNode.swift */,
-				975D46922136C4C100B031C0 /* GameScene.scn */,
+				975D469A213929E600B031C0 /* GameScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -468,7 +469,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				975D46932136C4C100B031C0 /* GameScene.scn in Resources */,
 				970884B520A4CAFA005323DB /* Game.storyboard in Resources */,
 				97E9A9E020B6F6B700DB5454 /* Player.storyboard in Resources */,
 				971E1208209F139200198DE5 /* Room.storyboard in Resources */,
@@ -643,6 +643,7 @@
 				971E123120A1D3CE00198DE5 /* MatchResult.swift in Sources */,
 				970884B720A4CB39005323DB /* GameViewController.swift in Sources */,
 				97E9AA0120BAC86300DB5454 /* CardEnabledMove.swift in Sources */,
+				975D469B213929E600B031C0 /* GameScene.swift in Sources */,
 				97E9A9D420B18B4D00DB5454 /* CardTransition.swift in Sources */,
 				971E11F1209E5A3300198DE5 /* MainViewController.swift in Sources */,
 				97E9A9EC20B7E90900DB5454 /* ProfileViewController.swift in Sources */,
@@ -657,7 +658,7 @@
 				971E123E20A2D2E500198DE5 /* Prefs.swift in Sources */,
 				97E9AA0620BB554F00DB5454 /* Bela.swift in Sources */,
 				971E1222209F3D1600198DE5 /* DateExt.swift in Sources */,
-				970884E720A6F581005323DB /* GameScene.swift in Sources */,
+				970884E720A6F581005323DB /* SKGameScene.swift in Sources */,
 				97E9A9E920B6FA6F00DB5454 /* PlayerContainer.swift in Sources */,
 				97E9A9E620B6F85F00DB5454 /* ContainerViewController.swift in Sources */,
 				971E127020A32E6400198DE5 /* MatchCell.swift in Sources */,
@@ -694,7 +695,7 @@
 				971E124E20A303BD00198DE5 /* CreateGameViewController.swift in Sources */,
 				97E9A9F320B808E100DB5454 /* StatsTableView.swift in Sources */,
 				971E124F20A303BD00198DE5 /* PlayerStat.swift in Sources */,
-				970884E820A6F581005323DB /* GameScene.swift in Sources */,
+				970884E820A6F581005323DB /* SKGameScene.swift in Sources */,
 				97E9A9ED20B7E90900DB5454 /* ProfileViewController.swift in Sources */,
 				971E125020A303BD00198DE5 /* MenuViewController.swift in Sources */,
 				9708856620A70A4F005323DB /* Card.swift in Sources */,
@@ -704,6 +705,7 @@
 				97E9A9D520B18B4D00DB5454 /* CardTransition.swift in Sources */,
 				971E125220A303BD00198DE5 /* AppDelegate.swift in Sources */,
 				971E125320A303BD00198DE5 /* Prefs.swift in Sources */,
+				975D469C213929E600B031C0 /* GameScene.swift in Sources */,
 				971E125420A303BD00198DE5 /* DateExt.swift in Sources */,
 				97E9A9EA20B6FA6F00DB5454 /* PlayerContainer.swift in Sources */,
 				971E125520A303BD00198DE5 /* StatItem.swift in Sources */,
