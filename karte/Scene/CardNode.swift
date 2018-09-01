@@ -7,34 +7,18 @@
 //
 
 import Foundation
-import SpriteKit
+import SceneKit
 
-class CardNode: SKCropNode {
-    var frontNode: SKSpriteNode?
-    var backNode: SKSpriteNode?
-    var shapeNode: SKShapeNode?
+var templateCardNode: SCNNode!
+
+extension SCNNode {
     
-    init(card:Card, width: CGFloat) {
-        
-        let tex = SKTexture(imageNamed: card.imageName())
-        let texDeck = SKTexture(imageNamed: "deck.jpg")
-        let cardRatio = tex.size().width/tex.size().height
-        let cardSize = CGSize(width: width, height: width/cardRatio)
-        shapeNode = SKShapeNode(rectOf: cardSize, cornerRadius: width*0.08)
-        frontNode = SKSpriteNode(texture: tex, size: cardSize)
-        backNode = SKSpriteNode(texture: texDeck, size: cardSize)
-        backNode?.isHidden = true
-        shapeNode?.fillColor = .white
-//        shapeNode?.strokeColor = .black
-//        shapeNode?.lineWidth = 2
-        super.init()
-        maskNode = shapeNode
-        name = card.nodeName()
-        addChild(frontNode!)
-        addChild(backNode!)
+    class func create(card:Card) -> SCNNode {
+        let cardNodeClone = templateCardNode.clone()
+        let frontNode = cardNodeClone.childNode(withName: "front", recursively: false)!
+        frontNode.geometry?.material(named: "front")?.diffuse.contents = UIImage(named: card.imageName())
+        cardNodeClone.name = card.nodeName()
+        return cardNodeClone
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
 }

@@ -11,9 +11,6 @@
 		970884B720A4CB39005323DB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884B620A4CB39005323DB /* GameViewController.swift */; };
 		970884B920A4DBA4005323DB /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970884B820A4DBA4005323DB /* SceneKit.framework */; };
 		970884BA20A4DBAB005323DB /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970884B820A4DBA4005323DB /* SceneKit.framework */; };
-		970884E120A6ED34005323DB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 970884E020A6ED34005323DB /* GameScene.sks */; };
-		970884E720A6F581005323DB /* SKGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* SKGameScene.swift */; };
-		970884E820A6F581005323DB /* SKGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970884E620A6F581005323DB /* SKGameScene.swift */; };
 		9708856520A70A4F005323DB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856420A70A4F005323DB /* Card.swift */; };
 		9708856620A70A4F005323DB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856420A70A4F005323DB /* Card.swift */; };
 		9708856820A72DE2005323DB /* CardGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9708856720A72DE2005323DB /* CardGroup.swift */; };
@@ -483,7 +480,6 @@
 				971E1219209F1F6300198DE5 /* Leaderboard.storyboard in Resources */,
 				971E11F6209E5A3400198DE5 /* Bela.xcassets in Resources */,
 				975D46952136D4B100B031C0 /* Test.scnassets in Resources */,
-				970884E120A6ED34005323DB /* GameScene.sks in Resources */,
 				971E11F4209E5A3300198DE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,7 +654,6 @@
 				971E123E20A2D2E500198DE5 /* Prefs.swift in Sources */,
 				97E9AA0620BB554F00DB5454 /* Bela.swift in Sources */,
 				971E1222209F3D1600198DE5 /* DateExt.swift in Sources */,
-				970884E720A6F581005323DB /* SKGameScene.swift in Sources */,
 				97E9A9E920B6FA6F00DB5454 /* PlayerContainer.swift in Sources */,
 				97E9A9E620B6F85F00DB5454 /* ContainerViewController.swift in Sources */,
 				971E127020A32E6400198DE5 /* MatchCell.swift in Sources */,
@@ -695,7 +690,6 @@
 				971E124E20A303BD00198DE5 /* CreateGameViewController.swift in Sources */,
 				97E9A9F320B808E100DB5454 /* StatsTableView.swift in Sources */,
 				971E124F20A303BD00198DE5 /* PlayerStat.swift in Sources */,
-				970884E820A6F581005323DB /* SKGameScene.swift in Sources */,
 				97E9A9ED20B7E90900DB5454 /* ProfileViewController.swift in Sources */,
 				971E125020A303BD00198DE5 /* MenuViewController.swift in Sources */,
 				9708856620A70A4F005323DB /* Card.swift in Sources */,
@@ -875,7 +869,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X5F8D2MNQ7;
 				INFOPLIST_FILE = "$(SRCROOT)/karte/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -895,7 +889,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X5F8D2MNQ7;
 				INFOPLIST_FILE = "$(SRCROOT)/karte/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -915,7 +909,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X5F8D2MNQ7;
 				INFOPLIST_FILE = "$(SRCROOT)/lora-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -935,7 +929,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X5F8D2MNQ7;
 				INFOPLIST_FILE = "$(SRCROOT)/lora-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

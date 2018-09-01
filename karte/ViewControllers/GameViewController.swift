@@ -59,14 +59,12 @@ class GameViewController: UIViewController {
         scnView.showsStatistics = true
         
         if let cardScene = SCNScene(named: "Test.scnassets/card.scn"),
-            let cardNodeClone = cardScene.rootNode.childNode(withName: "card", recursively: true)?.clone()
+            let cardNode = cardScene.rootNode.childNode(withName: "card", recursively: true)
         {
-            cardNodeClone.position = SCNVector3(x: -0.015, y: 0.116, z: 0.136)
-            let frontNode = cardNodeClone.childNode(withName: "front", recursively: false)!
-            frontNode.geometry?.material(named: "front")?.diffuse.contents = UIImage(named: "Test.scnassets/bundeva_decko.jpg")
-            scnView.scene?.rootNode.addChildNode(cardNodeClone)
+            templateCardNode = cardNode
+            let testNode = SCNNode.create(card: Card(boja: .bundeva, broj: .decko))
+            scnView.scene?.rootNode.addChildNode(testNode)
         }
-        
     }
     
     @objc

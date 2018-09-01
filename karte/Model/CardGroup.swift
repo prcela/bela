@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreGraphics
-import SpriteKit
+import SceneKit
 import SwiftyJSON
 
 enum CardGroupVisibility: Int {
@@ -21,10 +21,9 @@ class CardGroup {
     var id: String
     var visibility: CardGroupVisibility
     
-    var pos = CGPoint.zero
-    var zRotation = CGFloat(0)
-    var zPosition = CGFloat(0)
-    var scale = CGFloat(1)
+    var pos = SCNVector3Zero
+    var eulerAngles = SCNVector3Zero // radians
+    var scale = SCNVector3(1, 1, 1)
     
     var cards = [Card]()
     
@@ -41,24 +40,22 @@ class CardGroup {
         })
     }
     
-    func position(for card: Card) -> CGPoint {
-        return pos
-    }
-    func zPosition(for card: Card) -> CGFloat {
+    func position(for card: Card) -> SCNVector3 {
+        var p = SCNVector3Zero
         if let idx = cards.index(of: card) {
-            return zPosition + CGFloat(idx+1)*0.01
+            p.z += Float(idx)*0.01
         }
-        return 0.01
-    }
-    func zRotation(for card:Card) -> CGFloat {
-        return zRotation
+        return p
     }
     
-    func setNodePlacement(node: SKNode) {
+    func eulerAngles(for card:Card) -> SCNVector3 {
+        return SCNVector3Zero
+    }
+    
+    func setNodePlacement(node: SCNNode) {
         pos = node.position
-        zPosition = node.zPosition
-        zRotation = node.zRotation
-        scale = (node.xScale+node.yScale)/2
+        eulerAngles = node.eulerAngles
+        scale = node.scale
     }
     
     func card(name: String) -> Card? {
@@ -71,10 +68,9 @@ class CardGroup {
 
 class LinearGroup: CardGroup
 {
-    var delta:CGFloat
-    var dir = CGVector(dx: 1, dy: 0)
+    var delta:Float
     
-    init(id: String, delta:CGFloat) {
+    init(id: String, delta:Float) {
         self.delta = delta
         super.init(id: id)
     }
@@ -85,39 +81,23 @@ class LinearGroup: CardGroup
     }
     
     
-    override func position(for card: Card) -> CGPoint {
+    override func position(for card: Card) -> SCNVector3 {
         if let idx = cards.index(of: card) {
-            return CGPoint(x: pos.x - (CGFloat(cards.count/2)-0.5)*delta*dir.dx + CGFloat(idx)*delta*dir.dx, y: pos.y - (CGFloat(cards.count/2)-0.5)*delta*dir.dy + CGFloat(idx)*delta*dir.dy)
+            let x = -(Float(cards.count)/2-0.5)*delta + Float(idx)*delta
+            return SCNVector3(x:x, y: 0, z:0)
         }
-        return CGPoint.zero
-    }
-    
-    override func setNodePlacement(node: SKNode) {
-        super.setNodePlacement(node: node)
-        dir.dx = cos(zRotation)
-        dir.dy = sin(zRotation)
+        return SCNVector3Zero
     }
 }
 
 class HandGroup: LinearGroup
 {
-    override func position(for card: Card) -> CGPoint {
-        var cardPos = super.position(for: card)
-        let dx = cardPos.x-pos.x
-        let dy = cardPos.y-pos.y
-        let dist = sqrt(dx*dx+dy*dy)
-        let dirUp = CGVector(dx: cos(zRotation+CGFloat.pi/2), dy: sin(zRotation+CGFloat.pi/2))
-        let weight = dist*0.3
-        cardPos.x -= weight*dirUp.dx
-        cardPos.y -= weight*dirUp.dy
+    override func position(for card: Card) -> SCNVector3 {
+        let cardPos = super.position(for: card)
         return cardPos
     }
     
-    override func zRotation(for card: Card) -> CGFloat {
-        let ctCards = cards.count
-        if let idx = cards.index(of: card) {
-            return zRotation - (CGFloat(idx)-0.5*CGFloat(ctCards))*CGFloat.pi/20
-        }
-        return zRotation
+    override func eulerAngles(for card: Card) -> SCNVector3 {
+        return SCNVector3Zero
     }
 }
