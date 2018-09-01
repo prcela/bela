@@ -20,13 +20,15 @@ class GameScene: SCNScene {
         playersLbls.removeAll()
         for idx in 0...3 {
             let lblNode = rootNode.childNode(withName: "P\(idx)", recursively: false)!
-            let hNode = rootNode.childNode(withName: "H\(idx)", recursively: false)
-            hNode?.childNodes.forEach({ (node) in
+            let hNode = rootNode.childNode(withName: "H\(idx)", recursively: false)!
+            let cNode = rootNode.childNode(withName: "C\(idx)", recursively: false)!
+            hNode.childNodes.forEach({ (node) in
                 node.removeFromParentNode()
             })
             let absIdx = (idx+localPlayerIdx)%4
-            hNode?.name = "Hand\(absIdx)"
+            hNode.name = "Hand\(absIdx)"
             lblNode.name = "Player\(absIdx)"
+            cNode.name = "Center\(absIdx)"
             (lblNode.geometry as? SCNText)?.string = "Player \(absIdx)"
             playersLbls.append(lblNode)
         }
@@ -45,6 +47,9 @@ class GameScene: SCNScene {
         for group in cardGame.groups()
         {
             let groupNode = rootNode.childNode(withName: group.id, recursively: false)!
+            groupNode.childNodes.forEach { (node) in
+                node.removeFromParentNode()
+            }
             group.setNodePlacement(node: groupNode)
             
             if group.id == "Hand\(localPlayerIdx)" {

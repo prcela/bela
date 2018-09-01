@@ -43,7 +43,7 @@ class CardGroup {
     func position(for card: Card) -> SCNVector3 {
         var p = SCNVector3Zero
         if let idx = cards.index(of: card) {
-            p.z += Float(idx)*0.01
+            p.z -= Float(idx)*0.05
         }
         return p
     }
