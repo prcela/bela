@@ -52,10 +52,6 @@ class GameScene: SCNScene {
             }
             group.setNodePlacement(node: groupNode)
             
-            if group.id == "Hand\(localPlayerIdx)" {
-                (group as! LinearGroup).delta = 35
-            }
-            
             let visible = group.visibility == .Visible || (group.visibility == .VisibleToLocalOnly && group.id.hasSuffix("\(localPlayerIdx)"))
             
             for card in group.cards

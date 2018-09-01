@@ -17,6 +17,8 @@ enum CardGroupVisibility: Int {
     case Visible
 }
 
+fileprivate let cardDepth: Float = 0.06
+
 class CardGroup {
     var id: String
     var visibility: CardGroupVisibility
@@ -43,7 +45,7 @@ class CardGroup {
     func position(for card: Card) -> SCNVector3 {
         var p = SCNVector3Zero
         if let idx = cards.index(of: card) {
-            p.z -= Float(idx)*0.05
+            p.z -= Float(idx)*cardDepth
         }
         return p
     }
@@ -76,7 +78,7 @@ class LinearGroup: CardGroup
     }
     
     override init(json: JSON) {
-        delta = 15
+        delta = 4
         super.init(json: json)
     }
     
@@ -93,11 +95,19 @@ class LinearGroup: CardGroup
 class HandGroup: LinearGroup
 {
     override func position(for card: Card) -> SCNVector3 {
-        let cardPos = super.position(for: card)
+        var cardPos = super.position(for: card)
+        if let idx = cards.index(of: card) {
+            cardPos.z = Float(idx)*cardDepth
+            cardPos.y = -abs(Float(cardPos.x))/8
+        }
         return cardPos
     }
     
     override func eulerAngles(for card: Card) -> SCNVector3 {
-        return SCNVector3Zero
+        var angles = SCNVector3Zero
+        if let idx = cards.index(of: card) {
+            angles.z = (Float(cards.count)/2-Float(idx))*Float.pi/36
+        }
+        return angles
     }
 }
