@@ -69,8 +69,70 @@ class GameScene: SCNScene {
         }
     }
     
-    func onTransitions(transitions: [CardTransition])
-    {
+    func onTransitions(transitions: [CardTransition]) {
+        for t in transitions {
+            if let fromGroup = sharedGame?.group(by: t.fromGroupId),
+                let toGroup = sharedGame?.group(by: t.toGroupId) {
+                move(card: t.card,
+                     fromGroup: fromGroup,
+                     toGroup: toGroup,
+                     toTop: t.toTop,
+                     waitDuration: t.waitDuration,
+                     duration: t.duration)
+            }
+        }
+    }
+    
+    @discardableResult
+    fileprivate func move(card: Card, fromGroup: CardGroup, toGroup: CardGroup, toTop: Bool, waitDuration:Double, duration: Double) -> Bool {
+        guard let fromIdx = fromGroup.cards.index(where: { (c) -> Bool in
+            return c == card
+        }) else {
+            return false
+        }
+        
+        fromGroup.cards.remove(at: fromIdx)
+        if toTop {
+            toGroup.cards.append(card)
+        } else {
+            toGroup.cards.insert(card, at: 0)
+        }
+        
+        if toGroup.id.hasPrefix("Center"),
+            let groups = sharedGame?.groups()
+        {
+            var sum = 0
+            for cg in groups.filter({ (group) -> Bool in
+                return group.id.hasPrefix("Center")
+            }) {
+                sum += cg.cards.count
+            }
+            toGroup.pos.z = Float(sum)*0.1
+        }
+        
+        let fromGroupNode = rootNode.childNode(withName: fromGroup.id, recursively: false)!
+        let toGroupNode = rootNode.childNode(withName: toGroup.id, recursively: false)!
+        let cardNode = fromGroupNode.childNode(withName: card.nodeName(), recursively: false)!
+        let transformTo = cardNode.convertTransform(cardNode.transform, to: toGroupNode)
+        cardNode.transform = transformTo
+        cardNode.removeFromParentNode()
+        toGroupNode.addChildNode(cardNode)
+        
+        let duration = 0.5
+        
+        for card in toGroup.cards {
+            let actionPos = SCNAction.move(to: toGroup.position(for: card), duration: duration)
+            let eulerAngles = toGroup.eulerAngles(for: card)
+            let actionRot = SCNAction.rotateTo(x: CGFloat(eulerAngles.x), y: CGFloat(eulerAngles.y), z: CGFloat(eulerAngles.z), duration: duration, usesShortestUnitArc: true)
+            let cardNode = toGroupNode.childNode(withName: card.nodeName(), recursively: false)
+            
+            let actionWait = SCNAction.wait(duration: waitDuration)
+            let actionGroup = SCNAction.group([actionPos,actionRot])
+            let actionSequence = SCNAction.sequence([actionWait,actionGroup])
+            
+            cardNode?.runAction(actionSequence)
+        }
+        return true
     }
     
     func refreshPlayersAliases()
