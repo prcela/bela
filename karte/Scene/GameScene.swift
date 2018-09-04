@@ -8,16 +8,48 @@
 
 import UIKit
 import SceneKit
+import SwiftyJSON
 
 class GameScene: SCNScene {
     
-    var enabledMoves = [Int:[CardEnabledMove]]()
-    var localPlayerIdx = 0
+    var enabledMoves = [Int:[CardEnabledMove]]() {
+        didSet {
+            if let localMoves = enabledMoves[localPlayerIdx] {
+                for move in localMoves {
+                    if let node = rootNode.childNode(withName: move.card.nodeName(), recursively: true) {
+                        let scale = SCNAction.scale(to: 1.2, duration: 0.2)
+                        node.runAction(scale)
+                    }
+                }
+            }
+            for (idx,lblNode) in playersLbls.enumerated() {
+                if let _ = enabledMoves[idx] {
+                    lblNode.geometry?.materials.first?.diffuse.contents = UIColor.yellow
+                } else {
+                    lblNode.geometry?.materials.first?.diffuse.contents = UIColor.white
+                }
+            }
+        }
+    }
+    var localPlayerIdx = 0 {
+        didSet {
+            print("Local player index: \(localPlayerIdx)")
+        }
+    }
+    
     var playersLbls = [SCNNode]()
     var cardNodes = [SCNNode]()
     
     func didMoveToView() {
         playersLbls.removeAll()
+        
+        if let tableId = PlayerStat.shared.tableId,
+            let tableInfo = Room.shared.tablesInfo[tableId],
+            let localPlayerIdx = tableInfo.playersId.index(of: PlayerStat.shared.id)
+        {
+            self.localPlayerIdx = localPlayerIdx
+        }
+        
         for idx in 0...3 {
             let lblNode = rootNode.childNode(withName: "P\(idx)", recursively: false)!
             let hNode = rootNode.childNode(withName: "H\(idx)", recursively: false)!
@@ -145,7 +177,42 @@ class GameScene: SCNScene {
                     }
                 }
                 (playersLbls[idx].geometry as! SCNText).string = alias
+                let bbox = playersLbls[idx].boundingBox
+                playersLbls[idx].pivot = SCNMatrix4MakeTranslation((bbox.max.x-bbox.min.x)/2, 0, 0)
             }
         }
+    }
+    
+    func onTouchUp(hitNode: SCNNode?)
+    {
+        guard let playerEnabledMoves = enabledMoves[localPlayerIdx],
+            let hitCardNode = hitNode?.parent,
+            let enabledMove = playerEnabledMoves.first(where: { (enabledMove) -> Bool in
+                return enabledMove.card.nodeName() == hitCardNode.name
+            })
+            else { return }
+        
+        
+        if let fromGroup = sharedGame?.group(by: enabledMove.fromGroupId)
+        {
+            for enabledMove in playerEnabledMoves {
+                if let cn = cardNodes.first(where: { cn -> Bool in
+                    return cn.name == enabledMove.card.nodeName()
+                }), cn != hitCardNode {
+                    let actionScale = SCNAction.scale(to: CGFloat(fromGroup.scale.x), duration: 0.5)
+                    cn.runAction(actionScale)
+                }
+            }
+            
+            if let toGroupId = enabledMove.toGroupId,
+                let toGroup = sharedGame?.group(by: toGroupId)
+            {
+                move(card: enabledMove.card, fromGroup: fromGroup, toGroup: toGroup, toTop: false, waitDuration: 0, duration: 0.5)
+            }
+        }
+        
+        WsAPI.shared.send(.Turn, json: JSON(["turn":"tap_card", "enabled_move":enabledMove.dictionary()]))
+        
+        enabledMoves[localPlayerIdx]?.removeAll()
     }
 }

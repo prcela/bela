@@ -11,11 +11,11 @@ import Starscream
 import SwiftyJSON
 
 private let ipLocalhost = "localhost:3000"
-private let ipHome = "192.168.8.105:3000"
+private let ipHome = "192.168.5.15:3000"
 private let ipWork = "10.0.21.221:3000"
 private let ipServer = "karte.igre.app"
 
-let ipCurrent = ipLocalhost
+let ipCurrent = ipHome
 
 class WsAPI
 {

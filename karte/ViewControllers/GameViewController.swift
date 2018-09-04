@@ -21,6 +21,14 @@ class GameViewController: UIViewController {
     @IBOutlet weak var menuBtn: UIButton!
     
     var scene: GameScene?
+    var hitNode: SCNNode? {
+        didSet {
+            if hitNode != oldValue {
+                hitNode?.geometry?.firstMaterial?.emission.contents = UIColor.red
+                oldValue?.geometry?.firstMaterial?.emission.contents = UIColor.clear
+            }
+        }
+    }
     
     @IBOutlet weak var scnView: SCNView!
     
@@ -49,12 +57,9 @@ class GameViewController: UIViewController {
         scnView.scene = scene
         scene?.didMoveToView()
         
-        if let tableId = PlayerStat.shared.tableId,
-            let tableInfo = Room.shared.tablesInfo[tableId],
-            let localPlayerIdx = tableInfo.playersId.index(of: PlayerStat.shared.id)
-        {
-            scene?.localPlayerIdx = localPlayerIdx
-        }
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleGesture))
+        scnView.gestureRecognizers = [panGestureRecognizer]
+        
         
         scnView.showsStatistics = true
         
@@ -62,8 +67,6 @@ class GameViewController: UIViewController {
             let cardNode = cardScene.rootNode.childNode(withName: "card", recursively: true)
         {
             templateCardNode = cardNode
-            let testNode = SCNNode.create(card: Card(boja: .bundeva, broj: .decko))
-            scnView.scene?.rootNode.addChildNode(testNode)
         }
     }
     
@@ -108,6 +111,23 @@ class GameViewController: UIViewController {
         
         stepQueue.addOperation(op)
     }
+    
+    @objc
+    func handleGesture(recognizer: UIPanGestureRecognizer)
+    {
+        let point = recognizer.location(in: scnView)
+        let result = scnView.hitTest(point, options: nil)
+        hitNode = result.first?.node
+        
+        switch recognizer.state {
+        case .ended:
+            scene?.onTouchUp(hitNode: hitNode)
+        default:
+            break
+        }
+    }
+    
+    
     
     @IBAction func onMenu(_ sender: Any) {
         overlayView.isHidden = false
