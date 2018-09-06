@@ -21,14 +21,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var menuBtn: UIButton!
     
     var scene: GameScene?
-    var hitNode: SCNNode? {
-        didSet {
-            if hitNode != oldValue {
-                hitNode?.geometry?.firstMaterial?.emission.contents = UIColor.red
-                oldValue?.geometry?.firstMaterial?.emission.contents = UIColor.clear
-            }
-        }
-    }
     
     @IBOutlet weak var scnView: SCNView!
     
@@ -58,7 +50,8 @@ class GameViewController: UIViewController {
         scene?.didMoveToView()
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleGesture))
-        scnView.gestureRecognizers = [panGestureRecognizer]
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        scnView.gestureRecognizers = [tapGestureRecognizer, panGestureRecognizer]
         
         
         scnView.showsStatistics = true
@@ -117,11 +110,28 @@ class GameViewController: UIViewController {
     {
         let point = recognizer.location(in: scnView)
         let result = scnView.hitTest(point, options: nil)
-        hitNode = result.first?.node
+        scene?.hitNode = result.first?.node
         
         switch recognizer.state {
         case .ended:
-            scene?.onTouchUp(hitNode: hitNode)
+            scene?.onTouchUp()
+            scene?.hitNode = nil
+        default:
+            break
+        }
+    }
+    
+    @objc
+    func handleTap(recognizer: UITapGestureRecognizer)
+    {
+        let point = recognizer.location(in: scnView)
+        let result = scnView.hitTest(point, options: nil)
+        scene?.hitNode = result.first?.node
+        
+        switch recognizer.state {
+        case .ended:
+            scene?.onTouchUp()
+            scene?.hitNode = nil
         default:
             break
         }

@@ -68,6 +68,18 @@ class CardGroup {
 
 }
 
+extension CardGroup: Hashable {
+    var hashValue: Int {
+        return id.hashValue
+    }
+    
+    static func == (lhs: CardGroup, rhs: CardGroup) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    
+}
+
 class LinearGroup: CardGroup
 {
     var delta:Float

@@ -14,14 +14,14 @@ class GameScene: SCNScene {
     
     var enabledMoves = [Int:[CardEnabledMove]]() {
         didSet {
-            if let localMoves = enabledMoves[localPlayerIdx] {
-                for move in localMoves {
-                    if let node = rootNode.childNode(withName: move.card.nodeName(), recursively: true) {
-                        let scale = SCNAction.scale(to: 1.2, duration: 0.2)
-                        node.runAction(scale)
-                    }
+            let localMoves = enabledMoves[localPlayerIdx] ?? []
+            for move in localMoves {
+                if let node = rootNode.childNode(withName: move.card.nodeName(), recursively: true) {
+                    let scale = SCNAction.scale(to: 1.2, duration: 0.2)
+                    node.runAction(scale)
                 }
             }
+            
             for (idx,lblNode) in playersLbls.enumerated() {
                 if let _ = enabledMoves[idx] {
                     lblNode.geometry?.materials.first?.diffuse.contents = UIColor.yellow
@@ -29,11 +29,36 @@ class GameScene: SCNScene {
                     lblNode.geometry?.materials.first?.diffuse.contents = UIColor.white
                 }
             }
+            
+            if let myHandCards = sharedGame?.group(by: "Hand\(localPlayerIdx)")?.cards
+            {
+                for card in myHandCards
+                {
+                    let node = rootNode.childNode(withName: card.nodeName(), recursively: true)
+                    let frontNode = node?.childNode(withName: "front", recursively: false)
+                    if localMoves.contains(where: { (cem) -> Bool in
+                        return cem.card == card
+                    }) {
+                        frontNode?.geometry?.material(named: "front")?.multiply.contents = UIColor.white
+                    } else {
+                        frontNode?.geometry?.material(named: "front")?.multiply.contents = UIColor(white: 0.9, alpha: 1)
+                    }
+                }
+            }
         }
     }
     var localPlayerIdx = 0 {
         didSet {
             print("Local player index: \(localPlayerIdx)")
+        }
+    }
+    
+    var hitNode: SCNNode? {
+        didSet {
+            if hitNode != oldValue {
+                hitNode?.geometry?.firstMaterial?.emission.contents = UIColor.red
+                oldValue?.geometry?.firstMaterial?.emission.contents = UIColor.clear
+            }
         }
     }
     
@@ -111,6 +136,22 @@ class GameScene: SCNScene {
         }
     }
     
+    fileprivate func reorderCardsInGroup(_ group: CardGroup, _ duration: Double, _ groupNode: SCNNode, _ waitDuration: Double) {
+        for card in group.cards {
+            let actionPos = SCNAction.move(to: group.position(for: card), duration: duration)
+            let eulerAngles = group.eulerAngles(for: card)
+            let actionRot = SCNAction.rotateTo(x: CGFloat(eulerAngles.x), y: CGFloat(eulerAngles.y), z: CGFloat(eulerAngles.z), duration: duration, usesShortestUnitArc: true)
+            let actionScale = SCNAction.scale(to: 1, duration: duration)
+            let cardNode = groupNode.childNode(withName: card.nodeName(), recursively: false)
+            
+            let actionWait = SCNAction.wait(duration: waitDuration)
+            let actionGroup = SCNAction.group([actionPos,actionRot,actionScale])
+            let actionSequence = SCNAction.sequence([actionWait,actionGroup])
+            
+            cardNode?.runAction(actionSequence)
+        }
+    }
+    
     @discardableResult
     fileprivate func move(card: Card, fromGroup: CardGroup, toGroup: CardGroup, toTop: Bool, waitDuration:Double, duration: Double) -> Bool {
         guard let fromIdx = fromGroup.cards.index(where: { (c) -> Bool in
@@ -146,20 +187,8 @@ class GameScene: SCNScene {
         cardNode.removeFromParentNode()
         toGroupNode.addChildNode(cardNode)
         
-        let duration = 0.5
+        reorderCardsInGroup(toGroup, duration, toGroupNode, waitDuration)
         
-        for card in toGroup.cards {
-            let actionPos = SCNAction.move(to: toGroup.position(for: card), duration: duration)
-            let eulerAngles = toGroup.eulerAngles(for: card)
-            let actionRot = SCNAction.rotateTo(x: CGFloat(eulerAngles.x), y: CGFloat(eulerAngles.y), z: CGFloat(eulerAngles.z), duration: duration, usesShortestUnitArc: true)
-            let cardNode = toGroupNode.childNode(withName: card.nodeName(), recursively: false)
-            
-            let actionWait = SCNAction.wait(duration: waitDuration)
-            let actionGroup = SCNAction.group([actionPos,actionRot])
-            let actionSequence = SCNAction.sequence([actionWait,actionGroup])
-            
-            cardNode?.runAction(actionSequence)
-        }
         return true
     }
     
@@ -183,7 +212,7 @@ class GameScene: SCNScene {
         }
     }
     
-    func onTouchUp(hitNode: SCNNode?)
+    func onTouchUp()
     {
         guard let playerEnabledMoves = enabledMoves[localPlayerIdx],
             let hitCardNode = hitNode?.parent,
@@ -198,8 +227,9 @@ class GameScene: SCNScene {
             for enabledMove in playerEnabledMoves {
                 if let cn = cardNodes.first(where: { cn -> Bool in
                     return cn.name == enabledMove.card.nodeName()
-                }), cn != hitCardNode {
-                    let actionScale = SCNAction.scale(to: CGFloat(fromGroup.scale.x), duration: 0.5)
+                })
+                {
+                    let actionScale = SCNAction.scale(to: 1, duration: 0.5)
                     cn.runAction(actionScale)
                 }
             }
