@@ -15,7 +15,7 @@ private let ipHome = "192.168.5.15:3000"
 private let ipWork = "10.0.21.221:3000"
 private let ipServer = "karte.igre.app"
 
-let ipCurrent = ipWork
+let ipCurrent = ipLocalhost
 
 class WsAPI
 {

@@ -239,6 +239,8 @@ class GameScene: SCNScene {
             {
                 move(card: enabledMove.card, fromGroup: fromGroup, toGroup: toGroup, toTop: false, waitDuration: 0, duration: 0.5)
             }
+            let fromGroupNode = rootNode.childNode(withName: fromGroup.id, recursively: false)!
+            reorderCardsInGroup(fromGroup, 0.5, fromGroupNode, 0)
         }
         
         WsAPI.shared.send(.Turn, json: JSON(["turn":"tap_card", "enabled_move":enabledMove.dictionary()]))
