@@ -59,7 +59,13 @@ class GameViewController: UIViewController {
         if let cardScene = SCNScene(named: "Test.scnassets/card.scn"),
             let cardNode = cardScene.rootNode.childNode(withName: "card", recursively: true)
         {
-            templateCardNode = cardNode
+            scene?.templateCardNode = cardNode
+        }
+        
+        if let adutScene = SCNScene(named: "Test.scnassets/adut.scn"),
+        let adutNode = adutScene.rootNode.childNode(withName: "adut", recursively: true)
+        {
+            scene?.adutNode = adutNode.clone()
         }
     }
     

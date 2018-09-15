@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i3J-jm-lli">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i3J-jm-lli">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -125,8 +124,8 @@
                             <constraint firstItem="rdB-2k-D6z" firstAttribute="leading" secondItem="sBp-Z4-GnU" secondAttribute="leadingMargin" id="37d-7V-S2a"/>
                             <constraint firstItem="iQp-xY-Lcq" firstAttribute="top" secondItem="rdB-2k-D6z" secondAttribute="bottom" constant="20" id="7BP-6R-kWi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nR7-sM-kNH" secondAttribute="trailing" id="KfU-y9-vq5"/>
-                            <constraint firstItem="nR7-sM-kNH" firstAttribute="top" secondItem="b8I-pT-GiA" secondAttribute="bottom" id="QIv-lW-XDl"/>
-                            <constraint firstItem="WIO-Ve-2eN" firstAttribute="top" secondItem="iQp-xY-Lcq" secondAttribute="bottom" constant="16" id="Qgb-CX-iXE"/>
+                            <constraint firstItem="nR7-sM-kNH" firstAttribute="top" secondItem="Hsp-8y-vVE" secondAttribute="top" id="QIv-lW-XDl"/>
+                            <constraint firstItem="Hsp-8y-vVE" firstAttribute="bottom" secondItem="iQp-xY-Lcq" secondAttribute="bottom" constant="16" id="Qgb-CX-iXE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iQp-xY-Lcq" secondAttribute="trailing" id="Qmf-St-gTG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rdB-2k-D6z" secondAttribute="trailing" id="dKK-Jc-TaH"/>
                             <constraint firstItem="rdB-2k-D6z" firstAttribute="top" secondItem="b8I-pT-GiA" secondAttribute="bottom" constant="30" id="dyT-mc-T3x"/>

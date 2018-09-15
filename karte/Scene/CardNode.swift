@@ -9,11 +9,11 @@
 import Foundation
 import SceneKit
 
-var templateCardNode: SCNNode!
+
 
 extension SCNNode {
     
-    class func create(card:Card) -> SCNNode {
+    class func create(card:Card, templateCardNode:SCNNode) -> SCNNode {
         let cardNodeClone = templateCardNode.clone()
         let frontNodeTemplate = templateCardNode.childNode(withName: "front", recursively: false)!
         let frontNodeClone = cardNodeClone.childNode(withName: "front", recursively: false)!

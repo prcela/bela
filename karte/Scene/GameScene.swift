@@ -12,6 +12,9 @@ import SwiftyJSON
 
 class GameScene: SCNScene {
     
+    var templateCardNode: SCNNode!
+    var adutNode: SCNNode!
+    
     var enabledMoves = [Int:[CardEnabledMove]]() {
         didSet {
             let localMoves = enabledMoves[localPlayerIdx] ?? []
@@ -79,6 +82,7 @@ class GameScene: SCNScene {
             let lblNode = rootNode.childNode(withName: "P\(idx)", recursively: false)!
             let hNode = rootNode.childNode(withName: "H\(idx)", recursively: false)!
             let cNode = rootNode.childNode(withName: "C\(idx)", recursively: false)!
+            let aNode = rootNode.childNode(withName: "A\(idx)", recursively: false)!
             hNode.childNodes.forEach({ (node) in
                 node.removeFromParentNode()
             })
@@ -86,11 +90,21 @@ class GameScene: SCNScene {
             hNode.name = "Hand\(absIdx)"
             lblNode.name = "Player\(absIdx)"
             cNode.name = "Center\(absIdx)"
+            aNode.name = "Adut\(absIdx)"
             (lblNode.geometry as? SCNText)?.string = "Player \(absIdx)"
             playersLbls.append(lblNode)
         }
         playersLbls.sort { return $0.name! < $1.name! }
         refreshPlayersAliases()
+        
+        for group in sharedGame?.groups() ?? []
+        {
+            let groupNode = rootNode.childNode(withName: group.id, recursively: false)!
+            groupNode.childNodes.forEach { (node) in
+                node.removeFromParentNode()
+            }
+            group.setNodePlacement(node: groupNode)
+        }
     }
     
     func onGame(cardGame: CardGame)
@@ -107,13 +121,12 @@ class GameScene: SCNScene {
             groupNode.childNodes.forEach { (node) in
                 node.removeFromParentNode()
             }
-            group.setNodePlacement(node: groupNode)
             
             let visible = group.visibility == .Visible || (group.visibility == .VisibleToLocalOnly && group.id.hasSuffix("\(localPlayerIdx)"))
             
             for card in group.cards
             {
-                let cardNode = SCNNode.create(card: card)
+                let cardNode = SCNNode.create(card: card, templateCardNode: templateCardNode)
                 cardNode.position = group.position(for: card)
                 cardNode.eulerAngles = group.eulerAngles(for: card)
                 groupNode.addChildNode(cardNode)
